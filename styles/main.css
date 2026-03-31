@@ -365,7 +365,7 @@ select, input, textarea { font-family: inherit; }
 
 .hero-headline em {
   font-style: italic;
-  color: var(--accent);
+  color: var(--white);
 }
 
 .hero-headline .line-indent {
