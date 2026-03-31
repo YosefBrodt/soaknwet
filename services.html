@@ -32,6 +32,7 @@
       <li><a href="areas.html">Service Areas</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="tel:+16131234567" class="nav-phone">Call</a></li>
       <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
     </ul>
   </nav>
@@ -43,7 +44,10 @@
         <div class="section-label">Residential · Commercial · Industrial</div>
         <h1>Our<br />Services</h1>
         <p>Precision concrete cutting, coring, and controlled demolition — for any project, any size.</p>
-        <p class="page-hero-cta"><a href="contact.html" class="btn btn-primary">Get a free quote</a></p>
+        <p class="page-hero-cta">
+          <a href="tel:+16131234567" class="btn btn-phone">Call (613) 123-4567</a>
+          <a href="contact.html" class="btn btn-primary">Get a free quote</a>
+        </p>
       </div>
       <div class="page-hero-media" aria-hidden="true">
         <img
@@ -73,56 +77,45 @@
         <div class="services-intro-num">01</div>
       </div>
 
-      <div class="reveal">
-        <p class="section-label accordion-section-label">Browse by category</p>
-        <div class="service-accordion-wrap" data-accordion-group="cutting">
-          <div class="service-accordion">
-            <button type="button" class="service-accordion-btn" aria-expanded="true" id="acc-cut-1" aria-controls="panel-cut-1">
-              <span>Sawing &amp; drilling</span>
-              <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-            </button>
-            <div class="service-accordion-panel is-open" id="panel-cut-1" role="region" aria-labelledby="acc-cut-1">
-              <div class="services-list">
-                <div class="service-item"><div class="service-item-num">01</div><div><h4>Concrete Cutting</h4><p>Clean, straight cuts through concrete surfaces for any application.</p></div></div>
-                <div class="service-item"><div class="service-item-num">02</div><div><h4>Core Drilling (Coring)</h4><p>Precise cylindrical holes for pipes, conduits, and utilities.</p></div></div>
-                <div class="service-item"><div class="service-item-num">03</div><div><h4>Slab Sawing</h4><p>Flat horizontal cutting of floors, driveways, and paved surfaces.</p></div></div>
-                <div class="service-item"><div class="service-item-num">04</div><div><h4>Wall Sawing</h4><p>Vertical and angled cuts through concrete walls with precision.</p></div></div>
-                <div class="service-item"><div class="service-item-num">05</div><div><h4>Hand Sawing</h4><p>Flexible cutting in tight or restricted spaces where larger equipment can't reach.</p></div></div>
-              </div>
+      <div class="service-split reveal">
+        <div class="service-split-nav" role="tablist" aria-label="Concrete cutting and coring scope">
+          <button type="button" class="service-split-nav-btn active" role="tab" aria-selected="true" data-panel="cut-scope-1" id="cut-tab-1">Sawing &amp; drilling</button>
+          <button type="button" class="service-split-nav-btn" role="tab" aria-selected="false" data-panel="cut-scope-2" id="cut-tab-2">Openings &amp; joints</button>
+          <button type="button" class="service-split-nav-btn" role="tab" aria-selected="false" data-panel="cut-scope-3" id="cut-tab-3">Mechanical &amp; specialized</button>
+        </div>
+        <div class="service-split-panels">
+          <div class="service-split-panel is-active" role="tabpanel" id="cut-scope-1" aria-labelledby="cut-tab-1">
+            <div class="services-list">
+              <div class="service-item"><div class="service-item-num">01</div><div><h4>Concrete Cutting</h4><p>Clean, straight cuts through concrete surfaces for any application.</p></div></div>
+              <div class="service-item"><div class="service-item-num">02</div><div><h4>Core Drilling (Coring)</h4><p>Precise cylindrical holes for pipes, conduits, and utilities.</p></div></div>
+              <div class="service-item"><div class="service-item-num">03</div><div><h4>Slab Sawing</h4><p>Flat horizontal cutting of floors, driveways, and paved surfaces.</p></div></div>
+              <div class="service-item"><div class="service-item-num">04</div><div><h4>Wall Sawing</h4><p>Vertical and angled cuts through concrete walls with precision.</p></div></div>
+              <div class="service-item"><div class="service-item-num">05</div><div><h4>Hand Sawing</h4><p>Flexible cutting in tight or restricted spaces where larger equipment can't reach.</p></div></div>
             </div>
           </div>
-          <div class="service-accordion">
-            <button type="button" class="service-accordion-btn" aria-expanded="false" id="acc-cut-2" aria-controls="panel-cut-2">
-              <span>Openings &amp; joints</span>
-              <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-            </button>
-            <div class="service-accordion-panel" id="panel-cut-2" role="region" aria-labelledby="acc-cut-2">
-              <div class="services-list">
-                <div class="service-item"><div class="service-item-num">06</div><div><h4>Window &amp; Door Openings</h4><p>New openings and window enlargements cut cleanly and safely.</p></div></div>
-                <div class="service-item"><div class="service-item-num">07</div><div><h4>Trenching &amp; Joint Cutting</h4><p>Utility trenches and control joints cut to spec.</p></div></div>
-                <div class="service-item"><div class="service-item-num">08</div><div><h4>Expansion Joint Cutting</h4><p>Relief joints to prevent cracking and accommodate movement.</p></div></div>
-              </div>
+          <div class="service-split-panel" role="tabpanel" id="cut-scope-2" aria-labelledby="cut-tab-2">
+            <div class="services-list">
+              <div class="service-item"><div class="service-item-num">06</div><div><h4>Window &amp; Door Openings</h4><p>New openings and window enlargements cut cleanly and safely.</p></div></div>
+              <div class="service-item"><div class="service-item-num">07</div><div><h4>Trenching &amp; Joint Cutting</h4><p>Utility trenches and control joints cut to spec.</p></div></div>
+              <div class="service-item"><div class="service-item-num">08</div><div><h4>Expansion Joint Cutting</h4><p>Relief joints to prevent cracking and accommodate movement.</p></div></div>
             </div>
           </div>
-          <div class="service-accordion">
-            <button type="button" class="service-accordion-btn" aria-expanded="false" id="acc-cut-3" aria-controls="panel-cut-3">
-              <span>Mechanical &amp; specialized</span>
-              <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-            </button>
-            <div class="service-accordion-panel" id="panel-cut-3" role="region" aria-labelledby="acc-cut-3">
-              <div class="services-list">
-                <div class="service-item"><div class="service-item-num">09</div><div><h4>Precision Cutting — Plumbing, Electrical &amp; HVAC</h4><p>Accurate access cuts for mechanical system installation and upgrades.</p></div></div>
-                <div class="service-item"><div class="service-item-num">10</div><div><h4>Stair &amp; Mechanical Openings</h4><p>Structural openings cut safely for stairs and mechanical access.</p></div></div>
-                <div class="service-item"><div class="service-item-num">11</div><div><h4>Controlled Cutting in Sensitive Environments</h4><p>Precision operations in occupied spaces, tight quarters, or sensitive structures.</p></div></div>
-              </div>
+          <div class="service-split-panel" role="tabpanel" id="cut-scope-3" aria-labelledby="cut-tab-3">
+            <div class="services-list">
+              <div class="service-item"><div class="service-item-num">09</div><div><h4>Precision Cutting — Plumbing, Electrical &amp; HVAC</h4><p>Accurate access cuts for mechanical system installation and upgrades.</p></div></div>
+              <div class="service-item"><div class="service-item-num">10</div><div><h4>Stair &amp; Mechanical Openings</h4><p>Structural openings cut safely for stairs and mechanical access.</p></div></div>
+              <div class="service-item"><div class="service-item-num">11</div><div><h4>Controlled Cutting in Sensitive Environments</h4><p>Precision operations in occupied spaces, tight quarters, or sensitive structures.</p></div></div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="services-tab-cta reveal">
-        <p>Not sure which cut you need? Tell us — we’ll point you in the right direction.</p>
-        <a href="contact.html" class="btn btn-primary btn-lg">Request a free quote</a>
+        <p>Not sure which cut you need? Call or write — we’ll point you in the right direction.</p>
+        <div class="services-tab-cta-actions">
+          <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call now</a>
+          <a href="contact.html" class="btn btn-primary btn-lg">Request a quote</a>
+        </div>
       </div>
     </div>
 
@@ -136,55 +129,44 @@
         <div class="services-intro-num">02</div>
       </div>
 
-      <div class="reveal">
-        <p class="section-label accordion-section-label">Browse by category</p>
-        <div class="service-accordion-wrap" data-accordion-group="demolition">
-          <div class="service-accordion">
-            <button type="button" class="service-accordion-btn" aria-expanded="true" id="acc-dem-1" aria-controls="panel-dem-1">
-              <span>Selective &amp; structural</span>
-              <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-            </button>
-            <div class="service-accordion-panel is-open" id="panel-dem-1" role="region" aria-labelledby="acc-dem-1">
-              <div class="services-list">
-                <div class="service-item"><div class="service-item-num">01</div><div><h4>Selective Demolition</h4><p>Targeted removal of specific elements while preserving surrounding structures.</p></div></div>
-                <div class="service-item"><div class="service-item-num">02</div><div><h4>Structural Demolition</h4><p>Full or partial removal of concrete structural elements.</p></div></div>
-                <div class="service-item"><div class="service-item-num">06</div><div><h4>Partial Demolition for Renovations</h4><p>Structural modifications and partial removals to support renovation projects.</p></div></div>
-                <div class="service-item"><div class="service-item-num">07</div><div><h4>Controlled Demolition in Occupied Spaces</h4><p>Safe, minimally disruptive demolition in occupied or sensitive environments.</p></div></div>
-              </div>
+      <div class="service-split reveal">
+        <div class="service-split-nav" role="tablist" aria-label="Demolition scope">
+          <button type="button" class="service-split-nav-btn active" role="tab" aria-selected="true" data-panel="dem-scope-1" id="dem-tab-1">Selective &amp; structural</button>
+          <button type="button" class="service-split-nav-btn" role="tab" aria-selected="false" data-panel="dem-scope-2" id="dem-tab-2">Removal &amp; breaking</button>
+          <button type="button" class="service-split-nav-btn" role="tab" aria-selected="false" data-panel="dem-scope-3" id="dem-tab-3">Site prep &amp; disposal</button>
+        </div>
+        <div class="service-split-panels">
+          <div class="service-split-panel is-active" role="tabpanel" id="dem-scope-1" aria-labelledby="dem-tab-1">
+            <div class="services-list">
+              <div class="service-item"><div class="service-item-num">01</div><div><h4>Selective Demolition</h4><p>Targeted removal of specific elements while preserving surrounding structures.</p></div></div>
+              <div class="service-item"><div class="service-item-num">02</div><div><h4>Structural Demolition</h4><p>Full or partial removal of concrete structural elements.</p></div></div>
+              <div class="service-item"><div class="service-item-num">06</div><div><h4>Partial Demolition for Renovations</h4><p>Structural modifications and partial removals to support renovation projects.</p></div></div>
+              <div class="service-item"><div class="service-item-num">07</div><div><h4>Controlled Demolition in Occupied Spaces</h4><p>Safe, minimally disruptive demolition in occupied or sensitive environments.</p></div></div>
             </div>
           </div>
-          <div class="service-accordion">
-            <button type="button" class="service-accordion-btn" aria-expanded="false" id="acc-dem-2" aria-controls="panel-dem-2">
-              <span>Removal &amp; breaking</span>
-              <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-            </button>
-            <div class="service-accordion-panel" id="panel-dem-2" role="region" aria-labelledby="acc-dem-2">
-              <div class="services-list">
-                <div class="service-item"><div class="service-item-num">03</div><div><h4>Interior &amp; Exterior Concrete Removal</h4><p>Complete removal of interior floors, exterior slabs, and everything in between.</p></div></div>
-                <div class="service-item"><div class="service-item-num">04</div><div><h4>Breaking &amp; Removal of Slabs, Walls &amp; Foundations</h4><p>Heavy concrete breaking and removal — clean and efficient.</p></div></div>
-                <div class="service-item"><div class="service-item-num">05</div><div><h4>Concrete &amp; Asphalt Removal</h4><p>Driveways, parking lots, pads — concrete and asphalt removed and hauled.</p></div></div>
-                <div class="service-item"><div class="service-item-num">08</div><div><h4>Removal of Concrete Structures</h4><p>Stairs, curbs, pads, and other concrete structures removed efficiently.</p></div></div>
-              </div>
+          <div class="service-split-panel" role="tabpanel" id="dem-scope-2" aria-labelledby="dem-tab-2">
+            <div class="services-list">
+              <div class="service-item"><div class="service-item-num">03</div><div><h4>Interior &amp; Exterior Concrete Removal</h4><p>Complete removal of interior floors, exterior slabs, and everything in between.</p></div></div>
+              <div class="service-item"><div class="service-item-num">04</div><div><h4>Breaking &amp; Removal of Slabs, Walls &amp; Foundations</h4><p>Heavy concrete breaking and removal — clean and efficient.</p></div></div>
+              <div class="service-item"><div class="service-item-num">05</div><div><h4>Concrete &amp; Asphalt Removal</h4><p>Driveways, parking lots, pads — concrete and asphalt removed and hauled.</p></div></div>
+              <div class="service-item"><div class="service-item-num">08</div><div><h4>Removal of Concrete Structures</h4><p>Stairs, curbs, pads, and other concrete structures removed efficiently.</p></div></div>
             </div>
           </div>
-          <div class="service-accordion">
-            <button type="button" class="service-accordion-btn" aria-expanded="false" id="acc-dem-3" aria-controls="panel-dem-3">
-              <span>Site prep &amp; disposal</span>
-              <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-            </button>
-            <div class="service-accordion-panel" id="panel-dem-3" role="region" aria-labelledby="acc-dem-3">
-              <div class="services-list">
-                <div class="service-item"><div class="service-item-num">09</div><div><h4>Site Preparation &amp; Cleanup</h4><p>Full site prep services — ready for the next phase of your project.</p></div></div>
-                <div class="service-item"><div class="service-item-num">10</div><div><h4>Debris Removal &amp; Disposal</h4><p>All concrete debris hauled and disposed of — site left clean.</p></div></div>
-              </div>
+          <div class="service-split-panel" role="tabpanel" id="dem-scope-3" aria-labelledby="dem-tab-3">
+            <div class="services-list">
+              <div class="service-item"><div class="service-item-num">09</div><div><h4>Site Preparation &amp; Cleanup</h4><p>Full site prep services — ready for the next phase of your project.</p></div></div>
+              <div class="service-item"><div class="service-item-num">10</div><div><h4>Debris Removal &amp; Disposal</h4><p>All concrete debris hauled and disposed of — site left clean.</p></div></div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="services-tab-cta reveal">
-        <p>Planning a teardown or selective removal? We’ll scope it with you.</p>
-        <a href="contact.html" class="btn btn-primary btn-lg">Request a free quote</a>
+        <p>Planning a teardown or selective removal? Call us or send details — we’ll scope it with you.</p>
+        <div class="services-tab-cta-actions">
+          <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call now</a>
+          <a href="contact.html" class="btn btn-primary btn-lg">Request a quote</a>
+        </div>
       </div>
     </div>
   </section>
@@ -218,8 +200,9 @@
         <p>Share your timeline and site details — we’ll respond with a fast, honest quote.</p>
       </div>
       <div class="project-types-cta-actions">
-        <a href="contact.html" class="btn btn-primary btn-lg">Request a free quote</a>
-        <a href="areas.html" class="btn btn-outline">See service areas</a>
+        <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call (613) 123-4567</a>
+        <a href="contact.html" class="btn btn-primary btn-lg">Request a quote</a>
+        <a href="areas.html" class="btn btn-outline">Service areas</a>
       </div>
     </div>
   </section>
@@ -231,7 +214,10 @@
         <h2>Not sure what you need?</h2>
         <p>Tell us about your project and we'll point you in the right direction.</p>
       </div>
-      <a href="contact.html" class="btn btn-primary btn-lg">Request a Free Quote</a>
+      <div class="cta-band-actions">
+        <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call now</a>
+        <a href="contact.html" class="btn btn-primary btn-lg">Request a quote</a>
+      </div>
     </div>
   </section>
 

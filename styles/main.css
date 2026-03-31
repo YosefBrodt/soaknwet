@@ -227,6 +227,46 @@ select, input, textarea { font-family: inherit; }
 .btn-lg { padding: 20px 40px; font-size: 12px; }
 .btn-full { width: 100%; justify-content: center; }
 
+/* Phone / call — pairs with quote CTAs */
+.btn-phone {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.btn-phone:hover {
+  border-color: var(--accent);
+  background: rgba(30, 48, 72, 0.4);
+  color: var(--white);
+}
+
+.cta-band .btn-phone,
+.services-overview .btn-phone {
+  border-color: rgba(30, 48, 72, 0.45);
+  color: var(--accent);
+}
+.cta-band .btn-phone:hover,
+.services-overview .btn-phone:hover {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+.nav-phone {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--light-grey) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 18px;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.nav-phone:hover {
+  color: var(--white) !important;
+  border-color: var(--accent);
+  background: rgba(30, 48, 72, 0.35);
+}
+
 /* =========================================
    SECTION LABEL
    ========================================= */
@@ -510,6 +550,10 @@ select, input, textarea { font-family: inherit; }
 
 .page-hero-cta {
   margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
 /* Split page hero — headline left, media right */
@@ -1004,6 +1048,20 @@ select, input, textarea { font-family: inherit; }
   border-color: var(--accent);
 }
 
+.cta-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (max-width: 720px) {
+  .cta-band-actions {
+    justify-content: flex-start;
+  }
+}
+
 /* =========================================
    FOOTER
    ========================================= */
@@ -1225,112 +1283,85 @@ select, input, textarea { font-family: inherit; }
   line-height: 1.7;
 }
 
-/* Service accordions — grouped, digestible lists (collapse-style) */
-.accordion-section-label {
-  margin-bottom: 20px !important;
-}
-
-.service-accordion-wrap {
-  display: flex;
-  flex-direction: column;
+/* Service scope — vertical tabs (nav + panel, inspired by vertical tabs UI pattern) */
+.service-split {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
   gap: 0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.service-split-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
   background: var(--charcoal);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.service-accordion {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.service-accordion:last-child {
-  border-bottom: none;
-}
-
-.service-accordion-btn {
+.service-split-nav-btn {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
   text-align: left;
-  padding: 22px 26px;
+  padding: 16px 18px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--off-white);
-  background: var(--charcoal);
-  transition: background 0.25s var(--ease), color 0.25s var(--ease);
-}
-
-.service-accordion-btn:hover {
-  background: var(--dark);
-  color: var(--white);
-}
-
-.service-accordion-btn[aria-expanded='true'] {
-  background: rgba(30, 48, 72, 0.35);
-  color: var(--white);
-}
-
-.service-accordion-btn .acc-chevron {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border: 1px solid var(--accent);
+  color: var(--grey);
+  background: transparent;
+  border: 1px solid transparent;
   border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  transition: transform 0.3s var(--ease);
+  transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
-.service-accordion-btn[aria-expanded='true'] .acc-chevron {
-  transform: rotate(180deg);
-  background: rgba(30, 48, 72, 0.5);
+.service-split-nav-btn:hover {
+  color: var(--off-white);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.service-accordion-btn .acc-chevron svg {
-  width: 10px;
-  height: 10px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
+.service-split-nav-btn.active {
+  color: var(--white);
+  background: rgba(30, 48, 72, 0.55);
+  border-color: rgba(30, 48, 72, 0.9);
 }
 
-.service-accordion-panel {
-  display: none;
-  padding: 0 26px 22px;
+.service-split-panels {
   background: var(--black);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 280px;
 }
 
-.service-accordion-panel.is-open {
+.service-split-panel {
+  display: none;
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.service-split-panel.is-active {
   display: block;
 }
 
-.service-accordion-panel .services-list {
+.service-split-panel .services-list {
   margin-top: 0;
   grid-template-columns: 1fr;
   gap: 0;
   background: transparent;
 }
 
-.service-accordion-panel .service-item {
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+.service-split-panel .service-item {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   background: transparent;
 }
 
-.service-accordion-panel .service-item:last-child {
+.service-split-panel .service-item:last-child {
   border-bottom: none;
 }
 
-.service-accordion-panel .service-item:hover {
+.service-split-panel .service-item:hover {
   background: transparent;
 }
 
@@ -1355,6 +1386,13 @@ select, input, textarea { font-family: inherit; }
   line-height: 1.15;
   max-width: 520px;
   margin: 0;
+}
+
+.services-tab-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
 }
 
 .services-tab-cta .btn {
@@ -1861,6 +1899,13 @@ select, input, textarea { font-family: inherit; }
   gap: 24px;
 }
 
+.cta-strip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
 .cta-strip-copy strong {
   font-family: var(--font-display);
   font-size: clamp(22px, 3vw, 34px);
@@ -2146,6 +2191,24 @@ a.contact-detail-value:hover { color: var(--white); }
   font-family: var(--font-display);
 }
 
+.form-call-alt {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--light-grey);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.form-call-alt a {
+  color: var(--white);
+  border-bottom: 1px solid var(--accent);
+  transition: color 0.2s var(--ease);
+}
+
+.form-call-alt a:hover {
+  color: var(--accent);
+}
+
 /* =========================================
    MOBILE RESPONSIVE
    ========================================= */
@@ -2216,9 +2279,31 @@ a.contact-detail-value:hover { color: var(--white); }
     align-items: flex-start;
   }
 
+  .service-split {
+    grid-template-columns: 1fr;
+  }
+
+  .service-split-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 12px;
+  }
+
+  .service-split-nav-btn {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 140px;
+    text-align: center;
+  }
+
   .cta-strip-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .cta-strip-actions {
+    width: 100%;
   }
 }
 

@@ -65,31 +65,42 @@ if (window.location.hash) {
   if (targetBtn) targetBtn.click();
 }
 
-// SERVICE ACCORDIONS (one open per group; click to toggle)
-function initServiceAccordions() {
-  document.querySelectorAll('.service-accordion-wrap').forEach((wrap) => {
-    wrap.querySelectorAll('.service-accordion-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const panelId = btn.getAttribute('aria-controls');
-        const panel = panelId ? document.getElementById(panelId) : null;
-        const wasOpen = btn.getAttribute('aria-expanded') === 'true';
+// SERVICE SCOPE — vertical tabs (nav + panel per split block)
+function initServiceSplit() {
+  document.querySelectorAll('.service-split').forEach((split) => {
+    const navBtns = split.querySelectorAll('.service-split-nav-btn');
+    const panels = split.querySelectorAll('.service-split-panel');
 
-        wrap.querySelectorAll('.service-accordion-btn').forEach((b) => {
-          b.setAttribute('aria-expanded', 'false');
-          const p = document.getElementById(b.getAttribute('aria-controls'));
-          if (p) p.classList.remove('is-open');
+    function syncPanelsAria() {
+      panels.forEach((p) => {
+        const active = p.classList.contains('is-active');
+        p.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+    }
+
+    syncPanelsAria();
+
+    navBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const panelId = btn.dataset.panel;
+        if (!panelId) return;
+
+        navBtns.forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-selected', active ? 'true' : 'false');
         });
 
-        if (!wasOpen && panel) {
-          btn.setAttribute('aria-expanded', 'true');
-          panel.classList.add('is-open');
-        }
+        panels.forEach((p) => {
+          p.classList.toggle('is-active', p.id === panelId);
+        });
+        syncPanelsAria();
       });
     });
   });
 }
 
-initServiceAccordions();
+initServiceSplit();
 
 // GALLERY FILTERS
 const filterBtns = document.querySelectorAll('.filter-btn');
