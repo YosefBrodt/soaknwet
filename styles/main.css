@@ -933,7 +933,7 @@ select, input, textarea { font-family: inherit; }
 .footer-slogan {
   font-size: 13px;
   font-weight: 300;
-  color: var(--grey);
+  color: var(--white);
   margin-top: 0;
   font-style: italic;
   font-family: var(--font-display);
