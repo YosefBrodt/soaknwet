@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Service Areas — Soak N Wet</title>
-  <meta name="description" content="Soak N Wet serves Ottawa and surrounding communities — water delivery, pressure washing, pool services, and plumbing across the National Capital Region." />
+  <title>Service Areas — Soak N Wet | Ottawa &amp; Surrounding</title>
+  <meta name="description" content="Soak N Wet serves Ottawa and surrounding communities. See our coverage map and request a quote." />
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,15 +14,9 @@
 
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">
-      <img
-        class="nav-logo-img"
-        src="assets/logo.png"
-        alt="Soak N Wet"
-        width="220"
-        height="90"
-      />
+      <img class="nav-logo-img" src="assets/logo.png" alt="Soak N Wet Logo" width="753" height="336" />
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
@@ -38,87 +32,111 @@
   </nav>
 
   <section class="page-hero">
-    <div class="page-hero-bg-text">Areas</div>
-    <div class="page-hero-inner page-hero--split">
+    <div class="page-hero-inner">
       <div class="page-hero-content">
-        <div class="section-label">Ottawa · Surrounding Region</div>
-        <h1>Where we<br />work</h1>
-        <p>Local crews, regional reach — water delivery, pressure washing, pool & hot tub services, and plumbing across Ottawa and nearby communities.</p>
-        <p class="page-hero-cta">
+        <div class="section-label">Coverage</div>
+        <h1>Where we <em>work.</em></h1>
+        <p>Ottawa and nearby communities. Tell us your address when you request a quote — we will confirm service and timing the same day when possible.</p>
+        <div class="page-hero-cta">
           <a href="tel:+16131234567" class="btn btn-phone">Call now</a>
           <a href="contact.html" class="btn btn-primary">Request a quote</a>
-        </p>
-      </div>
-      <div class="page-hero-media" aria-hidden="true">
-        <div class="media-placeholder">
-          <span>Map / skyline placeholder</span>
         </div>
+      </div>
+    </div>
+    <div class="page-hero-bg-text" aria-hidden="true">ON</div>
+  </section>
+
+  <section class="areas-intro">
+    <div class="areas-intro-inner">
+      <h2 class="areas-intro-title">Serving the <em>Ottawa region.</em></h2>
+      <p>We schedule routes and on-site visits across the city and surrounding towns. Not sure if you are in range? Call or send your postal code — we will tell you right away.</p>
+      <div class="areas-intro-cta">
+        <a href="contact.html" class="btn btn-primary">Check your address</a>
+        <a href="tel:+16131234567" class="btn btn-outline">Call (613) 123-4567</a>
       </div>
     </div>
   </section>
 
-  <section class="areas-intro reveal">
-    <div class="areas-intro-inner">
-      <div class="section-label">Coverage</div>
-      <h2 class="values-headline">Built for Ottawa and beyond.</h2>
-      <p>We're based in Ottawa and serve the core city, suburbs, and surrounding towns for all four of our service lines. Delivery routes, service call areas, and pressure washing coverage all follow the same map. Not sure if you're in range? Send your address — we'll confirm availability fast.</p>
-      <p class="areas-intro-cta"><a href="contact.html" class="btn btn-primary">Check your area</a></p>
+  <section class="areas-map-block reveal" aria-labelledby="map-heading">
+    <div class="areas-map-block-inner">
+      <div class="areas-map-head">
+        <div class="areas-map-skyline" aria-hidden="true">
+          <svg viewBox="0 0 420 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="">
+            <path fill="rgba(30,48,72,0.15)" d="M0 52h420V38H400V22h-32v16h-28V12h-40v40H210V8h-36v44H120V18H88v34H52V26H28v26H0z"/>
+            <path fill="#1e3048" d="M8 52h40V28h24v24h32V18h28v34h36V32h20v20h44V8h32v44h48V22h28v30h32V36h28v16h31v-8h12v8H8z"/>
+          </svg>
+        </div>
+        <h2 id="map-heading">Coverage map</h2>
+        <p>Interactive map centred on Ottawa. Pinch or scroll to explore; we typically serve within roughly one hour of the core.</p>
+      </div>
+      <div class="areas-map-grid">
+        <div class="areas-map-frame">
+          <iframe
+            title="Map of Ottawa, Ontario — Soak N Wet service area"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Ottawa,+Ontario,+Canada&amp;hl=en&amp;z=9&amp;output=embed"
+            allowfullscreen=""
+          ></iframe>
+        </div>
+        <aside class="areas-map-aside">
+          <h3>Areas we regularly serve</h3>
+          <p>Examples — call to confirm for your street or rural route.</p>
+          <ul class="areas-map-list">
+            <li>Central Ottawa &amp; Glebe</li>
+            <li>Nepean &amp; Barrhaven</li>
+            <li>Kanata &amp; Stittsville</li>
+            <li>Orléans &amp; Cumberland</li>
+            <li>Vanier &amp; Rockcliffe</li>
+            <li>Manotick &amp; Greely</li>
+            <li>Arnprior &amp; Carleton Place (scheduled)</li>
+          </ul>
+          <p class="areas-map-link">
+            <a href="https://www.openstreetmap.org/search?query=Ottawa%2C%20ON" target="_blank" rel="noopener noreferrer">Open map in a new tab</a>
+          </p>
+        </aside>
+      </div>
     </div>
   </section>
 
   <section class="areas-bento reveal">
-    <div class="section-label">Neighbourhoods &amp; corridors</div>
-    <h2 class="project-types-title areas-bento-title">Areas we regularly serve</h2>
-    <p class="areas-section-lede">Every neighbourhood has its own access and scheduling considerations — we plan for all of it.</p>
-
+    <div class="areas-bento-title">
+      <div class="section-label">Scheduling</div>
+      <h2>How <em>visits work.</em></h2>
+      <p class="areas-section-lede">Simple steps so you know what to expect — no surprises on pricing or timing.</p>
+    </div>
     <div class="areas-bento-grid">
       <article class="area-card featured">
-        <p class="area-card-label">Core</p>
-        <h3>Central Ottawa &amp; downtown</h3>
-        <p>Centretown, the ByWard Market, Sandy Hill, Glebe, Old Ottawa South — pressure washing, plumbing calls, and water delivery to the heart of the city.</p>
+        <span class="area-card-label">Fast response</span>
+        <h3>Quote first, then book</h3>
+        <p>We give you a clear quote for water delivery, washing, pool work, or plumbing. You approve the scope — then we lock a date that fits your schedule.</p>
       </article>
       <article class="area-card">
-        <p class="area-card-label">West</p>
-        <h3>Kanata &amp; Stittsville</h3>
-        <p>Residential subdivisions and growing communities — pool openings, water delivery routes, and pressure washing for new builds and established homes.</p>
+        <span class="area-card-label">Routes</span>
+        <h3>Delivery runs</h3>
+        <p>Regular delivery days in many neighbourhoods. Ask about your postal code for the next run.</p>
       </article>
       <article class="area-card">
-        <p class="area-card-label">East</p>
-        <h3>Orleans &amp; east end</h3>
-        <p>Driveway washes, water softener installs, hot tub maintenance — we're on site for homeowners and property managers across the east corridor.</p>
+        <span class="area-card-label">On-site</span>
+        <h3>Pressure washing &amp; pools</h3>
+        <p>We bring equipment to you. Seasonal peaks apply — book pool open/close early.</p>
       </article>
       <article class="area-card">
-        <p class="area-card-label">South</p>
-        <h3>Barrhaven &amp; Riverside South</h3>
-        <p>Growing communities with lots of pools and new builds — seasonal pool services, plumbing hookups, and scheduled water delivery.</p>
-      </article>
-      <article class="area-card">
-        <p class="area-card-label">North</p>
-        <h3>Vanier &amp; Rockcliffe</h3>
-        <p>Older homes with older plumbing — we handle filtration upgrades, pipe repairs, and exterior pressure washing across the north end.</p>
-      </article>
-      <article class="area-card">
-        <p class="area-card-label">Gatineau</p>
-        <h3>Gatineau &amp; Hull</h3>
-        <p>Cross-river service available by arrangement — tell us your sector and we'll confirm availability and travel.</p>
-      </article>
-      <article class="area-card">
-        <p class="area-card-label">Surrounding</p>
-        <h3>Carleton Place, Arnprior, Kemptville</h3>
-        <p>Outer ring and rural — bulk water delivery, seasonal pool services, and pressure washing when distance allows.</p>
+        <span class="area-card-label">Emergencies</span>
+        <h3>Plumbing</h3>
+        <p>Urgent leaks and failures — call. We will advise wait times honestly.</p>
       </article>
     </div>
-
     <div class="areas-map-note">
-      <p>Don't see your area? <a href="contact.html">Contact us</a> with your address — we often travel for the right scope.</p>
+      <p>Outside the areas listed? <a href="contact.html">Contact us</a> — we often extend service for larger jobs or regular accounts.</p>
     </div>
   </section>
 
   <section class="cta-strip reveal">
     <div class="cta-strip-inner">
       <div class="cta-strip-copy">
-        <strong>On your street or the next town over</strong>
-        <span>Fast quotes — clear travel assumptions — no surprises.</span>
+        <strong>Ready to book?</strong>
+        <span>One call or form — we confirm coverage and pricing.</span>
       </div>
       <div class="cta-strip-actions">
         <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call (613) 123-4567</a>
@@ -127,30 +145,10 @@
     </div>
   </section>
 
-  <section class="cta-band reveal">
-    <div class="cta-band-inner">
-      <img class="cta-band-logo" src="assets/logo.png" alt="" width="180" height="80" aria-hidden="true" />
-      <div class="cta-band-copy">
-        <h2>Ready to book?</h2>
-        <p>Tell us where the job is — we'll confirm coverage and next steps.</p>
-      </div>
-      <div class="cta-band-actions">
-        <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call now</a>
-        <a href="contact.html" class="btn btn-primary btn-lg">Request a quote</a>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img
-          class="footer-logo-img"
-          src="assets/logo.png"
-          alt="Soak N Wet"
-          width="240"
-          height="110"
-        />
+        <img class="footer-logo-img" src="assets/logo.png" alt="Soak N Wet Logo" width="753" height="336" />
         <p class="footer-slogan">Ottawa's Water Experts.</p>
       </div>
       <div class="footer-links">
@@ -162,13 +160,13 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer-contact">
-        <p>Ottawa & Surrounding Areas</p>
+        <p>Ottawa &amp; Surrounding Areas</p>
         <a href="tel:+16131234567">(613) 123-4567</a>
         <a href="mailto:info@soaknwet.ca">info@soaknwet.ca</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Soak N Wet. All rights reserved.</p>
+      <p>© 2026 Soak N Wet. All rights reserved.</p>
     </div>
   </footer>
 

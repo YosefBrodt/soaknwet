@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery — Soak N Wet</title>
+  <title>Gallery — Soak N Wet | Recent Work</title>
+  <meta name="description" content="Pressure washing, pool work, and water services across Ottawa — sample projects." />
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Epilogue:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">
-      <img
-        class="nav-logo-img"
-        src="assets/logo.png"
-        alt="Soak N Wet"
-        width="220"
-        height="90"
-      />
+      <img class="nav-logo-img" src="assets/logo.png" alt="Soak N Wet Logo" width="753" height="336" />
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
@@ -38,88 +32,50 @@
   </nav>
 
   <section class="page-hero">
-    <div class="page-hero-bg-text">Gallery</div>
-    <div class="page-hero-inner page-hero--split">
+    <div class="page-hero-inner">
       <div class="page-hero-content">
-        <div class="section-label">Our Work</div>
-        <h1>Project<br />Gallery</h1>
-        <p>A look at some of the work we've done — pressure washing, pool services, water delivery, and plumbing across Ottawa.</p>
-        <p class="page-hero-cta">
-          <a href="tel:+16131234567" class="btn btn-phone">Call now</a>
-          <a href="contact.html" class="btn btn-primary">Get a free quote</a>
-        </p>
-      </div>
-      <div class="page-hero-media" aria-hidden="true">
-        <img
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80"
-          alt=""
-          width="1200"
-          height="900"
-          loading="eager"
-        />
+        <div class="section-label">Proof of work</div>
+        <h1>Recent <em>projects.</em></h1>
+        <p>Filter by type — add your own photos anytime. These placeholders show layout only.</p>
+        <div class="page-hero-cta">
+          <a href="contact.html" class="btn btn-primary">Book a similar job</a>
+        </div>
       </div>
     </div>
+    <div class="page-hero-bg-text" aria-hidden="true">Work</div>
   </section>
 
-  <!-- GALLERY FILTERS -->
-  <section class="gallery-section">
-    <div class="gallery-filters reveal">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="pressure">Pressure Washing</button>
-      <button class="filter-btn" data-filter="pool">Pool & Hot Tub</button>
-      <button class="filter-btn" data-filter="delivery">Water Delivery</button>
-      <button class="filter-btn" data-filter="plumbing">Plumbing</button>
+  <section class="gallery-section reveal">
+    <div class="gallery-filters">
+      <button type="button" class="filter-btn active" data-filter="all">All</button>
+      <button type="button" class="filter-btn" data-filter="wash">Pressure washing</button>
+      <button type="button" class="filter-btn" data-filter="pool">Pool &amp; spa</button>
+      <button type="button" class="filter-btn" data-filter="delivery">Delivery</button>
     </div>
-
-    <div class="gallery-grid reveal">
-      <!-- Stock photos via Unsplash (replace with client project photos when available) -->
-      <div class="gallery-item" data-category="pressure residential">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80" alt="Pressure washing surface" width="900" height="600" loading="lazy" />
-        <div class="gallery-overlay">
-          <span>Driveway Wash — Residential</span>
-        </div>
+    <div class="gallery-grid">
+      <div class="gallery-item large" data-category="wash">
+        <img class="gallery-img" src="assets/hero-bg.png" alt="Fleet and equipment on a residential driveway" />
+        <div class="gallery-overlay"><span>Residential driveway wash · Kanata</span></div>
       </div>
-      <div class="gallery-item large" data-category="pool commercial">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1600&q=80" alt="Clean swimming pool" width="1600" height="900" loading="lazy" />
-        <div class="gallery-overlay">
-          <span>Pool Opening & Cleaning — Residential</span>
-        </div>
+      <div class="gallery-item" data-category="pool">
+        <div class="gallery-placeholder"><span>Pool opening<br />— add photo</span></div>
+        <div class="gallery-overlay"><span>Spring pool opening</span></div>
       </div>
-      <div class="gallery-item" data-category="pressure commercial">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" alt="Commercial exterior cleaning" width="900" height="600" loading="lazy" />
-        <div class="gallery-overlay">
-          <span>Building Exterior Wash — Commercial</span>
-        </div>
+      <div class="gallery-item" data-category="wash">
+        <div class="gallery-placeholder"><span>Commercial facade<br />— add photo</span></div>
+        <div class="gallery-overlay"><span>Storefront wash</span></div>
       </div>
-      <div class="gallery-item" data-category="delivery residential">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="Water delivery jugs" width="900" height="600" loading="lazy" />
-        <div class="gallery-overlay">
-          <span>Water Delivery — Residential</span>
-        </div>
+      <div class="gallery-item" data-category="delivery">
+        <div class="gallery-placeholder"><span>Water delivery<br />— add photo</span></div>
+        <div class="gallery-overlay"><span>Bulk delivery route</span></div>
       </div>
-      <div class="gallery-item" data-category="pool residential">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=900&q=80" alt="Hot tub and spa" width="900" height="600" loading="lazy" />
-        <div class="gallery-overlay">
-          <span>Hot Tub Service — Residential</span>
-        </div>
+      <div class="gallery-item" data-category="pool">
+        <div class="gallery-placeholder"><span>Hot tub service<br />— add photo</span></div>
+        <div class="gallery-overlay"><span>Spa drain &amp; refill</span></div>
       </div>
-      <div class="gallery-item large" data-category="pressure residential">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=1600&q=80" alt="Deck and patio cleaning" width="1600" height="900" loading="lazy" />
-        <div class="gallery-overlay">
-          <span>Deck Pressure Wash — Residential</span>
-        </div>
-      </div>
-      <div class="gallery-item" data-category="plumbing residential">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1581092160562-40aa08e78828?auto=format&fit=crop&w=900&q=80" alt="Plumbing installation" width="900" height="600" loading="lazy" />
-        <div class="gallery-overlay">
-          <span>Water Softener Install — Residential</span>
-        </div>
-      </div>
-      <div class="gallery-item" data-category="delivery commercial">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=900&q=80" alt="Office water delivery" width="900" height="600" loading="lazy" />
-        <div class="gallery-overlay">
-          <span>Office Water Delivery — Commercial</span>
-        </div>
+      <div class="gallery-item" data-category="wash">
+        <img class="gallery-img" src="assets/hero-bg.png" alt="Equipment ready for pressure washing" />
+        <div class="gallery-overlay"><span>Deck &amp; patio prep</span></div>
       </div>
     </div>
   </section>
@@ -127,27 +83,12 @@
   <section class="cta-strip reveal">
     <div class="cta-strip-inner">
       <div class="cta-strip-copy">
-        <strong>Like what you see?</strong>
-        <span>Book the same quality on your property — quote in one business day.</span>
+        <strong>Want results like this?</strong>
+        <span>Send your address and a short description — we will quote fast.</span>
       </div>
       <div class="cta-strip-actions">
-        <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call (613) 123-4567</a>
-        <a href="contact.html" class="btn btn-primary btn-lg">Request a quote</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-band reveal">
-    <div class="cta-band-inner">
-      <img class="cta-band-logo" src="assets/logo.png" alt="" width="180" height="80" aria-hidden="true" />
-      <div class="cta-band-copy">
-        <h2>Seen enough? Let's talk.</h2>
-        <p>Request a quote and we'll get back to you fast.</p>
-      </div>
-      <div class="cta-band-actions">
-        <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call now</a>
-        <a href="contact.html" class="btn btn-primary btn-lg">Request a quote</a>
+        <a href="contact.html" class="btn btn-primary btn-lg">Get a quote</a>
+        <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call</a>
       </div>
     </div>
   </section>
@@ -155,13 +96,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img
-          class="footer-logo-img"
-          src="assets/logo.png"
-          alt="Soak N Wet"
-          width="240"
-          height="110"
-        />
+        <img class="footer-logo-img" src="assets/logo.png" alt="Soak N Wet Logo" width="753" height="336" />
         <p class="footer-slogan">Ottawa's Water Experts.</p>
       </div>
       <div class="footer-links">
@@ -173,13 +108,13 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer-contact">
-        <p>Ottawa & Surrounding Areas</p>
+        <p>Ottawa &amp; Surrounding Areas</p>
         <a href="tel:+16131234567">(613) 123-4567</a>
         <a href="mailto:info@soaknwet.ca">info@soaknwet.ca</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Soak N Wet. All rights reserved.</p>
+      <p>© 2026 Soak N Wet. All rights reserved.</p>
     </div>
   </footer>
 

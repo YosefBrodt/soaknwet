@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Soak N Wet</title>
+  <title>Contact — Soak N Wet | Get a Quote</title>
+  <meta name="description" content="Request a quote for water delivery, pressure washing, pool care, or plumbing in Ottawa." />
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,15 +14,9 @@
 
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">
-      <img
-        class="nav-logo-img"
-        src="assets/logo.png"
-        alt="Soak N Wet"
-        width="220"
-        height="90"
-      />
+      <img class="nav-logo-img" src="assets/logo.png" alt="Soak N Wet Logo" width="753" height="336" />
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
@@ -37,114 +32,101 @@
   </nav>
 
   <section class="page-hero">
-    <div class="page-hero-bg-text">Contact</div>
-    <div class="page-hero-inner page-hero--split">
+    <div class="page-hero-inner">
       <div class="page-hero-content">
-        <div class="section-label">Ottawa & Surrounding Areas</div>
-        <h1>Get in<br />Touch</h1>
-        <p>Ready to book a service or get a quote? Fill out the form and we'll get back to you fast.</p>
-        <p class="page-hero-cta">
+        <div class="section-label">Get started</div>
+        <h1>Request a <em>quote.</em></h1>
+        <p>Include your address and what you need — we respond within one business day. Prefer voice? Call anytime during business hours.</p>
+        <div class="page-hero-cta">
           <a href="tel:+16131234567" class="btn btn-phone">Call (613) 123-4567</a>
-          <a href="areas.html" class="btn btn-outline">Service areas</a>
-        </p>
-      </div>
-      <div class="page-hero-media" aria-hidden="true">
-        <div class="media-placeholder">
-          <span>Contact / office photo placeholder</span>
         </div>
+      </div>
+    </div>
+    <div class="page-hero-bg-text" aria-hidden="true">Quote</div>
+  </section>
+
+  <section class="contact-section reveal">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Reach <em>us.</em></h2>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Phone</span>
+          <a class="contact-detail-value" href="tel:+16131234567">(613) 123-4567</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <a class="contact-detail-value" href="mailto:info@soaknwet.ca">info@soaknwet.ca</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Service area</span>
+          <span class="contact-detail-value">Ottawa &amp; surrounding communities — <a href="areas.html">see map</a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Hours</span>
+          <span class="contact-detail-value">Monday–Friday 8:00–17:00 · Emergency plumbing line for urgent issues</span>
+        </div>
+      </div>
+      <div class="quote-form-wrap">
+        <div class="form-header">
+          <img class="form-logo" src="assets/logo.png" alt="" width="753" height="336" />
+          <div class="form-header-text">
+            <span class="form-tag">Free quote</span>
+            <h3>Tell us about your job</h3>
+          </div>
+        </div>
+        <form class="quote-form" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="(613) …" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service</label>
+              <select id="service" name="service" required>
+                <option value="">Select…</option>
+                <option value="delivery">Water delivery</option>
+                <option value="pressure">Pressure washing</option>
+                <option value="pool">Pool / hot tub</option>
+                <option value="plumbing">Plumbing / filtration</option>
+                <option value="other">Other / not sure</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Service address</label>
+            <input type="text" id="address" name="address" autocomplete="street-address" required placeholder="Street, city, postal code" />
+          </div>
+          <div class="form-group">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" rows="5" placeholder="What do you need done? Timeline? Photos can be sent after we reply."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Submit request</button>
+          <p class="form-note">This form is a demo — connect to your email or CRM when you deploy.</p>
+          <p class="form-call-alt">Need an answer now? <a href="tel:+16131234567">Call (613) 123-4567</a></p>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact-section">
-    <div class="contact-grid">
-
-      <!-- CONTACT INFO -->
-      <div class="contact-info reveal">
-        <div class="section-label">Reach Us Directly</div>
-        <h2>We're easy<br />to <em>reach.</em></h2>
-
-        <div class="contact-detail">
-          <span class="contact-detail-label">Phone</span>
-          <a href="tel:+16131234567" class="contact-detail-value">(613) 123-4567</a>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-detail-label">Email</span>
-          <a href="mailto:info@soaknwet.ca" class="contact-detail-value">info@soaknwet.ca</a>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-detail-label">Service Area</span>
-          <span class="contact-detail-value">Ottawa & surrounding areas<br />(open to other locations depending on project)</span>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-detail-label">Hours</span>
-          <span class="contact-detail-value">Monday – Friday, 7am – 6pm<br />Weekends by arrangement</span>
-        </div>
+  <section class="cta-band reveal">
+    <div class="cta-band-inner">
+      <img class="cta-band-logo" src="assets/logo.png" alt="" width="753" height="336" aria-hidden="true" />
+      <div class="cta-band-copy">
+        <h2>Prefer to talk?</h2>
+        <p>We will scope your job on the phone and follow up with a written quote.</p>
       </div>
-
-      <!-- QUOTE FORM -->
-      <div class="quote-form-wrap reveal">
-        <div class="form-header">
-          <img class="form-logo" src="assets/logo.png" alt="" width="180" height="80" aria-hidden="true" />
-          <div class="form-header-text">
-            <span class="form-tag">Free Quote</span>
-            <h3>Tell us about your project</h3>
-          </div>
-        </div>
-        <form class="quote-form" id="quoteForm" action="#" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone *</label>
-              <input type="tel" id="phone" name="phone" placeholder="(613) 000-0000" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="service">Service Type *</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Select a service</option>
-                <option value="delivery">Water Delivery</option>
-                <option value="pressure">Pressure Washing</option>
-                <option value="pool">Pool & Hot Tub Services</option>
-                <option value="plumbing">Plumbing & Water Systems</option>
-                <option value="multiple">Multiple Services</option>
-                <option value="unsure">Not Sure</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="project-type">Property Type *</label>
-              <select id="project-type" name="project-type" required>
-                <option value="" disabled selected>Select property type</option>
-                <option value="residential">Residential</option>
-                <option value="commercial">Commercial</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="description">Project Description *</label>
-            <textarea id="description" name="description" placeholder="Describe what you need — what service, where, and any relevant details..." rows="5" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="contact-pref">Preferred Contact Method</label>
-            <select id="contact-pref" name="contact-pref">
-              <option value="phone">Phone Call</option>
-              <option value="text">Text Message</option>
-              <option value="email">Email</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-full">Submit Quote Request</button>
-          <p class="form-note">We typically respond within 1 business day.</p>
-          <p class="form-call-alt">Prefer to talk first? <a href="tel:+16131234567">Call (613) 123-4567</a></p>
-        </form>
+      <div class="cta-band-actions">
+        <a href="tel:+16131234567" class="btn btn-phone btn-lg">Call now</a>
       </div>
     </div>
   </section>
@@ -152,13 +134,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img
-          class="footer-logo-img"
-          src="assets/logo.png"
-          alt="Soak N Wet"
-          width="240"
-          height="110"
-        />
+        <img class="footer-logo-img" src="assets/logo.png" alt="Soak N Wet Logo" width="753" height="336" />
         <p class="footer-slogan">Ottawa's Water Experts.</p>
       </div>
       <div class="footer-links">
@@ -170,13 +146,13 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer-contact">
-        <p>Ottawa & Surrounding Areas</p>
+        <p>Ottawa &amp; Surrounding Areas</p>
         <a href="tel:+16131234567">(613) 123-4567</a>
         <a href="mailto:info@soaknwet.ca">info@soaknwet.ca</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Soak N Wet. All rights reserved.</p>
+      <p>© 2026 Soak N Wet. All rights reserved.</p>
     </div>
   </footer>
 
