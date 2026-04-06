@@ -8,6 +8,7 @@
   padding: clamp(5rem, 9vw, 9rem) clamp(1.5rem, 5vw, 4rem);
   text-align: center;
   overflow: hidden;
+  color: var(--white);
 }
 .phone-cta-glow {
   position: absolute;
@@ -15,7 +16,7 @@
   pointer-events: none;
   background: radial-gradient(
     ellipse 40% 40% at 50% 50%,
-    rgba(6, 200, 245, 0.12),
+    rgba(129, 195, 215, 0.14),
     transparent 70%
   );
 }
@@ -42,16 +43,33 @@
   text-decoration: none;
   display: block;
   margin-bottom: 2rem;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 .phone-cta-num:hover {
   transform: scale(1.02);
+  color: var(--white);
 }
 .phone-cta-btns {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+.phone-cta .btn-p {
+  background: var(--cyan);
+  color: var(--ink);
+}
+.phone-cta .btn-p:hover {
+  background: var(--cyan-dk);
+  transform: translateY(-2px);
+}
+.phone-cta .btn-o {
+  border: 1px solid rgba(129, 195, 215, 0.3);
+  color: var(--white);
+}
+.phone-cta .btn-o:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
 }
 
 .phone-cta-note {
@@ -68,6 +86,7 @@
   padding: 0;
   background: var(--ink2);
   overflow: hidden;
+  color: var(--white);
 }
 .mq-row {
   overflow: hidden;
@@ -96,6 +115,15 @@
 }
 .mq-row-services .mq-item {
   font-size: 0.9rem;
+}
+.mq-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  margin: 0 0.85rem;
+  vertical-align: middle;
 }
 
 @keyframes mq-ltr {
