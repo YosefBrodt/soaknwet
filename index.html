@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soak N Wet | Bulk Water Delivery Ottawa — Same-Day Pool, Well & Construction</title>
+  <meta name="description" content="Ottawa's bulk water delivery company. We fill pools, hot tubs, wells and supply construction sites — fast. Same-day and next-day delivery available. Call (613) 762-5464." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #06101e;
+      --navy2:   #0b1a2e;
+      --navy3:   #0f2240;
+      --blue:    #1aaddb;
+      --blue-dk: #138fb5;
+      --white:   #f0f6fb;
+      --muted:   #7a9ab8;
+      --border:  rgba(26,173,219,0.15);
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6,16,30,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: var(--navy) !important;
+      font-weight: 600;
+      padding: 0.55rem 1.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--blue-dk); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(26,173,219,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(26,173,219,0.05) 0%, transparent 50%),
+        var(--navy);
+    }
+
+    /* geometric water-line element */
+    .hero-geo {
+      position: absolute;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 520px;
+      height: 520px;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(26,173,219,0.12);
+      border: 1px solid rgba(26,173,219,0.3);
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3.2rem, 7vw, 6rem);
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      color: var(--blue);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--blue-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,173,219,0.25);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 1.8rem;
+      border: 1px solid rgba(240,246,251,0.25);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--navy2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .trust-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .trust-stat-num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .trust-stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.3;
+      max-width: 100px;
+    }
+    .trust-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem); }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--navy2); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--navy2);
+      padding: 2rem 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .service-card:hover { background: var(--navy3); }
+    .service-card:hover .service-arrow { color: var(--blue); transform: translateX(4px); }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--blue);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .service-arrow {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 1.2rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    /* ── WHY US ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+    .why-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .why-check {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      background: rgba(26,173,219,0.12);
+      border: 1px solid rgba(26,173,219,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      color: var(--blue);
+    }
+    .why-item-text strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .why-item-text p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    .why-visual {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .why-big-stat {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+    .why-big-stat-num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 4rem;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .why-big-stat-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+    .why-mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .why-mini-stat-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .why-mini-stat-label { color: var(--muted); font-size: 0.8rem; margin-top: 0.2rem; }
+
+    /* ── HOW IT WORKS ── */
+    .hiw-section { background: var(--navy2); }
+
+    .hiw-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .hiw-step {
+      background: var(--navy2);
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    .hiw-num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 4rem;
+      color: rgba(26,173,219,0.15);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .hiw-step h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hiw-step p { color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .testi-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+    }
+
+    .testi-stars {
+      color: var(--blue);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .testi-card blockquote {
+      color: var(--white);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testi-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--blue);
+      font-size: 1rem;
+    }
+    .testi-name { font-weight: 600; font-size: 0.9rem; }
+    .testi-loc { color: var(--muted); font-size: 0.8rem; }
+
+    /* ── SERVICE AREA ── */
+    .area-section { background: var(--navy2); }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .area-tag {
+      background: rgba(26,173,219,0.08);
+      border: 1px solid rgba(26,173,219,0.2);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+    }
+
+    .area-note {
+      margin-top: 1.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .area-map {
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--muted);
+    }
+    .area-map svg { opacity: 0.4; }
+    .area-map p { font-size: 0.85rem; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
+      border-top: 1px solid var(--border);
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .final-cta h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .final-cta h2 em { color: var(--blue); font-style: normal; }
+
+    .final-cta p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .final-cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      padding: 3rem clamp(1.5rem, 5vw, 4rem) 2rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .nav-logo { display: inline-block; margin-bottom: 0.75rem; }
+    .footer-brand p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; max-width: 280px; }
+
+    .footer-col h4 {
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a {
+      color: rgba(240,246,251,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom p { color: var(--muted); font-size: 0.8rem; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(6,16,30,0.98);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--border);
+        gap: 1.25rem;
+        z-index: 99;
+      }
+      .nav-links.open a { font-size: 1rem; }
+      .hamburger { display: flex; }
+      .nav-cta-desktop { display: none; }
+
+      .hero { min-height: 85vh; }
+      .hero-geo { display: none; }
+      .trust-divider { display: none; }
+      .trust-bar { justify-content: flex-start; }
+      .why-grid, .area-grid { grid-template-columns: 1fr; }
+      .why-visual { order: -1; }
+      .hiw-steps { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">SOAK<span>N</span>WET</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="tel:6137625464" class="nav-cta">📞 (613) 762-5464</a></li>
+  </ul>
+  <a href="tel:6137625464" class="nav-cta nav-cta-desktop">📞 (613) 762-5464</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-geo" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="260" cy="260" r="240" stroke="#1aaddb" stroke-width="1"/>
+    <circle cx="260" cy="260" r="180" stroke="#1aaddb" stroke-width="1"/>
+    <circle cx="260" cy="260" r="120" stroke="#1aaddb" stroke-width="1"/>
+    <line x1="20" y1="260" x2="500" y2="260" stroke="#1aaddb" stroke-width="0.5"/>
+    <line x1="260" y1="20" x2="260" y2="500" stroke="#1aaddb" stroke-width="0.5"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-pill">📍 Serving Ottawa &amp; Surrounding Areas</div>
+    <h1>
+      Ottawa's Bulk<br />
+      Water Delivery<br />
+      <em>Done Right.</em>
+    </h1>
+    <p class="hero-sub">
+      Pool fills. Hot tubs. Rural wells. Construction sites. We deliver large volumes of clean water fast — same-day and next-day available throughout the Ottawa area.
+    </p>
+    <div class="hero-btns">
+      <a href="tel:6137625464" class="btn-primary">📞 Call (613) 762-5464</a>
+      <a href="contact.html" class="btn-outline">Get a Free Quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-stat">
+    <div class="trust-stat-num">500+</div>
+    <div class="trust-stat-label">Deliveries completed</div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-stat">
+    <div class="trust-stat-num">Same Day</div>
+    <div class="trust-stat-label">Delivery available</div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-stat">
+    <div class="trust-stat-num">6</div>
+    <div class="trust-stat-label">Services offered</div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-stat">
+    <div class="trust-stat-num">5★</div>
+    <div class="trust-stat-label">Rated by Ottawa customers</div>
+  </div>
+</div>
+
+<!-- ── SERVICES ── -->
+<section class="services-section">
+  <span class="section-label">What We Do</span>
+  <h2 class="section-heading">Water Where You Need It</h2>
+  <p class="section-sub">
+    From backyard pools to active job sites, we deliver the volume you need on your schedule.
+  </p>
+  <div class="services-grid">
+
+    <a href="services.html#pool" class="service-card reveal">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h20M2 17s2-2 5-2 5 2 8 2 5-2 5-2M7 7l5-5 5 5"/></svg>
+      </div>
+      <h3>Pool Filling</h3>
+      <p>Fill a new pool or top up after winter — fast. We carry the volume to do it in one trip so you're not waiting days with a garden hose.</p>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="services.html#hottub" class="service-card reveal reveal-delay-1">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+      </div>
+      <h3>Hot Tub &amp; Spa Filling</h3>
+      <p>Skip the two-day wait. We fill hot tubs and spas quickly, so you can start enjoying it the same day.</p>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="services.html#residential" class="service-card reveal reveal-delay-2">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3>Residential Water Delivery</h3>
+      <p>Well ran dry? Low on supply? We deliver clean water directly to your cistern or holding tank — rural or suburban.</p>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="services.html#construction" class="service-card reveal">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+      </div>
+      <h3>Construction &amp; Dust Control</h3>
+      <p>Keep your site compliant and your crew working. Water for dust suppression, compaction, and concrete mixing — delivered to site.</p>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="services.html#landscaping" class="service-card reveal reveal-delay-1">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 12 7 9 7 5a5 5 0 0110 0c0 4-5 7-5 7z"/></svg>
+      </div>
+      <h3>Landscaping &amp; Irrigation</h3>
+      <p>New sod, trees, or a large landscaping project? We supply the water to get things established — one delivery, the right volume.</p>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="services.html#emergency" class="service-card reveal reveal-delay-2">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3>Emergency Water Delivery</h3>
+      <p>Water line break. Contaminated well. Unexpected shortage. We move fast. Call us — if we can get there today, we will.</p>
+      <span class="service-arrow">→</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section>
+  <div class="why-grid">
+    <div>
+      <span class="section-label">Why Soak N Wet</span>
+      <h2 class="section-heading">The Faster, Easier Way to Get Water</h2>
+      <p class="section-sub">Forget waiting three days with a garden hose. We show up, we deliver, you're done.</p>
+
+      <ul class="why-list">
+        <li class="why-item reveal">
+          <div class="why-check">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="why-item-text">
+            <strong>Same-Day &amp; Next-Day Delivery</strong>
+            <p>We know you don't want to wait. When you call, we give you a real delivery time and we show up for it.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-1">
+          <div class="why-check">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="why-item-text">
+            <strong>High-Capacity Tanker Trucks</strong>
+            <p>We carry enough in a single load to fill most pools, so there's no back-and-forth, no delays.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-2">
+          <div class="why-check">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="why-item-text">
+            <strong>Serving Ottawa Since Day One</strong>
+            <p>This is our backyard. We know the roads, the areas, and what local customers actually need.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-3">
+          <div class="why-check">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="why-item-text">
+            <strong>Simple Process, No Hassle</strong>
+            <p>You call or fill out the form. We confirm. We show up. That's it — no paperwork, no surprises.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="why-visual reveal">
+      <div class="why-big-stat">
+        <div class="why-big-stat-num">100%</div>
+        <div class="why-big-stat-label">Clean, potable-grade water on every residential delivery</div>
+      </div>
+      <div class="why-mini-stats">
+        <div>
+          <div class="why-mini-stat-num">1–4 hrs</div>
+          <div class="why-mini-stat-label">Typical pool fill time</div>
+        </div>
+        <div>
+          <div class="why-mini-stat-num">Same Day</div>
+          <div class="why-mini-stat-label">Available when you call early</div>
+        </div>
+        <div>
+          <div class="why-mini-stat-num">Ottawa</div>
+          <div class="why-mini-stat-label">&amp; surrounding region</div>
+        </div>
+        <div>
+          <div class="why-mini-stat-num">6</div>
+          <div class="why-mini-stat-label">Service types covered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="hiw-section">
+  <span class="section-label">The Process</span>
+  <h2 class="section-heading">Three Steps. Done.</h2>
+  <p class="section-sub">We've kept this simple on purpose. Most bookings take under five minutes.</p>
+
+  <div class="hiw-steps">
+    <div class="hiw-step reveal">
+      <div class="hiw-num">01</div>
+      <h3>Call or Request a Quote</h3>
+      <p>Give us a call at <a href="tel:6137625464" style="color:var(--blue);">(613) 762-5464</a> or fill out the contact form. Tell us what you need and where you're located — we'll give you a straight answer on availability and price.</p>
+    </div>
+    <div class="hiw-step reveal reveal-delay-1">
+      <div class="hiw-num">02</div>
+      <h3>We Schedule Your Delivery</h3>
+      <p>We confirm a delivery window — same day or next day when possible. No vague "sometime next week." You'll know exactly when to expect us.</p>
+    </div>
+    <div class="hiw-step reveal reveal-delay-2">
+      <div class="hiw-num">03</div>
+      <h3>We Show Up &amp; Deliver</h3>
+      <p>Our driver arrives on time with a full tanker. We handle the delivery, you confirm it's done. Pool full. Tank topped. Job complete.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section>
+  <span class="section-label">What Customers Say</span>
+  <h2 class="section-heading">Ottawa Trusts Soak N Wet</h2>
+  <p class="section-sub">Don't take our word for it — here's what our customers have to say.</p>
+
+  <div class="testi-grid">
+
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"Filled our 24,000-gallon pool in under 4 hours. Driver showed up exactly when they said. Quick, professional, no issues. Will be using them every season."</blockquote>
+      <div class="testi-author">
+        <div class="testi-avatar">MT</div>
+        <div>
+          <div class="testi-name">Mike T.</div>
+          <div class="testi-loc">Kanata, ON</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal reveal-delay-1">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"Our well ran dry in August. Called Soak N Wet in the morning and they had water to us the same afternoon. Absolute lifesavers — we have kids and couldn't wait. Highly recommend."</blockquote>
+      <div class="testi-author">
+        <div class="testi-avatar">SW</div>
+        <div>
+          <div class="testi-name">Sandra W.</div>
+          <div class="testi-loc">Carleton Place, ON</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal reveal-delay-2">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"We use Soak N Wet for dust control on all our Ottawa job sites now. They're reliable, easy to book, and the price is fair. For any contractor in this city, these guys are worth having on speed dial."</blockquote>
+      <div class="testi-author">
+        <div class="testi-avatar">DF</div>
+        <div>
+          <div class="testi-name">Dan F.</div>
+          <div class="testi-loc">Ottawa General Contracting</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SERVICE AREA ── -->
+<section class="area-section">
+  <div class="area-grid">
+    <div>
+      <span class="section-label">Coverage</span>
+      <h2 class="section-heading">We Deliver Across the Ottawa Region</h2>
+      <p class="section-sub">
+        Based in Ottawa, we serve the city and the communities around it. Not sure if you're in range? Just call — if we can get to you, we will.
+      </p>
+      <div class="area-tags">
+        <span class="area-tag">Ottawa</span>
+        <span class="area-tag">Kanata</span>
+        <span class="area-tag">Nepean</span>
+        <span class="area-tag">Orleans</span>
+        <span class="area-tag">Barrhaven</span>
+        <span class="area-tag">Gloucester</span>
+        <span class="area-tag">Stittsville</span>
+        <span class="area-tag">Carleton Place</span>
+        <span class="area-tag">Smiths Falls</span>
+        <span class="area-tag">Manotick</span>
+        <span class="area-tag">Richmond</span>
+        <span class="area-tag">Greely</span>
+      </div>
+      <p class="area-note">Surrounding areas also served — call to confirm.</p>
+    </div>
+
+    <div class="area-map">
+      <svg width="60" height="60" fill="none" stroke="#1aaddb" stroke-width="1.5" viewBox="0 0 24 24">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      <p>Ottawa &amp; surrounding region</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+  <h2>Ready to Get <em>Water Delivered?</em></h2>
+  <p>Call us now for same-day or next-day service. We'll give you a straight answer on price and availability.</p>
+  <div class="final-cta-btns">
+    <a href="tel:6137625464" class="btn-primary">📞 Call (613) 762-5464</a>
+    <a href="contact.html" class="btn-outline">Request a Quote →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">SOAK<span>N</span>WET</a>
+      <p>Ottawa's bulk water delivery company. Pools, wells, construction sites, and more. Fast, reliable, local.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#pool">Pool Filling</a></li>
+        <li><a href="services.html#hottub">Hot Tub Filling</a></li>
+        <li><a href="services.html#residential">Residential Delivery</a></li>
+        <li><a href="services.html#construction">Construction Water</a></li>
+        <li><a href="services.html#landscaping">Landscaping Water</a></li>
+        <li><a href="services.html#emergency">Emergency Delivery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:6137625464">(613) 762-5464</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Soak N Wet Water Delivery. Ottawa, ON.</p>
+    <p>Serving Ottawa &amp; surrounding areas.</p>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
