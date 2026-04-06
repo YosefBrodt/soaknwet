@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     :root {
@@ -19,6 +20,7 @@
     }
     html { scroll-behavior:smooth; }
     body { background:var(--ink); color:var(--white); font-family:var(--font-b); font-size:16px; line-height:1.6; overflow-x:hidden; }
+    body.has-custom-cursor { cursor:none; }
 
     nav { position:sticky; top:0; z-index:200; background:rgba(4,7,13,.93); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); padding:0 clamp(1.5rem,5vw,4rem); display:flex; align-items:center; justify-content:space-between; height:64px; }
     .logo { font-family:var(--font-d); font-weight:900; font-size:1.35rem; letter-spacing:.08em; text-transform:uppercase; color:var(--white); text-decoration:none; }
@@ -68,22 +70,48 @@
     .hours-time { color:var(--white); font-weight:500; }
     .hours-time.avail { color:var(--cyan); }
 
-    /* RIGHT — FORM */
-    .form-wrap { background:var(--ink2); border:1px solid var(--border); padding:3rem; }
+    /* RIGHT — FORM (shadcn-style primitives) */
+    .form-wrap { background:var(--ink2); border:1px solid var(--border); padding:3rem; border-radius:2px; }
     .form-wrap h2 { font-family:var(--font-d); font-weight:800; font-size:2rem; text-transform:uppercase; letter-spacing:.01em; margin-bottom:.5rem; }
     .form-wrap > p { color:var(--muted); font-size:.875rem; line-height:1.6; margin-bottom:2.5rem; }
-    .form-group { margin-bottom:1.5rem; }
-    .form-group label { display:block; font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:.6rem; }
-    .form-group input, .form-group select, .form-group textarea {
-      width:100%; background:var(--ink3); border:1px solid var(--border); color:var(--white); font-family:var(--font-b); font-size:.9rem; padding:.85rem 1rem; border-radius:2px; outline:none; transition:border-color .2s, box-shadow .2s; appearance:none;
+    .form-field { margin-bottom:1.5rem; }
+    .form-label { display:block; font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:.5rem; }
+    .form-label .req { color:var(--cyan); margin-left:.15rem; }
+    .form-control {
+      display:flex; width:100%; min-height:2.75rem; background:var(--ink3); border:1px solid var(--border); color:var(--white);
+      font-family:var(--font-b); font-size:.9rem; padding:.65rem .85rem; border-radius:2px; outline:none;
+      transition:border-color .15s, box-shadow .15s;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(6,200,245,.08); }
-    .form-group textarea { resize:vertical; min-height:120px; }
-    .form-group select { cursor:pointer; }
+    .form-control::placeholder { color:rgba(237,246,252,0.35); }
+    .form-control:focus-visible { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(6,200,245,.12); }
+    textarea.form-control { min-height:120px; resize:vertical; padding-top:.75rem; line-height:1.5; }
+    select.form-control { cursor:pointer; appearance:none; background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%); background-position:calc(100% - 16px) calc(1.05em),calc(100% - 11px) calc(1.05em); background-size:5px 5px,5px 5px; background-repeat:no-repeat; }
+    .form-field.is-invalid .form-control { border-color:rgba(248,113,113,0.85); box-shadow:0 0 0 3px rgba(248,113,113,0.12); }
+    .form-field.is-invalid .form-label { color:#f8a8a8; }
+    .form-message { font-size:.75rem; color:#f87171; margin-top:.4rem; min-height:1.1em; display:none; }
+    .form-field.is-invalid .form-message { display:block; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
-    .form-submit { width:100%; background:var(--cyan); color:var(--ink); font-family:var(--font-b); font-weight:700; font-size:1rem; padding:1rem; border:none; border-radius:2px; cursor:pointer; transition:background .2s, transform .15s, box-shadow .2s; margin-top:.5rem; letter-spacing:.02em; }
+    .form-actions { margin-top:.25rem; }
+    .form-submit {
+      width:100%; display:inline-flex; align-items:center; justify-content:center; min-height:2.75rem;
+      background:var(--cyan); color:var(--ink); font-family:var(--font-b); font-weight:700; font-size:1rem; padding:0 1rem;
+      border:none; border-radius:2px; cursor:pointer; transition:background .15s, transform .15s, box-shadow .15s; letter-spacing:.02em;
+    }
     .form-submit:hover { background:var(--cyan-dk); transform:translateY(-1px); box-shadow:0 6px 24px rgba(6,200,245,.2); }
+    .form-submit:focus-visible { outline:2px solid var(--cyan); outline-offset:2px; }
+    .form-submit:disabled { opacity:.55; cursor:not-allowed; transform:none; box-shadow:none; }
     .form-note { color:var(--muted); font-size:.78rem; text-align:center; margin-top:.75rem; }
+
+    .btn-p { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; background:var(--cyan); color:var(--ink); font-weight:700; font-size:.95rem; padding:.85rem 1.75rem; border-radius:3px; text-decoration:none; transition:background .2s, transform .15s, box-shadow .2s; }
+    .btn-p:hover { background:var(--cyan-dk); transform:translateY(-2px); box-shadow:0 8px 28px rgba(6,200,245,.22); }
+    .btn-o { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border:1px solid rgba(6,200,245,.3); color:var(--white); font-weight:500; font-size:.95rem; padding:.85rem 1.75rem; border-radius:3px; text-decoration:none; transition:border-color .2s, color .2s, background .2s; }
+    .btn-o:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(6,200,245,.05); }
+
+    .form-success-panel { text-align:center; padding:3rem 1rem; }
+    .form-success-title { font-family:var(--font-d); font-weight:900; font-size:2rem; color:var(--cyan); text-transform:uppercase; margin-bottom:.75rem; }
+    .form-success-text { color:var(--muted); font-size:.95rem; line-height:1.7; }
+    .form-success-text a { color:var(--cyan); text-decoration:none; }
+    .form-success-text a:hover { text-decoration:underline; }
 
     footer { background:var(--ink2); border-top:1px solid var(--border); padding:3.5rem clamp(1.5rem,5vw,4rem) 2rem; }
     .ft-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem; }
@@ -185,28 +213,31 @@
     </div>
 
     <!-- RIGHT — FORM -->
-    <div class="form-wrap r d2">
+    <div class="form-wrap r d2" id="request-quote">
       <h2>Request a Quote</h2>
       <p>Tell us what you need and we'll follow up with a quote — usually within a couple hours on business days.</p>
-      <form id="contact-form" onsubmit="handleSubmit(event)">
+      <form id="contact-form" novalidate>
         <div class="form-row">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="John Smith" required />
+          <div class="form-field" data-field="name">
+            <label class="form-label" for="name">Your Name<span class="req" aria-hidden="true">*</span></label>
+            <input class="form-control" type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" aria-required="true" />
+            <p class="form-message" id="name-error" role="alert"></p>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(613) 555-0000" required />
+          <div class="form-field" data-field="phone">
+            <label class="form-label" for="phone">Phone Number<span class="req" aria-hidden="true">*</span></label>
+            <input class="form-control" type="tel" id="phone" name="phone" placeholder="(613) 555-0000" autocomplete="tel" aria-required="true" />
+            <p class="form-message" id="phone-error" role="alert"></p>
           </div>
         </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" />
+        <div class="form-field" data-field="email">
+          <label class="form-label" for="email">Email Address</label>
+          <input class="form-control" type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+          <p class="form-message" id="email-error" role="alert"></p>
         </div>
-        <div class="form-group">
-          <label for="service">Service Needed</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Select a service...</option>
+        <div class="form-field" data-field="service">
+          <label class="form-label" for="service">Service Needed<span class="req" aria-hidden="true">*</span></label>
+          <select class="form-control" id="service" name="service" aria-required="true">
+            <option value="">Select a service...</option>
             <option>Pool or Hot Tub Fill</option>
             <option>Residential Well Water</option>
             <option>Cistern / Tank Delivery</option>
@@ -215,35 +246,53 @@
             <option>Emergency Water Supply</option>
             <option>Not Sure — Need Advice</option>
           </select>
+          <p class="form-message" id="service-error" role="alert"></p>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="location">Your Location / Area</label>
-            <input type="text" id="location" name="location" placeholder="e.g. Kanata, Ottawa" />
+          <div class="form-field" data-field="location">
+            <label class="form-label" for="location">Your Location / Area</label>
+            <input class="form-control" type="text" id="location" name="location" placeholder="e.g. Kanata, Ottawa" autocomplete="address-level2" />
+            <p class="form-message" id="location-error" role="alert"></p>
           </div>
-          <div class="form-group">
-            <label for="timing">When Do You Need It?</label>
-            <select id="timing" name="timing">
-              <option value="" disabled selected>Select timing...</option>
+          <div class="form-field" data-field="timing">
+            <label class="form-label" for="timing">When Do You Need It?</label>
+            <select class="form-control" id="timing" name="timing">
+              <option value="">Select timing...</option>
               <option>Today / Same Day</option>
               <option>Tomorrow</option>
               <option>This Week</option>
               <option>Next Week</option>
               <option>Flexible</option>
             </select>
+            <p class="form-message" id="timing-error" role="alert"></p>
           </div>
         </div>
-        <div class="form-group">
-          <label for="message">Additional Details</label>
-          <textarea id="message" name="message" placeholder="Any details about volume needed, access, or specific requirements..."></textarea>
+        <div class="form-field" data-field="message">
+          <label class="form-label" for="message">Additional Details</label>
+          <textarea class="form-control" id="message" name="message" placeholder="Any details about volume needed, access, or specific requirements..."></textarea>
+          <p class="form-message" id="message-error" role="alert"></p>
         </div>
-        <button type="submit" class="form-submit">Send Quote Request &rarr;</button>
+        <div class="form-actions">
+          <button type="submit" class="form-submit" id="form-submit-btn">Send Quote Request &rarr;</button>
+        </div>
         <p class="form-note">We typically respond within a few hours. For urgent needs, call us directly at (613) 762-5464.</p>
       </form>
-      <div id="form-success" style="display:none; text-align:center; padding:3rem 1rem;">
-        <div style="font-family:var(--font-d); font-weight:900; font-size:2rem; color:var(--cyan); text-transform:uppercase; margin-bottom:.75rem;">Request Sent</div>
-        <p style="color:var(--muted); font-size:.95rem; line-height:1.7;">Thanks — we'll be in touch shortly. For immediate service, call <a href="tel:6137625464" style="color:var(--cyan); text-decoration:none;">(613) 762-5464</a>.</p>
+      <div id="form-success" class="form-success-panel" hidden>
+        <div class="form-success-title">Request Sent</div>
+        <p class="form-success-text">Thanks — we'll be in touch shortly. For immediate service, call <a href="tel:6137625464">(613) 762-5464</a>.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="phone-cta" aria-label="Call to book">
+  <div class="phone-cta-glow" aria-hidden="true"></div>
+  <div class="phone-cta-in">
+    <span class="phone-cta-eyebrow" data-animate="fade-up">Ready When You Are</span>
+    <a href="tel:6137625464" class="phone-cta-num" data-animate="fade-up" data-stagger="1">(613) 762-5464</a>
+    <div class="phone-cta-btns" data-animate="fade-up" data-stagger="2">
+      <a href="tel:6137625464" class="btn-p">Call Now</a>
+      <a href="#request-quote" class="btn-o">Get a Quote</a>
     </div>
   </div>
 </section>
@@ -280,18 +329,91 @@
 </footer>
 
 <script>
-  const ham = document.getElementById('hamburger');
-  const nav = document.getElementById('navlinks');
-  ham.addEventListener('click', () => nav.classList.toggle('open'));
-  const els = document.querySelectorAll('.r');
-  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target);} }), {threshold:.1});
-  els.forEach(el => obs.observe(el));
+  document.getElementById('hamburger').addEventListener('click', function () {
+    document.getElementById('navlinks').classList.toggle('open');
+  });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  }
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    function clearFieldError(field) {
+      field.classList.remove('is-invalid');
+      var msg = field.querySelector('.form-message');
+      if (msg) {
+        msg.textContent = '';
+        msg.removeAttribute('data-visible');
+      }
+      var input = field.querySelector('.form-control');
+      if (input) input.removeAttribute('aria-invalid');
+    }
+
+    function setFieldError(field, message) {
+      field.classList.add('is-invalid');
+      var msg = field.querySelector('.form-message');
+      if (msg) msg.textContent = message;
+      var input = field.querySelector('.form-control');
+      if (input) input.setAttribute('aria-invalid', 'true');
+    }
+
+    form.querySelectorAll('.form-field').forEach(function (field) {
+      var input = field.querySelector('.form-control');
+      if (!input) return;
+      input.addEventListener('input', function () {
+        clearFieldError(field);
+      });
+      input.addEventListener('change', function () {
+        clearFieldError(field);
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var ok = true;
+      form.querySelectorAll('.form-field').forEach(clearFieldError);
+
+      var nameF = form.querySelector('[data-field="name"]');
+      var name = nameF.querySelector('#name').value.trim();
+      if (!name) {
+        setFieldError(nameF, 'Please enter your name.');
+        ok = false;
+      }
+
+      var phoneF = form.querySelector('[data-field="phone"]');
+      var phone = phoneF.querySelector('#phone').value.replace(/\s/g, '');
+      if (!phone || phone.length < 10) {
+        setFieldError(phoneF, 'Enter a valid phone number.');
+        ok = false;
+      }
+
+      var emailF = form.querySelector('[data-field="email"]');
+      var email = emailF.querySelector('#email').value.trim();
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setFieldError(emailF, 'Enter a valid email or leave blank.');
+        ok = false;
+      }
+
+      var svcF = form.querySelector('[data-field="service"]');
+      if (!svcF.querySelector('#service').value) {
+        setFieldError(svcF, 'Please select a service.');
+        ok = false;
+      }
+
+      if (!ok) {
+        var firstBad = form.querySelector('.form-field.is-invalid .form-control');
+        if (firstBad) firstBad.focus();
+        return;
+      }
+
+      var wrap = document.getElementById('request-quote');
+      wrap.querySelector('h2').hidden = true;
+      wrap.querySelector('p').hidden = true;
+      form.hidden = true;
+      document.getElementById('form-success').hidden = false;
+      document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  })();
 </script>
+<script src="global.js"></script>
 </body>
 </html>
