@@ -4,410 +4,314 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | Soak N Wet — Ottawa Bulk Water Delivery</title>
-  <meta name="description" content="Bulk water delivery services in Ottawa: pool filling, hot tub filling, residential cistern delivery, construction dust control, landscaping water, and emergency supply." />
+  <meta name="description" content="Bulk water delivery services in Ottawa: pool filling, hot tub filling, residential well water, construction supply, cistern delivery, dust suppression, and emergency water." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy:#06101e; --navy2:#0b1a2e; --navy3:#0f2240;
-      --blue:#1aaddb; --blue-dk:#138fb5;
-      --white:#f0f6fb; --muted:#7a9ab8; --border:rgba(26,173,219,0.15);
-      --font-display:'Barlow Condensed',sans-serif; --font-body:'DM Sans',sans-serif;
+      --ink:#04070d; --ink2:#07101c; --ink3:#0b1828; --ink4:#0f2038;
+      --cyan:#06c8f5; --cyan-dk:#04a2c7;
+      --white:#edf6fc; --muted:#4d7a96; --muted2:#2a4d66;
+      --border:rgba(6,200,245,0.1);
+      --font-d:'Barlow Condensed',sans-serif; --font-b:'Space Grotesk',sans-serif;
     }
-    html { scroll-behavior: smooth; }
-    body { background:var(--navy); color:var(--white); font-family:var(--font-body); line-height:1.6; overflow-x:hidden; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--ink); color:var(--white); font-family:var(--font-b); font-size:16px; line-height:1.6; overflow-x:hidden; }
 
-    /* NAV */
-    nav { position:sticky; top:0; z-index:100; background:rgba(6,16,30,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:0 clamp(1.5rem,5vw,4rem); display:flex; align-items:center; justify-content:space-between; height:64px; }
-    .nav-logo { font-family:var(--font-display); font-weight:800; font-size:1.5rem; letter-spacing:0.03em; color:var(--white); text-decoration:none; }
-    .nav-logo span { color:var(--blue); }
-    .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { color:var(--muted); text-decoration:none; font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    nav { position:sticky; top:0; z-index:200; background:rgba(4,7,13,.93); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); padding:0 clamp(1.5rem,5vw,4rem); display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .logo { font-family:var(--font-d); font-weight:900; font-size:1.35rem; letter-spacing:.08em; text-transform:uppercase; color:var(--white); text-decoration:none; }
+    .logo span { color:var(--cyan); }
+    .nav-links { display:flex; align-items:center; gap:2.5rem; list-style:none; }
+    .nav-links a { color:var(--muted); text-decoration:none; font-size:.875rem; font-weight:500; transition:color .2s; }
     .nav-links a:hover, .nav-links a.active { color:var(--white); }
-    .nav-cta { display:flex; align-items:center; gap:0.5rem; background:var(--blue); color:var(--navy) !important; font-weight:600; padding:0.55rem 1.2rem; border-radius:4px; text-decoration:none; font-size:0.9rem; transition:background 0.2s,transform 0.15s; }
-    .nav-cta:hover { background:var(--blue-dk); transform:translateY(-1px); }
+    .btn-n { display:flex; align-items:center; gap:.4rem; background:var(--cyan); color:var(--ink) !important; font-weight:700; font-size:.85rem; padding:.5rem 1.1rem; border-radius:3px; text-decoration:none; transition:background .2s, transform .15s; }
+    .btn-n:hover { background:var(--cyan-dk); transform:translateY(-1px); }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
-    .hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; }
+    .hamburger span { display:block; width:22px; height:2px; background:var(--white); border-radius:2px; }
 
     /* PAGE HERO */
-    .page-hero { padding:clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,4rem) 3rem; background:var(--navy2); border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
-    .page-hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,173,219,0.06) 0%, transparent 60%); }
-    .page-hero-content { position:relative; z-index:2; }
-    .section-label { display:inline-block; font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:1rem; }
-    .page-hero h1 { font-family:var(--font-display); font-weight:800; font-size:clamp(2.5rem,5vw,4rem); line-height:1.05; margin-bottom:1rem; }
-    .page-hero p { color:var(--muted); font-size:1.05rem; max-width:560px; line-height:1.7; }
+    .ph { padding:clamp(6rem,10vw,8rem) clamp(1.5rem,5vw,4rem) clamp(3rem,5vw,5rem); background:var(--ink2); border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+    .ph::before { content:''; position:absolute; top:-20%; right:-10%; width:55vw; height:55vw; background:radial-gradient(ellipse,rgba(6,200,245,.05) 0%,transparent 60%); pointer-events:none; }
+    .ph-in { position:relative; z-index:2; max-width:720px; }
+    .eyebrow { display:inline-block; font-size:.7rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); margin-bottom:1.25rem; }
+    .ph h1 { font-family:var(--font-d); font-weight:900; font-size:clamp(3.5rem,7vw,6.5rem); line-height:.95; text-transform:uppercase; letter-spacing:-.01em; margin-bottom:1.5rem; }
+    .ph h1 span { color:var(--cyan); }
+    .ph p { color:var(--muted); font-size:1.05rem; max-width:500px; line-height:1.8; }
 
-    /* SERVICES */
-    .services-wrapper { padding:clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem); display:flex; flex-direction:column; gap:1px; background:var(--border); }
+    /* MARQUEE */
+    .mq { border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--ink); overflow:hidden; padding:.85rem 0; white-space:nowrap; }
+    .mq-track { display:inline-flex; animation:marquee 30s linear infinite; }
+    .mq-item { display:inline-flex; align-items:center; gap:1rem; padding:0 1.5rem; font-family:var(--font-d); font-weight:700; font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+    .mq-dot { width:4px; height:4px; background:var(--cyan); border-radius:50%; }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-    .service-block {
-      background:var(--navy);
-      padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,5vw,4rem);
-      display:grid;
-      grid-template-columns:1fr 1.4fr;
-      gap:4rem;
-      align-items:center;
-      scroll-margin-top:80px;
+    /* SERVICE BLOCKS */
+    .sec { padding:clamp(4rem,7vw,7rem) clamp(1.5rem,5vw,4rem); }
+    .svc-block { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; padding:clamp(4rem,6vw,6rem) 0; border-top:1px solid var(--border); scroll-margin-top:80px; }
+    .svc-block:first-of-type { border-top:none; padding-top:0; }
+    .svc-block:nth-child(even) .svc-vis { order:-1; }
+    .svc-num { font-family:var(--font-d); font-weight:900; font-size:5rem; line-height:1; color:rgba(6,200,245,.06); margin-bottom:1rem; display:block; }
+    .svc-block h2 { font-family:var(--font-d); font-weight:800; font-size:clamp(2rem,3.5vw,3rem); text-transform:uppercase; letter-spacing:-.01em; line-height:1.0; margin-bottom:1.25rem; }
+    .svc-block h2 span { color:var(--cyan); }
+    .svc-block p { color:var(--muted); line-height:1.8; margin-bottom:1rem; font-size:.95rem; }
+    .svc-details { list-style:none; margin:1.5rem 0; display:flex; flex-direction:column; gap:.6rem; }
+    .svc-details li { display:flex; align-items:flex-start; gap:.75rem; font-size:.875rem; color:var(--muted); }
+    .svc-details li::before { content:''; width:6px; height:6px; background:var(--cyan); border-radius:50%; flex-shrink:0; margin-top:.55em; }
+    .btn-p { display:inline-flex; align-items:center; gap:.5rem; background:var(--cyan); color:var(--ink); font-weight:700; font-size:.9rem; padding:.8rem 1.6rem; border-radius:3px; text-decoration:none; transition:background .2s, transform .15s, box-shadow .2s; margin-top:.5rem; }
+    .btn-p:hover { background:var(--cyan-dk); transform:translateY(-2px); box-shadow:0 8px 28px rgba(6,200,245,.2); }
+    .svc-vis { background:var(--ink3); border:1px solid var(--border); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .svc-vis::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 70% at 50% 50%, rgba(6,200,245,.07), transparent 70%); }
+    .svc-vis-icon { font-family:var(--font-d); font-weight:900; font-size:clamp(5rem,10vw,9rem); color:rgba(6,200,245,.08); text-transform:uppercase; letter-spacing:-.04em; position:relative; z-index:1; text-align:center; line-height:1; }
+
+    /* PRICING CTA */
+    .pcta { background:var(--ink2); border-top:1px solid var(--border); padding:clamp(4rem,7vw,7rem) clamp(1.5rem,5vw,4rem); text-align:center; position:relative; overflow:hidden; }
+    .pcta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 80% at 50% 100%, rgba(6,200,245,.06), transparent 60%); pointer-events:none; }
+    .pcta-in { position:relative; z-index:2; }
+    .pcta h2 { font-family:var(--font-d); font-weight:900; font-size:clamp(2.5rem,5vw,5rem); text-transform:uppercase; letter-spacing:-.01em; line-height:1; margin-bottom:1rem; }
+    .pcta p { color:var(--muted); font-size:1.05rem; max-width:460px; margin:0 auto 2.5rem; line-height:1.8; }
+    .cta-phone { font-family:var(--font-d); font-weight:900; font-size:clamp(2rem,5vw,4.5rem); color:var(--cyan); text-decoration:none; display:block; margin-bottom:2rem; letter-spacing:-.01em; transition:color .2s; }
+    .cta-phone:hover { color:var(--white); }
+    .btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-o { display:inline-flex; align-items:center; gap:.5rem; border:1px solid rgba(6,200,245,.3); color:var(--white); font-weight:500; font-size:.95rem; padding:.85rem 1.75rem; border-radius:3px; text-decoration:none; transition:border-color .2s, color .2s; }
+    .btn-o:hover { border-color:var(--cyan); color:var(--cyan); }
+
+    footer { background:var(--ink2); border-top:1px solid var(--border); padding:3.5rem clamp(1.5rem,5vw,4rem) 2rem; }
+    .ft-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem; }
+    .ft-brand p { color:var(--muted); font-size:.875rem; line-height:1.75; margin-top:1rem; max-width:260px; }
+    .ft-col h4 { font-size:.7rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:1.25rem; }
+    .ft-col ul { list-style:none; display:flex; flex-direction:column; gap:.6rem; }
+    .ft-col a { color:rgba(237,246,252,.5); text-decoration:none; font-size:.875rem; transition:color .2s; }
+    .ft-col a:hover { color:var(--white); }
+    .ft-bot { border-top:1px solid var(--border); padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.75rem; }
+    .ft-bot p { color:var(--muted); font-size:.78rem; }
+
+    .r { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+    .r.v { opacity:1; transform:translateY(0); }
+    .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
+
+    @media(max-width:768px) {
+      .svc-block { grid-template-columns:1fr; gap:2.5rem; }
+      .svc-block:nth-child(even) .svc-vis { order:0; }
     }
-    .service-block:nth-child(even) { background:var(--navy2); }
-
-    .service-block-label {
-      display:inline-flex;
-      align-items:center;
-      gap:0.5rem;
-      font-size:0.75rem;
-      font-weight:600;
-      letter-spacing:0.1em;
-      text-transform:uppercase;
-      color:var(--blue);
-      margin-bottom:0.75rem;
-    }
-
-    .service-block h2 {
-      font-family:var(--font-display);
-      font-weight:800;
-      font-size:clamp(2rem,3.5vw,2.8rem);
-      line-height:1.05;
-      margin-bottom:1.25rem;
-    }
-
-    .service-block p {
-      color:var(--muted);
-      line-height:1.75;
-      margin-bottom:1rem;
-      font-size:0.95rem;
-    }
-
-    .service-block .btn-primary {
-      display:inline-flex;
-      align-items:center;
-      gap:0.5rem;
-      background:var(--blue);
-      color:var(--navy);
-      font-weight:700;
-      font-size:0.95rem;
-      padding:0.75rem 1.5rem;
-      border-radius:4px;
-      text-decoration:none;
-      margin-top:0.5rem;
-      transition:background 0.2s,transform 0.15s,box-shadow 0.2s;
-    }
-    .service-block .btn-primary:hover { background:var(--blue-dk); transform:translateY(-2px); box-shadow:0 8px 24px rgba(26,173,219,0.25); }
-
-    .service-visual {
-      background:var(--navy3);
-      border:1px solid var(--border);
-      border-radius:10px;
-      padding:2.5rem;
-      display:flex;
-      flex-direction:column;
-      gap:1.25rem;
-    }
-
-    .service-visual-icon {
-      width:52px;
-      height:52px;
-      background:rgba(26,173,219,0.1);
-      border:1px solid rgba(26,173,219,0.25);
-      border-radius:8px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--blue);
-    }
-
-    .service-visual h3 {
-      font-family:var(--font-display);
-      font-weight:700;
-      font-size:1.2rem;
-      letter-spacing:0.02em;
-    }
-
-    .service-bullets { list-style:none; display:flex; flex-direction:column; gap:0.75rem; }
-    .service-bullets li {
-      display:flex;
-      align-items:flex-start;
-      gap:0.6rem;
-      font-size:0.9rem;
-      color:var(--muted);
-    }
-    .service-bullets li::before {
-      content:'→';
-      color:var(--blue);
-      font-weight:600;
-      flex-shrink:0;
-      margin-top:1px;
-    }
-
-    /* BOTTOM CTA */
-    .bottom-cta {
-      background:var(--navy2);
-      border-top:1px solid var(--border);
-      padding:clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem);
-      text-align:center;
-    }
-    .bottom-cta h2 { font-family:var(--font-display); font-weight:800; font-size:clamp(2rem,4vw,3rem); margin-bottom:0.75rem; }
-    .bottom-cta h2 em { color:var(--blue); font-style:normal; }
-    .bottom-cta p { color:var(--muted); font-size:1rem; max-width:460px; margin:0 auto 2rem; line-height:1.7; }
-    .cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-    .btn-outline { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:var(--white); font-weight:600; font-size:0.95rem; padding:0.75rem 1.5rem; border:1px solid rgba(240,246,251,0.25); border-radius:4px; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; }
-    .btn-outline:hover { border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
-
-    /* FOOTER */
-    footer { background:var(--navy); border-top:1px solid var(--border); padding:3rem clamp(1.5rem,5vw,4rem) 2rem; }
-    .footer-inner { display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; margin-bottom:3rem; }
-    .footer-brand p { color:var(--muted); font-size:0.9rem; line-height:1.7; max-width:280px; margin-top:0.5rem; }
-    .footer-col h4 { font-weight:600; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
-    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:0.5rem; }
-    .footer-col a { color:rgba(240,246,251,0.7); text-decoration:none; font-size:0.9rem; transition:color 0.2s; }
-    .footer-col a:hover { color:var(--white); }
-    .footer-bottom { border-top:1px solid var(--border); padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; }
-    .footer-bottom p { color:var(--muted); font-size:0.8rem; }
-
-    /* REVEAL */
-    .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-
-    @media (max-width:768px) {
+    @media(max-width:640px) {
       .nav-links { display:none; }
-      .nav-links.open { display:flex; flex-direction:column; position:absolute; top:64px; left:0; right:0; background:rgba(6,16,30,0.98); padding:1.5rem 2rem; border-bottom:1px solid var(--border); gap:1.25rem; z-index:99; }
+      .nav-links.open { display:flex; flex-direction:column; position:fixed; top:64px; left:0; right:0; background:rgba(4,7,13,.98); backdrop-filter:blur(12px); padding:2rem; border-bottom:1px solid var(--border); gap:1.5rem; z-index:199; }
       .hamburger { display:flex; }
-      .nav-cta-desktop { display:none; }
-      .service-block { grid-template-columns:1fr; gap:2rem; }
-      .footer-inner { grid-template-columns:1fr; gap:2rem; }
-      .footer-bottom { flex-direction:column; text-align:center; }
+      .btn-nd { display:none; }
+      .ft-top { grid-template-columns:1fr; gap:2rem; }
+      .ft-bot { flex-direction:column; text-align:center; }
     }
+    @media(prefers-reduced-motion:reduce) { .mq-track{animation:none} .r{opacity:1;transform:none} }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">SOAK<span>N</span>WET</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="nav-links">
+  <a href="index.html" class="logo">SOAK<span>&#183;</span>N<span>&#183;</span>WET</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navlinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html" class="active">Services</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="tel:6137625464" class="nav-cta">📞 (613) 762-5464</a></li>
+    <li><a href="tel:6137625464" class="btn-n">Call Now</a></li>
   </ul>
-  <a href="tel:6137625464" class="nav-cta nav-cta-desktop">📞 (613) 762-5464</a>
+  <a href="tel:6137625464" class="btn-n btn-nd">(613) 762-5464</a>
 </nav>
 
-<div class="page-hero">
-  <div class="page-hero-bg"></div>
-  <div class="page-hero-content">
-    <span class="section-label">Our Services</span>
-    <h1>Water Delivery for<br/>Every Situation</h1>
-    <p>Whether you're filling a backyard pool or supplying a construction site, we have the truck, the volume, and the availability to get it done.</p>
+<div class="ph">
+  <div class="ph-in">
+    <span class="eyebrow">Our Services</span>
+    <h1>Water Where<br><span>You Need It</span></h1>
+    <p>Six categories of bulk water delivery, all available across Ottawa and the surrounding region. Same-day service on most requests.</p>
   </div>
 </div>
 
-<div class="services-wrapper">
-
-  <!-- POOL FILLING -->
-  <div class="service-block reveal" id="pool">
-    <div>
-      <span class="service-block-label">Service 01</span>
-      <h2>Pool Filling</h2>
-      <p>Filling a pool with a garden hose can take 3–5 days. We do it in a few hours. Whether you're opening for the season or filling a brand new pool, we show up with a tanker that holds enough to get the job done in a single trip.</p>
-      <p>No wasting municipal water for days on end. No waiting. You call, we schedule, we show up.</p>
-      <a href="tel:6137625464" class="btn-primary">📞 Book a Pool Fill</a>
-    </div>
-    <div class="service-visual">
-      <div class="service-visual-icon">
-        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h20M2 17s2-2 5-2 5 2 8 2 5-2 5-2M7 7l5-5 5 5"/></svg>
-      </div>
-      <h3>Pool Filling — At a Glance</h3>
-      <ul class="service-bullets">
-        <li>Residential and commercial pools</li>
-        <li>New construction pool fills</li>
-        <li>Seasonal top-ups and refills</li>
-        <li>High-capacity tanker — most pools in one load</li>
-        <li>Same-day and next-day availability</li>
-        <li>Serving Ottawa, Kanata, Barrhaven, Orleans &amp; more</li>
-      </ul>
-    </div>
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span class="mq-item">Pool Filling<span class="mq-dot"></span></span>
+    <span class="mq-item">Hot Tub Fills<span class="mq-dot"></span></span>
+    <span class="mq-item">Well Water<span class="mq-dot"></span></span>
+    <span class="mq-item">Construction Supply<span class="mq-dot"></span></span>
+    <span class="mq-item">Cistern Delivery<span class="mq-dot"></span></span>
+    <span class="mq-item">Dust Suppression<span class="mq-dot"></span></span>
+    <span class="mq-item">Emergency Supply<span class="mq-dot"></span></span>
+    <span class="mq-item">Same-Day Ottawa<span class="mq-dot"></span></span>
+    <span class="mq-item">Pool Filling<span class="mq-dot"></span></span>
+    <span class="mq-item">Hot Tub Fills<span class="mq-dot"></span></span>
+    <span class="mq-item">Well Water<span class="mq-dot"></span></span>
+    <span class="mq-item">Construction Supply<span class="mq-dot"></span></span>
+    <span class="mq-item">Cistern Delivery<span class="mq-dot"></span></span>
+    <span class="mq-item">Dust Suppression<span class="mq-dot"></span></span>
+    <span class="mq-item">Emergency Supply<span class="mq-dot"></span></span>
+    <span class="mq-item">Same-Day Ottawa<span class="mq-dot"></span></span>
   </div>
-
-  <!-- HOT TUB -->
-  <div class="service-block reveal" id="hottub">
-    <div>
-      <span class="service-block-label">Service 02</span>
-      <h2>Hot Tub &amp; Spa Filling</h2>
-      <p>Hot tubs don't need huge volumes of water — but waiting two days to fill one with a hose is still unnecessary. We'll have yours ready in a fraction of the time.</p>
-      <p>Just moved into a new place? Bought a new hot tub? We handle the fill so you can get in the same day.</p>
-      <a href="tel:6137625464" class="btn-primary">📞 Book a Hot Tub Fill</a>
-    </div>
-    <div class="service-visual">
-      <div class="service-visual-icon">
-        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
-      </div>
-      <h3>Hot Tub &amp; Spa — At a Glance</h3>
-      <ul class="service-bullets">
-        <li>All sizes — personal hot tubs to full spas</li>
-        <li>New installation fills</li>
-        <li>Water change refills</li>
-        <li>Fast — usually under an hour</li>
-        <li>Same-day booking available</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- RESIDENTIAL -->
-  <div class="service-block reveal" id="residential">
-    <div>
-      <span class="service-block-label">Service 03</span>
-      <h2>Residential Water Delivery</h2>
-      <p>For homes on wells, cisterns, or in areas with water shortages, a sudden supply problem can stop everything. We deliver clean water directly to your holding tank — fast, no complications.</p>
-      <p>Rural homeowners across the Ottawa region rely on us to keep their households running when the well can't keep up.</p>
-      <a href="tel:6137625464" class="btn-primary">📞 Book Residential Delivery</a>
-    </div>
-    <div class="service-visual">
-      <div class="service-visual-icon">
-        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <h3>Residential Delivery — At a Glance</h3>
-      <ul class="service-bullets">
-        <li>Cistern and holding tank delivery</li>
-        <li>Well shortage and dry well support</li>
-        <li>Potable-grade water for residential use</li>
-        <li>Rural and semi-rural properties</li>
-        <li>Emergency same-day delivery available</li>
-        <li>Serving Carleton Place, Smiths Falls, Manotick &amp; beyond</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CONSTRUCTION -->
-  <div class="service-block reveal" id="construction">
-    <div>
-      <span class="service-block-label">Service 04</span>
-      <h2>Construction &amp; Dust Control</h2>
-      <p>Active construction sites need water — for dust suppression to stay compliant, for soil compaction, and for concrete mixing. We serve contractors and site managers who need reliable delivery on a schedule.</p>
-      <p>We work with general contractors, excavation crews, paving companies, and developers across Ottawa. If you need water on site regularly, let's set something up.</p>
-      <a href="tel:6137625464" class="btn-primary">📞 Talk to Us About Site Water</a>
-    </div>
-    <div class="service-visual">
-      <div class="service-visual-icon">
-        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-      </div>
-      <h3>Construction Water — At a Glance</h3>
-      <ul class="service-bullets">
-        <li>Dust control and suppression</li>
-        <li>Soil compaction support</li>
-        <li>Concrete mixing water</li>
-        <li>Large volume — industrial capacity available</li>
-        <li>Scheduled and on-demand deliveries</li>
-        <li>Works with contractors, developers &amp; paving crews</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- LANDSCAPING -->
-  <div class="service-block reveal" id="landscaping">
-    <div>
-      <span class="service-block-label">Service 05</span>
-      <h2>Landscaping &amp; Irrigation</h2>
-      <p>New sod goes down and needs immediate deep watering. Trees get planted and need a soak. Major landscaping projects can't depend on a household tap. We bring the volume to get your project established right from the start.</p>
-      <p>Whether you're a homeowner doing a backyard overhaul or a landscaping company managing multiple sites, we can supply what you need.</p>
-      <a href="tel:6137625464" class="btn-primary">📞 Book Landscaping Water</a>
-    </div>
-    <div class="service-visual">
-      <div class="service-visual-icon">
-        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 12 7 9 7 5a5 5 0 0110 0c0 4-5 7-5 7z"/></svg>
-      </div>
-      <h3>Landscaping Water — At a Glance</h3>
-      <ul class="service-bullets">
-        <li>New sod and turf watering</li>
-        <li>Tree and shrub establishment</li>
-        <li>Irrigation support for large projects</li>
-        <li>Homeowners and landscaping companies</li>
-        <li>Flexible volume — you tell us what you need</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- EMERGENCY -->
-  <div class="service-block reveal" id="emergency">
-    <div>
-      <span class="service-block-label">Service 06</span>
-      <h2>Emergency Water Delivery</h2>
-      <p>Some situations can't wait. A burst pipe. A contaminated well. A water main break. When your supply is suddenly gone and you need water now, call us first.</p>
-      <p>We can't always promise same-day on standard bookings, but for genuine emergencies we do everything we can to get there. Call directly — don't use the form if you need us urgently.</p>
-      <a href="tel:6137625464" class="btn-primary">📞 Call Now — (613) 762-5464</a>
-    </div>
-    <div class="service-visual">
-      <div class="service-visual-icon">
-        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      </div>
-      <h3>Emergency Delivery — At a Glance</h3>
-      <ul class="service-bullets">
-        <li>Water line breaks and main failures</li>
-        <li>Contaminated or failed well recovery</li>
-        <li>Unexpected household water shortage</li>
-        <li>Same-day response when available</li>
-        <li>Call directly for fastest response: (613) 762-5464</li>
-      </ul>
-    </div>
-  </div>
-
 </div>
 
-<div class="bottom-cta">
-  <h2>Not Sure What You Need?<br/><em>Just Call.</em></h2>
-  <p>We'll ask a couple of quick questions and tell you exactly what service fits your situation — and what it'll cost.</p>
-  <div class="cta-btns">
-    <a href="tel:6137625464" class="btn-primary">📞 (613) 762-5464</a>
-    <a href="contact.html" class="btn-outline">Send Us a Message →</a>
+<section class="sec">
+  <!-- 01 POOL -->
+  <div class="svc-block r" id="pool">
+    <div>
+      <span class="svc-num">01</span>
+      <h2>Pool &amp;<br><span>Hot Tub</span> Fills</h2>
+      <p>Nothing kills summer momentum like waiting for your pool to fill on a city hose. We deliver the volume you need in a fraction of the time — usually a few hours, not a few days.</p>
+      <p>Hot tubs too. Whether you're refilling after a drain-and-clean or filling a brand-new installation, we've got you covered.</p>
+      <ul class="svc-details">
+        <li>Above-ground and in-ground pools of any size</li>
+        <li>Hot tub fills and top-ups</li>
+        <li>Same-day delivery available throughout Ottawa</li>
+        <li>Clean, potable-quality water</li>
+      </ul>
+      <a href="contact.html" class="btn-p">Book a Pool Fill &rarr;</a>
+    </div>
+    <div class="svc-vis"><div class="svc-vis-icon">POOL</div></div>
+  </div>
+
+  <!-- 02 WELL -->
+  <div class="svc-block r" id="well">
+    <div>
+      <span class="svc-num">02</span>
+      <h2>Residential<br><span>Well Water</span></h2>
+      <p>Rural properties depend on their wells. When yours runs dry — whether from seasonal drought, high demand, or equipment failure — we get water to you fast so life doesn't stop.</p>
+      <p>We work with properties across Ottawa's rural fringes where city water isn't an option. One call and we'll assess your situation and schedule delivery.</p>
+      <ul class="svc-details">
+        <li>Dry well emergency response</li>
+        <li>Scheduled top-up service for low-yield wells</li>
+        <li>Service to Carleton Place, Almonte, Carp, and beyond</li>
+        <li>Works with most well and cistern systems</li>
+      </ul>
+      <a href="contact.html" class="btn-p">Restore Your Well &rarr;</a>
+    </div>
+    <div class="svc-vis"><div class="svc-vis-icon">WELL</div></div>
+  </div>
+
+  <!-- 03 CISTERN -->
+  <div class="svc-block r" id="cistern">
+    <div>
+      <span class="svc-num">03</span>
+      <h2>Cistern &amp;<br><span>Tank</span> Delivery</h2>
+      <p>Off-grid properties, seasonal cottages, and rural homes often rely on storage tanks rather than direct wells. We keep them filled on a schedule that works for you.</p>
+      <p>Set up a recurring delivery schedule and never worry about running out. We deliver directly to your tank, no fuss.</p>
+      <ul class="svc-details">
+        <li>Underground and above-ground cistern filling</li>
+        <li>Seasonal cottage water supply</li>
+        <li>Scheduled recurring delivery available</li>
+        <li>We pump directly into your storage system</li>
+      </ul>
+      <a href="contact.html" class="btn-p">Schedule Tank Delivery &rarr;</a>
+    </div>
+    <div class="svc-vis"><div class="svc-vis-icon">TANK</div></div>
+  </div>
+
+  <!-- 04 CONSTRUCTION -->
+  <div class="svc-block r" id="construction">
+    <div>
+      <span class="svc-num">04</span>
+      <h2>Construction<br><span>Site</span> Supply</h2>
+      <p>Active job sites need water — for concrete mixing, curing, compaction, and cleanup. We supply the volume you need on the schedule your project demands.</p>
+      <p>We work with general contractors, site managers, and owner-builders across the Ottawa region. Tell us your requirements and we'll build around your timeline.</p>
+      <ul class="svc-details">
+        <li>Concrete mixing and curing water</li>
+        <li>Subgrade compaction supply</li>
+        <li>Equipment washdown</li>
+        <li>Flexible scheduling for active builds</li>
+      </ul>
+      <a href="contact.html" class="btn-p">Get a Site Quote &rarr;</a>
+    </div>
+    <div class="svc-vis"><div class="svc-vis-icon">SITE</div></div>
+  </div>
+
+  <!-- 05 DUST -->
+  <div class="svc-block r" id="dust">
+    <div>
+      <span class="svc-num">05</span>
+      <h2>Dust<br><span>Suppression</span></h2>
+      <p>Unpaved roads, demolition sites, grading operations, and staging areas all generate dust. We apply water to keep it down — protecting workers, neighbours, and equipment.</p>
+      <p>Particularly useful during dry Ottawa summers for gravel driveways, rural access roads, and active earthworks.</p>
+      <ul class="svc-details">
+        <li>Unpaved road treatments</li>
+        <li>Demolition and grading site control</li>
+        <li>Municipal and residential applications</li>
+        <li>Repeat visits available throughout the season</li>
+      </ul>
+      <a href="contact.html" class="btn-p">Request Dust Control &rarr;</a>
+    </div>
+    <div class="svc-vis"><div class="svc-vis-icon">DUST</div></div>
+  </div>
+
+  <!-- 06 EMERGENCY -->
+  <div class="svc-block r" id="emergency">
+    <div>
+      <span class="svc-num">06</span>
+      <h2>Emergency<br><span>Water</span> Supply</h2>
+      <p>Water outages don't wait for business hours. When your supply is cut off — whether from infrastructure failure, contamination, or a burst main — we move fast to restore your supply.</p>
+      <p>Call us directly. We'll do our best to get a truck out the same day. No automated forms, no callback queues — a real person picks up.</p>
+      <ul class="svc-details">
+        <li>Same-day emergency response when available</li>
+        <li>Residential and commercial outage support</li>
+        <li>Temporary storage solutions available</li>
+        <li>Direct line — a person answers</li>
+      </ul>
+      <a href="tel:6137625464" class="btn-p">Call Now: (613) 762-5464</a>
+    </div>
+    <div class="svc-vis"><div class="svc-vis-icon">SOS</div></div>
+  </div>
+</section>
+
+<!-- PRICING CTA -->
+<div class="pcta">
+  <div class="pcta-in">
+    <span class="eyebrow r">Get Pricing</span>
+    <h2 class="r d1">Every job is<br>quoted directly.</h2>
+    <p class="r d2">Pricing depends on volume, distance, and service type. Call us for a fast, no-obligation quote — we'll give you a number on the spot.</p>
+    <a href="tel:6137625464" class="cta-phone r d3">(613) 762-5464</a>
+    <div class="btns r d4">
+      <a href="tel:6137625464" class="btn-p">Call for a Quote</a>
+      <a href="contact.html" class="btn-o">Request Online &rarr;</a>
+    </div>
   </div>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="index.html" class="nav-logo">SOAK<span>N</span>WET</a>
-      <p>Ottawa's bulk water delivery company. Pools, wells, construction sites, and more. Fast, reliable, local.</p>
+  <div class="ft-top">
+    <div class="ft-brand">
+      <a href="index.html" class="logo">SOAK<span>&#183;</span>N<span>&#183;</span>WET</a>
+      <p>Ottawa's bulk water delivery company. Pools, wells, cisterns, and construction sites — we bring the water to you, fast.</p>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#pool">Pool Filling</a></li>
-        <li><a href="#hottub">Hot Tub Filling</a></li>
-        <li><a href="#residential">Residential Delivery</a></li>
-        <li><a href="#construction">Construction Water</a></li>
-        <li><a href="#landscaping">Landscaping Water</a></li>
-        <li><a href="#emergency">Emergency Delivery</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="tel:6137625464">(613) 762-5464</a></li>
-      </ul>
-    </div>
+    <div class="ft-col"><h4>Services</h4><ul>
+      <li><a href="#pool">Pool &amp; Hot Tub</a></li>
+      <li><a href="#well">Well Water</a></li>
+      <li><a href="#cistern">Cistern Delivery</a></li>
+      <li><a href="#construction">Construction Supply</a></li>
+      <li><a href="#dust">Dust Suppression</a></li>
+      <li><a href="#emergency">Emergency Supply</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Company</h4><ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Contact</h4><ul>
+      <li><a href="tel:6137625464">(613) 762-5464</a></li>
+      <li><a href="contact.html">Request a Quote</a></li>
+      <li><span style="color:var(--muted);font-size:.875rem">Ottawa, Ontario</span></li>
+    </ul></div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2024 Soak N Wet Water Delivery. Ottawa, ON.</p>
-    <p>Serving Ottawa &amp; surrounding areas.</p>
+  <div class="ft-bot">
+    <p>&copy; 2024 Soak N Wet. All rights reserved.</p>
+    <p>Ottawa Bulk Water Delivery</p>
   </div>
 </footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navlinks');
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+  const els = document.querySelectorAll('.r');
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target);} }), {threshold:.1});
+  els.forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
