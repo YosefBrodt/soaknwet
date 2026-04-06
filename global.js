@@ -1,66 +1,19 @@
 (function () {
   "use strict";
 
-  var finePointer = window.matchMedia("(pointer: fine)").matches;
-  var wideEnough = window.matchMedia("(min-width: 901px)").matches;
-
-  /* Custom cursor */
-  if (finePointer && wideEnough) {
-    var cur = document.createElement("div");
-    cur.id = "cursor";
-    cur.setAttribute("aria-hidden", "true");
-    document.body.appendChild(cur);
-    document.body.classList.add("has-custom-cursor");
-    document.documentElement.style.cursor = "none";
-
-    var cx = 0,
-      cy = 0,
-      rx = 0,
-      ry = 0,
-      raf = 0;
-    function loop() {
-      rx += (cx - rx) * 0.22;
-      ry += (cy - ry) * 0.22;
-      cur.style.left = rx + "px";
-      cur.style.top = ry + "px";
-      raf = requestAnimationFrame(loop);
-    }
-    document.addEventListener(
-      "mousemove",
-      function (e) {
-        cx = e.clientX;
-        cy = e.clientY;
-        if (!raf) raf = requestAnimationFrame(loop);
-      },
-      { passive: true }
-    );
-
-    var hoverSel =
-      'a, button, [role="button"], input[type="submit"], .btn-p, .btn-o, .btn-n, label[for], select, .sr, .tc, .tag';
-    document.addEventListener(
-      "mouseover",
-      function (e) {
-        if (e.target.closest(hoverSel)) cur.classList.add("is-hover");
-      },
-      true
-    );
-    document.addEventListener(
-      "mouseout",
-      function (e) {
-        if (e.target.closest(hoverSel)) cur.classList.remove("is-hover");
-      },
-      true
-    );
-  }
-
-  /* Nav tighten on scroll */
+  /* Home: nav light over hero, dark after scroll past hero */
   var nav = document.querySelector("nav");
-  if (nav) {
-    function onScroll() {
-      nav.classList.toggle("nav-tight", window.scrollY > 80);
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+  var hero = document.querySelector(".hero");
+  if (nav && hero) {
+    var navHeroObs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          nav.classList.toggle("nav--dark", !entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1 }
+    );
+    navHeroObs.observe(hero);
   }
 
   /* IntersectionObserver for [data-animate] */
