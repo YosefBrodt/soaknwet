@@ -61,6 +61,7 @@
     .svc-details li::before { content:''; width:6px; height:6px; background:var(--cyan-dk); border-radius:50%; flex-shrink:0; margin-top:.55em; }
     .btn-p { display:inline-flex; align-items:center; gap:.5rem; background:var(--ink2); color:var(--white); font-weight:700; font-size:.9rem; padding:.8rem 1.6rem; border-radius:3px; text-decoration:none; transition:background .2s, transform .15s, box-shadow .2s; margin-top:.5rem; }
     .btn-p:hover { background:var(--ink); transform:translateY(-2px); box-shadow:0 8px 28px rgba(15,45,61,.18); }
+    .btn-p:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
     .svc-vis { background:rgba(129,195,215,0.08); border:1px solid rgba(129,195,215,0.2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
     .svc-vis::before {
       content:'';
@@ -81,6 +82,7 @@
     .svc-vis:hover .svc-vis-icon { transform:scale(1.08); }
     .btn-o { display:inline-flex; align-items:center; gap:.5rem; border:1px solid rgba(22,66,91,0.3); color:var(--ink2); font-weight:500; font-size:.95rem; padding:.85rem 1.75rem; border-radius:3px; text-decoration:none; transition:border-color .2s, color .2s, background .2s; }
     .btn-o:hover { border-color:var(--cyan-dk); color:var(--cyan-dk); background:rgba(129,195,215,.06); }
+    .btn-o:focus-visible { outline:2px solid var(--cyan-dk); outline-offset:3px; }
 
     .phone-cta-head { font-family:var(--font-d); font-weight:900; font-size:clamp(2rem,4vw,3.25rem); text-transform:uppercase; letter-spacing:-.01em; line-height:1; margin-bottom:1rem; color:var(--white); }
 
@@ -235,6 +237,30 @@
       <a href="contact.html" class="btn-p">Schedule Tank Delivery &rarr;</a>
     </div>
     <div class="svc-vis" data-animate="fade-right" data-svc-delay="1"><div class="svc-vis-icon">TANK</div></div>
+  </div>
+
+  <!-- BREATHER STRIP (keeps rhythm, no new copy) -->
+  <div class="mq" aria-hidden="true">
+    <div class="mq-row">
+      <div class="mq-track">
+        <span class="mq-item">Pool Filling<span class="mq-dot"></span></span>
+        <span class="mq-item">Hot Tub Fills<span class="mq-dot"></span></span>
+        <span class="mq-item">Well Water<span class="mq-dot"></span></span>
+        <span class="mq-item">Construction Supply<span class="mq-dot"></span></span>
+        <span class="mq-item">Cistern Delivery<span class="mq-dot"></span></span>
+        <span class="mq-item">Dust Suppression<span class="mq-dot"></span></span>
+        <span class="mq-item">Emergency Supply<span class="mq-dot"></span></span>
+        <span class="mq-item">Same-Day Ottawa<span class="mq-dot"></span></span>
+        <span class="mq-item">Pool Filling<span class="mq-dot"></span></span>
+        <span class="mq-item">Hot Tub Fills<span class="mq-dot"></span></span>
+        <span class="mq-item">Well Water<span class="mq-dot"></span></span>
+        <span class="mq-item">Construction Supply<span class="mq-dot"></span></span>
+        <span class="mq-item">Cistern Delivery<span class="mq-dot"></span></span>
+        <span class="mq-item">Dust Suppression<span class="mq-dot"></span></span>
+        <span class="mq-item">Emergency Supply<span class="mq-dot"></span></span>
+        <span class="mq-item">Same-Day Ottawa<span class="mq-dot"></span></span>
+      </div>
+    </div>
   </div>
 
   <!-- 04 CONSTRUCTION -->
