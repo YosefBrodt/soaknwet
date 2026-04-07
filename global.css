@@ -41,6 +41,14 @@
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Layout */
+  --nav-h: 64px;
+  --shadow-nav: 0 12px 40px rgba(15, 45, 61, 0.12);
+  --border-nav: rgba(129, 195, 215, 0.18);
+  --radius-sm: 3px;
+  --radius-cta: 10px;
+  --border-ui: rgba(22, 66, 91, 0.1);
 }
 
 html {
@@ -51,16 +59,6 @@ html {
   html {
     scroll-behavior: auto;
   }
-}
-
-/* Primary solid buttons on ink (Services detail CTAs) */
-.svc-block .btn-p {
-  color: var(--text-on-ink);
-}
-
-.svc-block .btn-p:hover,
-.svc-block .btn-p:focus-visible {
-  color: var(--text-on-ink);
 }
 
 /* Hero “overdrive” — scroll-linked depth (progressive enhancement) */
@@ -87,7 +85,7 @@ html {
 .hero__layer--glow {
   background: radial-gradient(
     70% 55% at 78% 28%,
-    rgba(129, 195, 215, 0.35),
+    rgba(129, 195, 215, 0.22),
     transparent 68%
   );
   transform: translate3d(
@@ -101,7 +99,7 @@ html {
 .hero__layer--depth {
   background: radial-gradient(
     60% 50% at 12% 72%,
-    rgba(15, 45, 61, 0.45),
+    rgba(58, 124, 165, 0.14),
     transparent 70%
   );
   transform: translate3d(
@@ -140,9 +138,16 @@ html {
 /* Site-wide background language (subtle dark→light + blue bloom) */
 body {
   background:
-    radial-gradient(1100px 720px at 82% 18%, rgba(129, 195, 215, 0.22), transparent 62%),
-    radial-gradient(900px 640px at 18% 6%, rgba(58, 124, 165, 0.12), transparent 58%),
-    linear-gradient(90deg, rgba(217, 220, 214, 1) 0%, rgba(217, 220, 214, 1) 38%, rgba(129, 195, 215, 0.10) 72%, rgba(58, 124, 165, 0.10) 100%),
+    radial-gradient(ellipse 1100px 720px at 82% 18%, rgba(129, 195, 215, 0.22), transparent 62%),
+    radial-gradient(ellipse 900px 640px at 18% 6%, rgba(58, 124, 165, 0.12), transparent 58%),
+    linear-gradient(
+      135deg,
+      rgba(217, 220, 214, 1) 0%,
+      rgba(232, 235, 230, 1) 42%,
+      rgba(217, 220, 214, 1) 70%,
+      rgba(129, 195, 215, 0.1) 88%,
+      rgba(58, 124, 165, 0.1) 100%
+    ),
     var(--white);
 }
 
@@ -150,8 +155,14 @@ body {
   body {
     /* Keep the feel, reduce layered “movement” from parallax scrolling perception */
     background:
-      radial-gradient(1000px 700px at 82% 18%, rgba(129, 195, 215, 0.18), transparent 62%),
-      linear-gradient(90deg, rgba(217, 220, 214, 1) 0%, rgba(217, 220, 214, 1) 44%, rgba(129, 195, 215, 0.08) 78%, rgba(58, 124, 165, 0.08) 100%),
+      radial-gradient(ellipse 1000px 700px at 82% 18%, rgba(129, 195, 215, 0.18), transparent 62%),
+      linear-gradient(
+        135deg,
+        rgba(217, 220, 214, 1) 0%,
+        rgba(232, 235, 230, 1) 50%,
+        rgba(129, 195, 215, 0.08) 85%,
+        rgba(58, 124, 165, 0.08) 100%
+      ),
       var(--white);
   }
 }
@@ -169,26 +180,7 @@ footer a:visited,
   color: inherit;
 }
 
-/* Nav: ensure clickables are always white + readable */
-nav a,
-nav a:visited {
-  color: var(--white) !important;
-}
-nav .nav-links a {
-  color: rgba(217, 220, 214, 0.92) !important;
-}
-nav .nav-links a:hover {
-  color: var(--white) !important;
-}
-nav .btn-n {
-  background: rgba(255, 255, 255, 0.10) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  color: var(--white) !important;
-}
-nav .btn-n:hover {
-  background: rgba(255, 255, 255, 0.16) !important;
-  transform: translateY(-1px);
-}
+/* Nav link + CTA styling lives in site.css (scoped by page class) */
 
 /* Pre-footer phone CTA (all pages) */
 .phone-cta {
