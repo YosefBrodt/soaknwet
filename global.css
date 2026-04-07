@@ -19,6 +19,19 @@ body {
   }
 }
 
+/* Prevent default browser purple visited links on CTAs/nav (marketing pages) */
+a:visited {
+  color: inherit;
+}
+nav .nav-links a:visited,
+footer a:visited,
+.btn-n:visited,
+.btn-p:visited,
+.btn-o:visited,
+.phone-cta a:visited {
+  color: inherit;
+}
+
 /* Pre-footer phone CTA (all pages) */
 .phone-cta {
   position: relative;
