@@ -229,6 +229,41 @@
       .ft-bot { flex-direction:column; text-align:center; }
     }
     @media(prefers-reduced-motion:reduce) { .r { opacity:1; transform:none; } }
+
+    /* ── WARP SHADER HERO – dark bg overrides ─────────────────────────── */
+    .hero {
+      background: transparent;         /* shader canvas sits behind content  */
+      color: var(--white);
+    }
+    /* keep the page bg white so areas above/below hero aren't affected */
+    body { background: var(--white); }
+    .hero h1 > span:first-child { color: var(--white); }
+    .hero h1 .ghost {
+      -webkit-text-stroke: 2px rgba(217,220,214,0.22);
+      color: transparent;
+    }
+    .hero-sub { color: rgba(217,220,214,0.82); }
+    .hero .pill {
+      border-color: rgba(129,195,215,0.4);
+      background: rgba(129,195,215,0.12);
+      color: var(--cyan);
+    }
+    .hero-meta-strip {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .hero-meta-strip .hm-item:not(:first-child) {
+      border-left-color: rgba(255,255,255,0.1);
+    }
+    .hero .hm-num  { color: var(--white); }
+    .hero .hm-label { color: rgba(217,220,214,0.6); }
+    /* primary CTA – swap to cyan on dark */
+    .hero .btn-p { background: var(--cyan); color: var(--ink); }
+    .hero .btn-p:hover { background: var(--white); box-shadow: 0 8px 32px rgba(129,195,215,.3); }
+    /* outline CTA */
+    .hero .btn-o { border-color: rgba(217,220,214,0.35); color: var(--white); background: transparent; }
+    .hero .btn-o:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(129,195,215,.06); }
+    /* ────────────────────────────────────────────────────────────────────── */
   </style>
 </head>
 <body>
@@ -544,5 +579,63 @@
   });
 </script>
 <script src="global.js"></script>
+
+<script type="module">
+  import {
+    ShaderMount,
+    warpFragmentShader,
+    WarpPatterns,
+    getShaderColorFromString,
+    getShaderNoiseTexture
+  } from 'https://esm.sh/@paper-design/shaders@0.0.72';
+
+  const hero = document.querySelector('.hero');
+  if (!hero) throw new Error('No .hero element found');
+
+  const colors = [
+    'hsl(200, 100%, 20%)',
+    'hsl(160, 100%, 75%)',
+    'hsl(180, 90%, 30%)',
+    'hsl(170, 100%, 80%)',
+  ];
+  const maxColorCount = 10;
+  const colorVec4s = colors.map(c => getShaderColorFromString(c));
+  while (colorVec4s.length < maxColorCount) colorVec4s.push([0, 0, 0, 0]);
+
+  const noiseTexture = getShaderNoiseTexture();
+
+  try {
+    new ShaderMount(
+      hero,
+      warpFragmentShader,
+      {
+        u_colors:          colorVec4s,
+        u_colorsCount:     colors.length,
+        u_proportion:      0.45,
+        u_softness:        1,
+        u_shape:           WarpPatterns.checks,
+        u_shapeScale:      0.1,
+        u_distortion:      0.25,
+        u_swirl:           0.8,
+        u_swirlIterations: 10,
+        u_noiseTexture:    noiseTexture,
+        u_fit:             0,
+        u_scale:           1,
+        u_rotation:        0,
+        u_offsetX:         0,
+        u_offsetY:         0,
+        u_originX:         0.5,
+        u_originY:         0.5,
+        u_worldWidth:      0,
+        u_worldHeight:     0,
+        u_imageAspectRatio: 1,
+      },
+      undefined,
+      1,
+    );
+  } catch (e) {
+    console.warn('Warp shader not supported:', e);
+  }
+</script>
 </body>
 </html>
