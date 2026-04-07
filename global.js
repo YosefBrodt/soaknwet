@@ -1,6 +1,23 @@
 (function () {
   "use strict";
 
+  /* Home hero: scroll-linked parallax depth (overdrive; disabled when reduced motion) */
+  var heroOd = document.querySelector(".hero.hero--od");
+  if (
+    heroOd &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    function setHeroParallax() {
+      var rect = heroOd.getBoundingClientRect();
+      var h = Math.max(rect.height, 1);
+      var t = Math.min(1, Math.max(0, -rect.top / (h * 0.65)));
+      heroOd.style.setProperty("--hero-s", t.toFixed(4));
+    }
+    window.addEventListener("scroll", setHeroParallax, { passive: true });
+    window.addEventListener("resize", setHeroParallax, { passive: true });
+    setHeroParallax();
+  }
+
   /* Home: nav light over hero, dark after scroll past hero */
   var nav = document.querySelector("nav");
   var hero = document.querySelector(".hero");
