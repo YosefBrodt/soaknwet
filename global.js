@@ -136,4 +136,22 @@
     );
     statObs.observe(statsRoot);
   }
+
+  /* Mobile nav drawer (all pages) */
+  var hamBtn = document.getElementById("hamburger");
+  var navLinks = document.getElementById("navlinks");
+  if (hamBtn && navLinks) {
+    hamBtn.addEventListener("click", function () {
+      var isOpen = navLinks.classList.toggle("open");
+      hamBtn.classList.toggle("open", isOpen);
+      hamBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        hamBtn.classList.remove("open");
+        hamBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
 })();

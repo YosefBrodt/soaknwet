@@ -32,6 +32,25 @@ body.page-home nav.nav--dark {
   border-bottom-color: rgba(129, 195, 215, 0.16);
 }
 
+body.page-home .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+body.page-home .hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--white);
+  transition: background 0.3s ease;
+}
+
 body.page-home nav .logo {
   font-family: var(--font-d);
   font-weight: 900;
@@ -60,25 +79,51 @@ body.page-home nav .nav-links a {
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.02em;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
-body.page-home nav .nav-links a:hover {
+body.page-home nav .nav-links a:hover,
+body.page-home nav .nav-links a.active {
   color: var(--white);
 }
 
-body.page-home nav:not(.nav--dark) .hamburger span,
-body.page-home nav.nav--dark .hamburger span {
-  background: var(--white);
-}
-
-/* Match subpage nav CTA in both scroll states (hero is light like .ph) */
+/* Match subpage nav (site.css) — CTAs + header phone */
 body.page-home nav .nav-links .btn-n {
-  background: var(--cyan);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(129, 195, 215, 0.92);
   color: var(--ink) !important;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+  border: none;
 }
 
 body.page-home nav .nav-links .btn-n:hover {
+  background: var(--white);
+  transform: translateY(-1px);
+}
+
+body.page-home nav > a.btn-n {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(129, 195, 215, 0.92);
+  color: var(--ink) !important;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+  border: none;
+}
+
+body.page-home nav > a.btn-n:hover {
   background: var(--white);
   transform: translateY(-1px);
 }
@@ -867,7 +912,8 @@ body.page-home nav .nav-links .btn-n:hover {
     color: var(--white);
   }
 
-  body.page-home .nav-links.open a:hover {
+  body.page-home .nav-links.open a:hover,
+  body.page-home .nav-links.open a.active {
     color: var(--cyan);
   }
 

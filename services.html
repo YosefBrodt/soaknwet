@@ -15,7 +15,7 @@
 
 <nav>
   <a href="index.html" class="logo">SOAK<span>&#183;</span>N<span>&#183;</span>WET</a>
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navlinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html" class="active">Services</a></li>
@@ -254,24 +254,6 @@
   </div>
 </footer>
 
-<script>
-  (function () {
-    var btn = document.getElementById('hamburger');
-    var nav = document.getElementById('navlinks');
-    btn.addEventListener('click', function () {
-      var isOpen = nav.classList.toggle('open');
-      btn.classList.toggle('open', isOpen);
-      btn.setAttribute('aria-expanded', isOpen);
-    });
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('open');
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  })();
-</script>
 <script src="global.js"></script>
 </body>
 </html>
