@@ -12,7 +12,6 @@ body.page-sub,
 body.page-contact {
   color: var(--ink);
   font-family: var(--font-b);
-  font-size: 1rem;
   line-height: 1.65;
   overflow-x: hidden;
 }
@@ -86,10 +85,10 @@ body.page-contact .nav-links a {
   transition: color 0.2s ease;
 }
 
-body.page-sub .nav-links a:hover,
-body.page-sub .nav-links a.active,
-body.page-contact .nav-links a:hover,
-body.page-contact .nav-links a.active {
+body.page-sub .nav-links a:not(.btn-n):hover,
+body.page-sub .nav-links a:not(.btn-n).active,
+body.page-contact .nav-links a:not(.btn-n):hover,
+body.page-contact .nav-links a:not(.btn-n).active {
   color: var(--white);
 }
 
@@ -193,33 +192,27 @@ body.page-contact .hamburger span {
   transition: background 0.3s ease;
 }
 
-/* ——— Page hero (Services / About; Contact uses .ph--contact) ——— */
-.ph {
+/* ——— Page hero: subpage .ph + Home .hero — same mesh, noise, and 135° gradients ——— */
+.ph,
+.hero.hero--od {
   padding: clamp(5.5rem, 9vw, 7.5rem) var(--section-x) clamp(2.75rem, 5vw, 4.5rem);
-  /* Neighbouring hues (cyan → blue, ~60° max); mesh direction 135° */
-  background: linear-gradient(
-    135deg,
-    rgba(217, 220, 214, 0.94) 0%,
-    rgba(232, 235, 230, 0.88) 38%,
-    rgba(129, 195, 215, 0.2) 78%,
-    rgba(58, 124, 165, 0.14) 100%
-  );
+  background: var(--gradient-page-hero);
   border-bottom: 1px solid var(--border-ui);
   position: relative;
   overflow: hidden;
   color: var(--ink);
 }
 
-.ph--contact {
-  background: linear-gradient(
-    135deg,
-    rgba(129, 195, 215, 0.16) 0%,
-    rgba(232, 235, 230, 0.94) 55%,
-    rgba(217, 220, 214, 0.92) 100%
-  );
+.hero.hero--od {
+  isolation: isolate;
 }
 
-.ph::before {
+.ph.ph--contact {
+  background: var(--gradient-page-hero-contact);
+}
+
+.ph::before,
+.hero.hero--od::before {
   content: "";
   position: absolute;
   top: -20%;
@@ -233,12 +226,15 @@ body.page-contact .hamburger span {
     transparent 62%
   );
   pointer-events: none;
+  z-index: 0;
 }
 
-.ph::after {
+.ph::after,
+.hero.hero--od::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 0;
   background-image:
     linear-gradient(
       135deg,
@@ -251,7 +247,7 @@ body.page-contact .hamburger span {
       rgba(129, 195, 215, 0.06) 0%,
       transparent 52%
     ),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    var(--hero-noise-tile);
   opacity: 0.04;
   pointer-events: none;
 }
@@ -282,7 +278,7 @@ body.page-contact .hamburger span {
 .hero.hero--od .ph-in h1 {
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-size: var(--text-page-headline);
   line-height: 0.95;
   text-transform: uppercase;
   letter-spacing: -0.01em;
@@ -392,7 +388,7 @@ footer .ft-brand .logo:focus-visible {
 
 .ft-bot p {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
 }
 
 /* ——— Services template ——— */
@@ -429,7 +425,7 @@ footer .ft-brand .logo:focus-visible {
 .svc-num {
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: 5rem;
+  font-size: var(--text-svc-num);
   line-height: 1;
   color: rgba(22, 66, 91, 0.05);
   margin-bottom: 1rem;
@@ -439,7 +435,7 @@ footer .ft-brand .logo:focus-visible {
 .svc-block h2 {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: var(--text-section-title);
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 1;
@@ -622,7 +618,7 @@ footer .ft-brand .logo:focus-visible {
 .story-text h2 {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: var(--text-story-title);
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 1;
@@ -695,7 +691,7 @@ footer .ft-brand .logo:focus-visible {
   color: var(--white);
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-size: var(--text-values-title);
   line-height: 1.02;
   text-transform: uppercase;
   letter-spacing: -0.01em;
@@ -733,7 +729,7 @@ footer .ft-brand .logo:focus-visible {
 .val-num {
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: 4rem;
+  font-size: var(--text-val-num);
   color: rgba(129, 195, 215, 0.07);
   line-height: 1;
   margin-bottom: 1.25rem;
@@ -778,7 +774,7 @@ footer .ft-brand .logo:focus-visible {
 }
 
 .bigstat-left .sh {
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: var(--text-stat-hero);
   line-height: 0.9;
   color: var(--white);
 }
@@ -1219,7 +1215,7 @@ select.form-control {
 
 .form-note {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   text-align: center;
   margin-top: 0.75rem;
 }
@@ -1332,15 +1328,15 @@ select.form-control {
     z-index: 199;
   }
 
-  body.page-sub .nav-links.open a,
-  body.page-contact .nav-links.open a {
+  body.page-sub .nav-links.open a:not(.btn-n),
+  body.page-contact .nav-links.open a:not(.btn-n) {
     color: var(--white);
   }
 
-  body.page-sub .nav-links.open a:hover,
-  body.page-sub .nav-links.open a.active,
-  body.page-contact .nav-links.open a:hover,
-  body.page-contact .nav-links.open a.active {
+  body.page-sub .nav-links.open a:not(.btn-n):hover,
+  body.page-sub .nav-links.open a:not(.btn-n).active,
+  body.page-contact .nav-links.open a:not(.btn-n):hover,
+  body.page-contact .nav-links.open a:not(.btn-n).active {
     color: var(--cyan);
   }
 

@@ -4,7 +4,6 @@ body.page-home {
   background: var(--white);
   color: var(--ink);
   font-family: var(--font-b);
-  font-size: 1rem;
   line-height: 1.65;
   overflow-x: hidden;
 }
@@ -86,8 +85,8 @@ body.page-home nav .nav-links a {
   transition: color 0.2s ease;
 }
 
-body.page-home nav .nav-links a:hover,
-body.page-home nav .nav-links a.active {
+body.page-home nav .nav-links a:not(.btn-n):hover,
+body.page-home nav .nav-links a:not(.btn-n).active {
   color: var(--white);
 }
 
@@ -156,71 +155,12 @@ body.page-home .hamburger:focus-visible {
   border-radius: 2px;
 }
 
-/* Hero — same typography as .ph (site.css); mesh gradients at 135°, hues in ~60° cyan→blue slice */
+/* Hero — surface + noise match .ph (site.css); parallax layers + WebGL sit above */
 .hero {
   position: relative;
   min-height: calc(100svh - var(--nav-h));
   display: grid;
   place-items: start center;
-  overflow: hidden;
-  padding: clamp(5.5rem, 9vw, 7.5rem) var(--section-x) clamp(2.75rem, 5vw, 4.5rem);
-  color: var(--ink);
-  border-bottom: 1px solid var(--border-ui);
-  background:
-    radial-gradient(
-      ellipse 85% 60% at 18% 18%,
-      rgba(190, 228, 240, 0.45),
-      transparent 58%
-    ),
-    radial-gradient(
-      ellipse 75% 55% at 88% 12%,
-      rgba(150, 190, 215, 0.22),
-      transparent 55%
-    ),
-    linear-gradient(
-      135deg,
-      rgba(225, 242, 248, 0.98) 0%,
-      rgba(232, 244, 248, 0.96) 32%,
-      rgba(218, 235, 244, 0.94) 58%,
-      rgba(175, 210, 228, 0.35) 82%,
-      rgba(130, 175, 205, 0.22) 100%
-    );
-  isolation: isolate;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.022;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(
-      135deg,
-      transparent 0%,
-      rgba(150, 195, 220, 0.06) 40%,
-      transparent 68%
-    ),
-    linear-gradient(
-      135deg,
-      rgba(200, 232, 245, 0.35) 0%,
-      transparent 52%
-    ),
-    linear-gradient(
-      135deg,
-      transparent 35%,
-      rgba(120, 170, 200, 0.08) 100%
-    );
-  pointer-events: none;
-  z-index: 2;
 }
 
 .hc {
@@ -317,7 +257,7 @@ body.page-home .hamburger:focus-visible {
 .sh {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: var(--display-2);
+  font-size: var(--text-section-title-wide);
   line-height: 1.02;
   text-transform: uppercase;
   letter-spacing: -0.01em;
@@ -357,7 +297,7 @@ body.page-home .hamburger:focus-visible {
 }
 
 .svs-hdr .sh {
-  font-size: clamp(2.25rem, 3.5vw, 4rem);
+  font-size: var(--text-section-title-wide);
   line-height: 1.02;
   margin-bottom: 0;
 }
@@ -398,7 +338,7 @@ body.page-home .hamburger:focus-visible {
   transform: translateY(-50%);
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: 8rem;
+  font-size: var(--text-sr-bg);
   line-height: 1;
   color: rgba(129, 195, 215, 0.04);
   z-index: 0;
@@ -445,7 +385,7 @@ body.page-home .hamburger:focus-visible {
   z-index: 1;
   font-family: var(--font-d);
   font-weight: 700;
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.08em;
   color: var(--muted2);
   flex-shrink: 0;
@@ -459,7 +399,7 @@ body.page-home .hamburger:focus-visible {
 .sr-name {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: var(--text-sr-name);
   letter-spacing: 0.01em;
   text-transform: uppercase;
   transition: color 0.2s;
@@ -553,7 +493,7 @@ body.page-home .hamburger:focus-visible {
 .sb-num {
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-size: var(--text-sb-num);
   letter-spacing: -0.02em;
   line-height: 1;
   color: var(--white);
@@ -646,7 +586,7 @@ body.page-home .hamburger:focus-visible {
   top: -0.5rem;
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: 7rem;
+  font-size: var(--text-hiw-watermark);
   line-height: 1;
   color: rgba(129, 195, 215, 0.07);
   z-index: 0;
@@ -742,7 +682,7 @@ body.page-home .hamburger:focus-visible {
   top: 0.25rem;
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: 10rem;
+  font-size: var(--text-quote-deco);
   line-height: 1;
   color: rgba(129, 195, 215, 0.07);
   pointer-events: none;
@@ -758,7 +698,7 @@ body.page-home .hamburger:focus-visible {
 
 .tc-stars {
   color: var(--cyan);
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.15em;
   margin-bottom: 0.75rem;
   position: relative;
@@ -801,7 +741,7 @@ body.page-home .hamburger:focus-visible {
 }
 
 .tc-loc {
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   color: var(--muted);
 }
 
@@ -867,7 +807,7 @@ body.page-home .hamburger:focus-visible {
 }
 
 .area-map-in p {
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 600;
@@ -935,13 +875,13 @@ body.page-home .hamburger:focus-visible {
     z-index: 199;
   }
 
-  body.page-home .nav-links.open a {
+  body.page-home .nav-links.open a:not(.btn-n) {
     font-size: 1.05rem;
     color: var(--white);
   }
 
-  body.page-home .nav-links.open a:hover,
-  body.page-home .nav-links.open a.active {
+  body.page-home .nav-links.open a:not(.btn-n):hover,
+  body.page-home .nav-links.open a:not(.btn-n).active {
     color: var(--cyan);
   }
 

@@ -31,13 +31,43 @@
   --section-x: clamp(1.5rem, 5vw, 4rem);
   --prose-width: 65ch;
 
-  /* Type scale (marketing) */
-  --text-xs: 0.7rem;
-  --text-sm: 0.875rem;
-  --text-body: 1rem;
-  --text-lead: 1.05rem;
+  /* Type scale (marketing) — fluid; small type floors ~12px for labels */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8125rem);
+  --text-sm: clamp(0.875rem, 0.82rem + 0.18vw, 0.9375rem);
+  --text-body: clamp(1rem, 0.96rem + 0.15vw, 1.0625rem);
+  --text-lead: clamp(1.02rem, 0.96rem + 0.25vw, 1.125rem);
   --display-1: clamp(2.65rem, 4.8vw, 4.75rem);
   --display-2: clamp(2.25rem, 4vw, 3.75rem);
+  /* Shared display roles (Barlow Condensed) */
+  --text-page-headline: clamp(3.5rem, 7vw, 6.5rem);
+  --text-section-title: clamp(2rem, 3.5vw, 3rem);
+  --text-section-title-wide: clamp(2.25rem, 3.5vw, 4rem);
+  --text-story-title: clamp(2.5rem, 4vw, 3.5rem);
+  --text-values-title: clamp(2.5rem, 4.5vw, 4rem);
+  --text-stat-hero: clamp(4rem, 9vw, 8rem);
+  --text-svc-num: clamp(3rem, 8vw, 5rem);
+  --text-val-num: clamp(3rem, 7vw, 4rem);
+  --text-sb-num: clamp(3.5rem, 7vw, 6rem);
+  --text-sr-bg: clamp(4rem, 14vw, 8rem);
+  --text-sr-name: clamp(1.5rem, 2.5vw, 2rem);
+  --text-quote-deco: clamp(4rem, 12vw, 10rem);
+  --text-hiw-watermark: clamp(4rem, 11vw, 7rem);
+
+  /* Page hero / mesh — one system for Home hero + Services/About/Contact headers */
+  --gradient-page-hero: linear-gradient(
+    135deg,
+    rgba(217, 220, 214, 0.94) 0%,
+    rgba(232, 235, 230, 0.88) 38%,
+    rgba(129, 195, 215, 0.2) 78%,
+    rgba(58, 124, 165, 0.14) 100%
+  );
+  --gradient-page-hero-contact: linear-gradient(
+    135deg,
+    rgba(129, 195, 215, 0.16) 0%,
+    rgba(232, 235, 230, 0.94) 55%,
+    rgba(217, 220, 214, 0.92) 100%
+  );
+  --hero-noise-tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -55,10 +85,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Off-screen until focused — must not sit above the nav bar (blocks clicks / tel: links) */
 .skip-link {
   position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
+  left: -9999px;
+  top: 0;
   z-index: 300;
   padding: 0.65rem 1rem;
   font-size: var(--text-sm);
@@ -69,17 +100,17 @@ html {
   background: var(--cyan);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-nav);
-  transform: translateY(-120%);
-  transition: transform 0.2s var(--ease-out-quart);
+  white-space: nowrap;
+  pointer-events: none;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 0.75rem;
+  top: 0.75rem;
+  pointer-events: auto;
   outline: 2px solid var(--ink);
   outline-offset: 2px;
-}
-
-.skip-link:focus-visible {
-  transform: translateY(0);
 }
 
 #main-content {
@@ -89,10 +120,6 @@ html {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .skip-link {
-    transition: none;
   }
 }
 
@@ -120,7 +147,7 @@ html {
 .hero__layer--glow {
   background: radial-gradient(
     70% 55% at 78% 28%,
-    rgba(200, 235, 248, 0.55),
+    rgba(190, 228, 240, 0.45),
     transparent 68%
   );
   transform: translate3d(
@@ -134,7 +161,7 @@ html {
 .hero__layer--depth {
   background: radial-gradient(
     60% 50% at 12% 72%,
-    rgba(140, 185, 210, 0.18),
+    rgba(129, 195, 215, 0.14),
     transparent 70%
   );
   transform: translate3d(
@@ -172,6 +199,9 @@ html {
 
 /* Site-wide background language (subtle dark→light + blue bloom) */
 body {
+  font-family: var(--font-b);
+  font-size: var(--text-body);
+  line-height: 1.65;
   background:
     radial-gradient(ellipse 1100px 720px at 82% 18%, rgba(129, 195, 215, 0.22), transparent 62%),
     radial-gradient(ellipse 900px 640px at 18% 6%, rgba(58, 124, 165, 0.12), transparent 58%),
@@ -243,7 +273,7 @@ footer a:visited,
 }
 .phone-cta .phone-cta-eyebrow {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -300,7 +330,7 @@ footer a:visited,
 
 .phone-cta-note {
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: var(--text-lead);
   max-width: 460px;
   margin: 0 auto 2rem;
   line-height: 1.8;
