@@ -1,10 +1,10 @@
-# SEO Guide - Soak N Wet Water Delivery Ottawa
+# SEO Guide — Soak N Wet Water Delivery Ottawa
 
 ## Homepage Meta Tags (Ready to Copy-Paste)
 
 ```html
-<title>Soak N Wet | Bulk Water Delivery Ottawa - Same-Day Pool, Well & Construction</title>
-<meta name="description" content="Ottawa's bulk water delivery company. We fill pools, hot tubs, wells and supply construction sites - fast. Same-day and next-day delivery available. Call (613) 762-5464." />
+<title>Soak N Wet | Bulk Water Delivery Ottawa — Same-Day Pool, Well & Construction</title>
+<meta name="description" content="Ottawa's bulk water delivery company. We fill pools, hot tubs, wells and supply construction sites — fast. Same-day and next-day delivery available. Call (613) 762-5464." />
 
 <!-- Open Graph (for social sharing) -->
 <meta property="og:title" content="Soak N Wet | Bulk Water Delivery Ottawa" />
@@ -38,16 +38,16 @@
 
 | # | Keyword | Intent | Priority |
 |---|---------|--------|----------|
-| 1 | `bulk water delivery Ottawa` | High - direct match | 🔴 Must rank |
-| 2 | `pool filling service Ottawa` | High - summer seasonal spike | 🔴 Must rank |
-| 3 | `water delivery Ottawa` | High - broad, high volume | 🔴 Must rank |
-| 4 | `cistern water delivery Ottawa` | High - rural homeowners | 🟠 Strong target |
-| 5 | `well water delivery Ottawa` | High - rural / emergency | 🟠 Strong target |
-| 6 | `construction water delivery Ottawa` | High - B2B recurring | 🟠 Strong target |
-| 7 | `tanker water delivery Ottawa` | Medium - intent-specific | 🟡 Good to rank |
-| 8 | `hot tub filling service Ottawa` | Medium - seasonal | 🟡 Good to rank |
+| 1 | `bulk water delivery Ottawa` | High — direct match | 🔴 Must rank |
+| 2 | `pool filling service Ottawa` | High — summer seasonal spike | 🔴 Must rank |
+| 3 | `water delivery Ottawa` | High — broad, high volume | 🔴 Must rank |
+| 4 | `cistern water delivery Ottawa` | High — rural homeowners | 🟠 Strong target |
+| 5 | `well water delivery Ottawa` | High — rural / emergency | 🟠 Strong target |
+| 6 | `construction water delivery Ottawa` | High — B2B recurring | 🟠 Strong target |
+| 7 | `tanker water delivery Ottawa` | Medium — intent-specific | 🟡 Good to rank |
+| 8 | `hot tub filling service Ottawa` | Medium — seasonal | 🟡 Good to rank |
 | 9 | `emergency water delivery Ottawa` | High urgency, low volume | 🟡 Good to rank |
-| 10 | `water truck Ottawa` | Medium - contractor searches | 🟡 Good to rank |
+| 10 | `water truck Ottawa` | Medium — contractor searches | 🟡 Good to rank |
 
 ---
 
@@ -55,32 +55,32 @@
 
 ### services.html
 ```
-<title>Services | Soak N Wet - Ottawa Bulk Water Delivery</title>
+<title>Services | Soak N Wet — Ottawa Bulk Water Delivery</title>
 <meta name="description" content="Bulk water delivery services in Ottawa: pool filling, hot tub filling, residential cistern delivery, construction dust control, landscaping water, and emergency supply." />
 ```
 
 ### about.html
 ```
-<title>About Us | Soak N Wet - Ottawa Bulk Water Delivery</title>
+<title>About Us | Soak N Wet — Ottawa Bulk Water Delivery</title>
 <meta name="description" content="Soak N Wet is Ottawa's local bulk water delivery company. Learn about who we are, what we stand for, and why Ottawa homeowners and contractors trust us." />
 ```
 
 ### contact.html
 ```
-<title>Contact | Soak N Wet - Get a Quote for Water Delivery in Ottawa</title>
-<meta name="description" content="Request a quote or call Soak N Wet directly at (613) 762-5464. Ottawa bulk water delivery - pool fills, well water, construction sites. Fast response guaranteed." />
+<title>Contact | Soak N Wet — Get a Quote for Water Delivery in Ottawa</title>
+<meta name="description" content="Request a quote or call Soak N Wet directly at (613) 762-5464. Ottawa bulk water delivery — pool fills, well water, construction sites. Fast response guaranteed." />
 ```
 
 ---
 
 ## Local SEO Checklist
 
-- [ ] Set up Google Business Profile at google.com/business - this alone can drive significant local calls
+- [ ] Set up Google Business Profile at google.com/business — this alone can drive significant local calls
 - [ ] List phone number consistently as **(613) 762-5464** everywhere (website, GBP, directories)
 - [ ] Submit to local directories: YellowPages.ca, Yelp Canada, HomeStars, Kijiji Services
-- [ ] Ask every happy customer to leave a Google review - reviews are the #1 local ranking factor
+- [ ] Ask every happy customer to leave a Google review — reviews are the #1 local ranking factor
 - [ ] Add service-area pages (optional): individual pages for Kanata, Carleton Place, etc. for long-tail rankings
-- [ ] Make sure the site loads fast on mobile - most calls will come from mobile
+- [ ] Make sure the site loads fast on mobile — most calls will come from mobile
 
 ---
 
