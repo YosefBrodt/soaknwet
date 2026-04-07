@@ -360,11 +360,11 @@
   }
 
   const colors = [
-    /* deep ink + restrained aqua highlights */
-    'hsl(205, 58%, 16%)',
-    'hsl(198, 62%, 26%)',
-    'hsl(190, 62%, 38%)',
-    'hsl(172, 75%, 78%)',
+    /* Neighbouring hues: pale sky → soft steel (light blue → lighter dark blue) */
+    'hsl(200, 48%, 94%)',
+    'hsl(204, 42%, 87%)',
+    'hsl(208, 38%, 74%)',
+    'hsl(212, 36%, 58%)',
   ];
   const maxColorCount = 10;
   const colorVec4s = colors.map(c => getShaderColorFromString(c));
@@ -379,8 +379,8 @@
       {
         u_colors:          colorVec4s,
         u_colorsCount:     colors.length,
-        u_proportion:      0.58,
-        u_softness:        1,
+        u_proportion:      0.52,
+        u_softness:        1.15,
         u_shape:           WarpPatterns.checks,
         u_shapeScale:      0.075,
         u_distortion:      0.14,

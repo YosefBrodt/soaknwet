@@ -78,14 +78,14 @@ html {
   position: absolute;
   inset: -15%;
   will-change: transform;
-  opacity: 0.9;
+  opacity: 0.65;
   transition: opacity 0.3s var(--ease-out-expo);
 }
 
 .hero__layer--glow {
   background: radial-gradient(
     70% 55% at 78% 28%,
-    rgba(129, 195, 215, 0.22),
+    rgba(200, 235, 248, 0.55),
     transparent 68%
   );
   transform: translate3d(
@@ -99,7 +99,7 @@ html {
 .hero__layer--depth {
   background: radial-gradient(
     60% 50% at 12% 72%,
-    rgba(58, 124, 165, 0.14),
+    rgba(140, 185, 210, 0.18),
     transparent 70%
   );
   transform: translate3d(
@@ -111,7 +111,7 @@ html {
 }
 
 .hero__layer--ring {
-  border: 1px solid rgba(129, 195, 215, 0.12);
+  border: 1px solid rgba(170, 210, 228, 0.22);
   border-radius: 50%;
   width: min(120vw, 1400px);
   height: min(120vw, 1400px);
@@ -119,7 +119,7 @@ html {
   top: 50%;
   margin-left: calc(min(120vw, 1400px) / -2);
   margin-top: calc(min(120vw, 1400px) / -2);
-  opacity: 0.35;
+  opacity: 0.22;
   transform: rotate(calc(var(--hero-s, 0) * 8deg))
     translate3d(0, calc(var(--hero-s, 0) * -20px), 0);
 }
