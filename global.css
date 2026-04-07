@@ -55,9 +55,44 @@ html {
   scroll-behavior: smooth;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 300;
+  padding: 0.65rem 1rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--cyan);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-nav);
+  transform: translateY(-120%);
+  transition: transform 0.2s var(--ease-out-quart);
+}
+
+.skip-link:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+#main-content {
+  scroll-margin-top: calc(var(--nav-h) + 0.5rem);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .skip-link {
+    transition: none;
   }
 }
 
@@ -231,6 +266,13 @@ footer a:visited,
 }
 .phone-cta-num:hover {
   transform: scale(1.02);
+  color: var(--white);
+}
+
+.phone-cta-num:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 4px;
+  border-radius: 2px;
   color: var(--white);
 }
 .phone-cta-btns {

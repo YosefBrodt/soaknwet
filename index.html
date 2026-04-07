@@ -13,9 +13,10 @@
   <link rel="stylesheet" href="home.css" />
 </head>
 <body class="page-home">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Primary">
   <a href="index.html" class="logo">SOAK<span>&#183;</span>N<span>&#183;</span>WET</a>
   <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navlinks">
@@ -29,7 +30,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero hero--od">
+<section class="hero hero--od" id="main-content" tabindex="-1">
   <div class="hero__scroll" aria-hidden="true">
     <div class="hero__layer hero__layer--glow"></div>
     <div class="hero__layer hero__layer--depth"></div>
@@ -310,7 +311,7 @@
     </ul></div>
   </div>
   <div class="ft-bot">
-    <p>&copy; 2024 Soak N Wet. All rights reserved.</p>
+    <p>&copy; 2026 Soak N Wet. All rights reserved.</p>
     <p>Ottawa Bulk Water Delivery</p>
   </div>
 </footer>
@@ -381,8 +382,8 @@
       undefined,
       1,
     );
-  } catch (e) {
-    console.warn('Warp shader not supported:', e);
+  } catch {
+    /* WebGL / shader unsupported — CSS hero remains */
   }
 </script>
 </body>

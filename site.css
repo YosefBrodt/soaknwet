@@ -139,6 +139,35 @@ body.page-contact nav > a.btn-n:hover {
   transform: translateY(-1px);
 }
 
+body.page-sub nav > a.logo:focus-visible,
+body.page-contact nav > a.logo:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+body.page-sub .nav-links a:focus-visible,
+body.page-contact .nav-links a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+body.page-sub nav .nav-links .btn-n:focus-visible,
+body.page-contact nav .nav-links .btn-n:focus-visible,
+body.page-sub nav > a.btn-n:focus-visible,
+body.page-contact nav > a.btn-n:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+body.page-sub .hamburger:focus-visible,
+body.page-contact .hamburger:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 body.page-sub .hamburger,
 body.page-contact .hamburger {
   display: none;
@@ -147,7 +176,11 @@ body.page-contact .hamburger {
   cursor: pointer;
   background: none;
   border: none;
-  padding: 4px;
+  padding: 0 12px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 body.page-sub .hamburger span,
@@ -328,6 +361,18 @@ footer .ft-brand .logo span {
 
 .ft-col a:hover {
   color: var(--white);
+}
+
+footer .ft-brand .logo:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.ft-col a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .ft-muted {
@@ -918,7 +963,7 @@ footer .ft-brand .logo span {
 }
 
 .call-num:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--cyan);
   outline-offset: 3px;
 }
 

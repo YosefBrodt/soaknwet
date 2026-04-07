@@ -39,7 +39,11 @@ body.page-home .hamburger {
   cursor: pointer;
   background: none;
   border: none;
-  padding: 4px;
+  padding: 0 12px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 body.page-home .hamburger span {
@@ -126,6 +130,30 @@ body.page-home nav > a.btn-n {
 body.page-home nav > a.btn-n:hover {
   background: var(--white);
   transform: translateY(-1px);
+}
+
+body.page-home nav .logo:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+body.page-home nav .nav-links a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+body.page-home nav .nav-links .btn-n:focus-visible,
+body.page-home nav > a.btn-n:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+body.page-home .hamburger:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* Hero — same typography as .ph (site.css); mesh gradients at 135°, hues in ~60° cyan→blue slice */
