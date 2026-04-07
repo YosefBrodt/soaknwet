@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0f2d3d;
+  --ink2: #16425b;
+  --ink3: #1e4f6e;
+  --ink4: #2f6690;
+  --cyan: #81c3d7;
+  --cyan-dk: #3a7ca5;
+  --white: #d9dcd6;
+  --muted: #3a7ca5;
+  --muted2: #2f6690;
+  --border: rgba(129, 195, 215, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--ink);
+}
+
