@@ -1,5 +1,24 @@
 /* Soak N Wet — shared premium layer (marquee, CTA, scroll animations) */
 
+/* Site-wide background language (subtle dark→light + blue bloom) */
+body {
+  background:
+    radial-gradient(1100px 720px at 82% 18%, rgba(129, 195, 215, 0.22), transparent 62%),
+    radial-gradient(900px 640px at 18% 6%, rgba(58, 124, 165, 0.12), transparent 58%),
+    linear-gradient(90deg, rgba(217, 220, 214, 1) 0%, rgba(217, 220, 214, 1) 38%, rgba(129, 195, 215, 0.10) 72%, rgba(58, 124, 165, 0.10) 100%),
+    var(--white) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    /* Keep the feel, reduce layered “movement” from parallax scrolling perception */
+    background:
+      radial-gradient(1000px 700px at 82% 18%, rgba(129, 195, 215, 0.18), transparent 62%),
+      linear-gradient(90deg, rgba(217, 220, 214, 1) 0%, rgba(217, 220, 214, 1) 44%, rgba(129, 195, 215, 0.08) 78%, rgba(58, 124, 165, 0.08) 100%),
+      var(--white) !important;
+  }
+}
+
 /* Pre-footer phone CTA (all pages) */
 .phone-cta {
   position: relative;
