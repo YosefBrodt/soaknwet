@@ -1,7 +1,11 @@
+import { WaterHeroBackground } from "@/components/ui/water-hero";
+
 export default function HomePage() {
   return (
     <main className="min-h-screen">
       <section className="relative min-h-screen overflow-hidden">
+        <WaterHeroBackground />
+
         <div className="absolute inset-0 bg-[rgba(15,45,61,0.45)]" />
 
         <div className="relative z-10 min-h-screen flex items-center px-6 md:px-12">
