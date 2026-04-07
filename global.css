@@ -1,5 +1,28 @@
 /* Soak N Wet — shared premium layer (marquee, CTA, scroll animations) */
 
+/* Warp shader background (mounted via warp-bg.js) */
+[data-warp-bg] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-warp-bg] > :not(.warp-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+.warp-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.22;
+}
+
+.warp-bg canvas {
+  display: block;
+}
+
 /* Pre-footer phone CTA (all pages) */
 .phone-cta {
   position: relative;
