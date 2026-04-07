@@ -85,6 +85,24 @@
       -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 22px 70px rgba(0,0,0,0.28);
     }
+    .hero-right-card::before{
+      content:'';
+      position:absolute;
+      inset:-1px;
+      border-radius: inherit;
+      pointer-events:none;
+      background: radial-gradient(120% 120% at 15% 10%, rgba(129,195,215,0.18), transparent 55%);
+      opacity: .9;
+      z-index:0;
+    }
+    .hero-right-card{
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-right-card > *{
+      position:relative;
+      z-index:1;
+    }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
     .hero h1 { font-family: var(--font-d); font-weight:900; font-size:clamp(5.0rem,13.5vw,12.5rem); line-height:.92; letter-spacing:-.02em; text-transform:uppercase; margin-bottom:0; color:var(--ink); text-shadow: 0 12px 60px rgba(0,0,0,0.30); }
     .hero h1 > span:first-child { color:var(--ink); display:block; }
@@ -224,7 +242,7 @@
     }
     @media(max-width:640px) {
       .nav-links { display:none; }
-      .nav-links.open { display:flex; flex-direction:column; position:fixed; top:64px; left:0; right:0; background:rgba(22,66,91,.98); backdrop-filter:blur(12px); padding:2rem; border-bottom:1px solid var(--border); gap:1.5rem; z-index:199; }
+      .nav-links.open { display:flex; flex-direction:column; position:fixed; top:64px; left:0; right:0; background:rgba(15,45,61,.98); backdrop-filter:blur(12px); padding:2rem; border-bottom:1px solid var(--border); gap:1.5rem; z-index:199; }
       .nav-links.open a { font-size:1.05rem; color:var(--white); }
       .nav-links.open a:hover { color:var(--cyan); }
       .nav-links.open .btn-n { background:var(--cyan); color:var(--ink) !important; }
@@ -235,6 +253,7 @@
       .hero { padding-top: 5.25rem; }
       .hero-grid { grid-template-columns: 1fr; }
       .hero-right { justify-self:start; }
+      .hero-left h1 { font-size: clamp(3.7rem, 16vw, 6.6rem); }
       .hero-right-card { padding: 1.05rem 1rem 1rem; }
       .hero-meta-strip { grid-template-columns: 1fr; padding: .95rem 1rem; }
       .hero-meta-strip .hm-item { padding: .25rem 0; border-left:none !important; }
@@ -610,6 +629,16 @@
 
   const hero = document.querySelector('.hero');
   if (!hero) throw new Error('No .hero element found');
+
+  const disableShader =
+    window.matchMedia('(max-width: 768px)').matches ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (disableShader) {
+    // Mobile + reduced-motion: avoid heavy WebGL/jank.
+    // We still keep the hero readable via CSS scrims/panels.
+    return;
+  }
 
   const colors = [
     'hsl(200, 100%, 20%)',
