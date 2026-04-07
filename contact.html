@@ -146,10 +146,13 @@
       .nav-links.open a { color:var(--white); }
       .nav-links.open a:hover, .nav-links.open a.active { color:var(--cyan); }
       .nav-links.open .btn-n { background:var(--cyan); color:var(--ink) !important; }
-      /* Mobile: keep top bar clean; drawer shows only Contact + Call */
-      .nav-links.open li:nth-child(-n+3) { display:none; }
+      /* Mobile: show all nav links in drawer */
       .hamburger { display:flex; }
       .btn-nd { display:none; }
+      .hamburger span { transition: transform 0.22s ease, opacity 0.22s ease, background 0.3s ease; }
+      .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
       .form-row { grid-template-columns:1fr; }
       .form-wrap { padding:2rem; }
       .ft-top { grid-template-columns:1fr; gap:2rem; }
@@ -367,9 +370,22 @@
 </footer>
 
 <script>
-  document.getElementById('hamburger').addEventListener('click', function () {
-    document.getElementById('navlinks').classList.toggle('open');
-  });
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var navEl = document.getElementById('navlinks');
+    btn.addEventListener('click', function () {
+      var isOpen = navEl.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+    navEl.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navEl.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
 
   (function () {
     var form = document.getElementById('contact-form');

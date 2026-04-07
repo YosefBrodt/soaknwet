@@ -55,7 +55,7 @@ body {
 .phone-cta-num {
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: clamp(2.5rem, 10vw, 8rem);
   letter-spacing: -0.02em;
   line-height: 1;
   color: var(--cyan);
@@ -63,6 +63,8 @@ body {
   display: block;
   margin-bottom: 2rem;
   transition: transform 0.25s ease, color 0.25s ease;
+  word-break: keep-all;
+  white-space: nowrap;
 }
 .phone-cta-num:hover {
   transform: scale(1.02);
