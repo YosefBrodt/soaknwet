@@ -85,15 +85,15 @@
     .hc { position: relative; z-index: 3; width: 100%; }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: clamp(2rem, 5vw, 5rem);
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: center;
-      max-width: 1120px;
+      max-width: 960px;
       margin: 0 auto;
       width: 100%;
     }
     .hero-left { max-width: 44rem; }
-    .hero-right { max-width: 28rem; justify-self: end; width: 100%; }
+    .hero-right { display: none; }
 
     .hero-kicker {
       display: inline-flex;
@@ -148,8 +148,8 @@
       color: rgba(217,220,214,0.86);
       font-size: 1.05rem;
       line-height: 1.75;
-      max-width: 36rem;
-      margin-bottom: 1.4rem;
+      max-width: 40rem;
+      margin-bottom: 1.35rem;
       font-weight: 450;
       text-wrap: pretty;
     }
@@ -199,53 +199,23 @@
     }
     .hero-chip strong { color: var(--white); font-weight: 650; }
 
-    .hero-right-card{
-      position: relative;
-      overflow: hidden;
-      background: rgba(15,45,61,0.62);
-      border: 1px solid rgba(217,220,214,0.14);
-      border-radius: 16px;
-      padding: 1.25rem 1.25rem 1.1rem;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 28px 90px rgba(0,0,0,0.28);
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .75rem;
+      align-items: center;
+      margin-top: 1.1rem;
+      color: rgba(217,220,214,0.72);
+      font-size: .9rem;
     }
-    .hero-right-card::before{
-      content:'';
-      position:absolute;
-      inset:-1px;
-      border-radius: inherit;
-      pointer-events:none;
-      background:
-        radial-gradient(120% 120% at 20% 10%, rgba(129,195,215,0.20), transparent 55%),
-        radial-gradient(120% 120% at 100% 70%, rgba(58,124,165,0.14), transparent 60%);
-      opacity: .95;
-      z-index:0;
+    .hero-trust .sep {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(217,220,214,0.38);
+      display: inline-block;
     }
-    .hero-right-card > *{ position:relative; z-index:1; }
-    .hero-card-title{
-      font-family: var(--font-d);
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      font-size: .85rem;
-      color: rgba(217,220,214,0.86);
-      margin-bottom: .9rem;
-    }
-    .hero-bullets{ list-style:none; display:flex; flex-direction:column; gap:.7rem; margin-bottom: 1.05rem; }
-    .hero-bullets li{ display:flex; gap:.6rem; align-items:flex-start; color: rgba(217,220,214,0.86); font-size: .93rem; line-height: 1.55; }
-    .hero-bullets svg{ flex-shrink:0; margin-top:.22rem; opacity:.95; }
-    .hero-mini{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .6rem;
-      border-top: 1px solid rgba(217,220,214,0.12);
-      padding-top: 1rem;
-      margin-top: 1rem;
-    }
-    .hero-mini .k{ font-family: var(--font-d); font-weight: 900; letter-spacing: -.01em; color: var(--white); font-size: 1.05rem; line-height: 1; }
-    .hero-mini .l{ font-size: .66rem; color: rgba(217,220,214,0.62); letter-spacing: .12em; text-transform: uppercase; margin-top: .35rem; }
-    .hero-mini .mi{ text-align:left; }
+    .hero-trust strong { color: rgba(217,220,214,0.92); font-weight: 650; }
 
     /* SECTIONS */
     .sec { padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,4rem); }
@@ -362,7 +332,6 @@
       .area-inner { grid-template-columns:1fr; gap:2.5rem; }
       .ft-top { grid-template-columns:1fr 1fr; }
       .hero-grid { grid-template-columns: 1fr; }
-      .hero-right { justify-self: start; }
     }
     @media(max-width:640px) {
       .nav-links { display:none; }
@@ -379,8 +348,6 @@
       .hero h1 { font-size: clamp(2.45rem, 9.4vw, 3.15rem); }
       .btns { flex-direction: column; align-items: stretch; }
       .btn-p, .btn-o { width: 100%; min-width: 0; }
-      .hero-right-card { padding: 1.05rem 1rem 1rem; }
-      .hero-mini { grid-template-columns: 1fr; }
       #stats-sec .stats-inner { grid-template-columns:1fr; }
       .sb { border-right:none; border-top:1px solid var(--border); }
       .sb:first-child { border-top:none; }
@@ -419,9 +386,9 @@
       <div class="hero-left">
         <div class="hero-kicker"><span class="dot" aria-hidden="true"></span> Ottawa bulk water delivery</div>
         <h1>
-          <span class="em">Clean water</span>, delivered <span class="em accent">same-day</span> when available.
+          Bulk water delivery in Ottawa — <span class="em accent">fast</span> and professional.
         </h1>
-        <p class="hero-sub">Pool fills, hot tubs, rural wells, cisterns, and construction sites — professional delivery, clear pricing, and no runaround.</p>
+        <p class="hero-sub">Tell us what you need and where you are. We’ll quote you quickly and schedule delivery.</p>
         <div class="btns">
           <a href="tel:6137625464" class="btn-p" aria-label="Call Soak N Wet now">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
@@ -429,34 +396,10 @@
           </a>
           <a href="contact.html" class="btn-o">Get a free quote &rarr;</a>
         </div>
-        <div class="hero-chips" aria-label="Key service highlights">
-          <span class="hero-chip"><strong>Same-day</strong> scheduling</span>
-          <span class="hero-chip"><strong>Residential + commercial</strong></span>
-          <span class="hero-chip"><strong>Ottawa</strong> & surrounding</span>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-right-card">
-          <div class="hero-card-title">Popular deliveries</div>
-          <ul class="hero-bullets">
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-              Pool fills and hot tub top-ups (fast, clean, controlled).
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-              Rural wells, cisterns, and emergency supply.
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-              Construction site water for mixing, curing, and dust suppression.
-            </li>
-          </ul>
-          <div class="hero-mini" aria-label="Quick stats">
-            <div class="mi"><div class="k">500+</div><div class="l">Deliveries</div></div>
-            <div class="mi"><div class="k">Same-day</div><div class="l">Often</div></div>
-            <div class="mi"><div class="k">5.0★</div><div class="l">Rated</div></div>
-          </div>
+        <div class="hero-trust" aria-label="Trust and availability">
+          <span><strong>Same-day</strong> available</span> <span class="sep" aria-hidden="true"></span>
+          <span><strong>500+</strong> deliveries</span> <span class="sep" aria-hidden="true"></span>
+          <span><strong>5.0★</strong> rated</span>
         </div>
       </div>
     </div>
