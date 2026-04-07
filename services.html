@@ -113,6 +113,8 @@
       .nav-links.open a { color:var(--white); }
       .nav-links.open a:hover, .nav-links.open a.active { color:var(--cyan); }
       .nav-links.open .btn-n { background:var(--cyan); color:var(--ink) !important; }
+      /* Mobile: keep top bar clean; drawer shows only Contact + Call */
+      .nav-links.open li:nth-child(-n+3) { display:none; }
       .hamburger { display:flex; }
       .btn-nd { display:none; }
       .ft-top { grid-template-columns:1fr; gap:2rem; }

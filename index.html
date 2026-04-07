@@ -55,7 +55,10 @@
       overflow: hidden;
       padding: clamp(5.25rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem) clamp(4.25rem, 7vw, 6.75rem);
       color: var(--white);
-      background: linear-gradient(180deg, rgba(15,45,61,0.98) 0%, rgba(22,66,91,0.96) 45%, rgba(22,66,91,0.94) 100%);
+      /* Slightly lighter split base for “dark-left / lighter-right” feel */
+      background:
+        radial-gradient(900px 560px at 82% 24%, rgba(129,195,215,0.22), transparent 62%),
+        linear-gradient(90deg, rgba(15,45,61,0.94) 0%, rgba(22,66,91,0.90) 48%, rgba(47,102,144,0.74) 100%);
       isolation: isolate;
     }
     .hero::before {
@@ -73,8 +76,9 @@
       inset: 0;
       /* readable without looking like a “scrim overlay” */
       background:
-        radial-gradient(1200px 700px at 18% 20%, rgba(15,45,61,0.78), rgba(15,45,61,0.36) 55%, rgba(15,45,61,0.14) 74%, transparent 92%),
-        linear-gradient(180deg, rgba(15,45,61,0.55) 0%, rgba(15,45,61,0.08) 56%, rgba(15,45,61,0.0) 100%);
+        radial-gradient(1200px 700px at 16% 22%, rgba(15,45,61,0.68), rgba(15,45,61,0.28) 56%, rgba(15,45,61,0.10) 74%, transparent 92%),
+        radial-gradient(900px 600px at 86% 24%, rgba(217,220,214,0.08), transparent 62%),
+        linear-gradient(180deg, rgba(15,45,61,0.42) 0%, rgba(15,45,61,0.06) 56%, rgba(15,45,61,0.0) 100%);
       pointer-events: none;
       z-index: 2;
     }
@@ -367,6 +371,8 @@
       .nav-links.open a:hover { color:var(--cyan); }
       .nav-links.open .btn-n { background:var(--cyan); color:var(--ink) !important; }
       .nav-links.open .btn-n:hover { background:var(--cyan-dk); }
+      /* Mobile: keep top bar clean; drawer shows only Contact + Call */
+      .nav-links.open li:nth-child(-n+3) { display:none; }
       .hamburger { display:flex; }
       .btn-nd { display:none; }
       .hero { padding-top: 5.25rem; }
@@ -743,9 +749,9 @@
 
   const colors = [
     /* deep ink + restrained aqua highlights */
-    'hsl(205, 60%, 14%)',
-    'hsl(198, 65%, 22%)',
-    'hsl(190, 65%, 34%)',
+    'hsl(205, 58%, 16%)',
+    'hsl(198, 62%, 26%)',
+    'hsl(190, 62%, 38%)',
     'hsl(172, 75%, 78%)',
   ];
   const maxColorCount = 10;
