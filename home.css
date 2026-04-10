@@ -143,31 +143,6 @@ body.page-home nav .nav-links .btn-call:hover {
   background: var(--white);
 }
 
-body.page-home nav > a.btn-n {
-  position: absolute;
-  right: var(--section-x);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(129, 195, 215, 0.92);
-  color: var(--ink) !important;
-  font-weight: 800;
-  font-size: 0.85rem;
-  padding: 0.5rem 1.1rem;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease;
-  border: none;
-}
-
-body.page-home nav > a.btn-n:hover {
-  background: var(--white);
-  transform: translateY(calc(-50% - 1px));
-}
-
 body.page-home nav .logo:focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 4px;
@@ -180,8 +155,7 @@ body.page-home nav .nav-links a:focus-visible {
   border-radius: 2px;
 }
 
-body.page-home nav .nav-links .btn-n:focus-visible,
-body.page-home nav > a.btn-n:focus-visible {
+body.page-home nav .nav-links .btn-n:focus-visible {
   outline: 2px solid var(--white);
   outline-offset: 2px;
 }
@@ -1085,10 +1059,6 @@ body.page-home .hamburger:focus-visible {
 
   body.page-home .hamburger {
     display: flex;
-  }
-
-  body.page-home .btn-nd {
-    display: none;
   }
 
   body.page-home .hamburger span {
