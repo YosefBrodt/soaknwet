@@ -58,18 +58,19 @@ body.page-contact nav > a.logo {
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  font-family: var(--font-d);
-  font-weight: 900;
-  font-size: 1.35rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
+  color: var(--white);
 }
 
-body.page-sub nav > a.logo span,
-body.page-contact nav > a.logo span {
-  color: var(--cyan);
+body.page-sub nav > a.logo .logo-img,
+body.page-contact nav > a.logo .logo-img {
+  height: 30px;
+  width: auto;
+  display: block;
+  max-width: 180px;
 }
 
 body.page-sub .nav-links,
@@ -86,6 +87,8 @@ body.page-contact .nav-links a {
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: 500;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
   transition: color 0.2s ease;
 }
 
@@ -94,6 +97,12 @@ body.page-sub .nav-links a:not(.btn-n).active,
 body.page-contact .nav-links a:not(.btn-n):hover,
 body.page-contact .nav-links a:not(.btn-n).active {
   color: var(--white);
+}
+
+body.page-sub .nav-links a:not(.btn-n).active,
+body.page-contact .nav-links a:not(.btn-n).active {
+  background: rgba(129, 195, 215, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(129, 195, 215, 0.28);
 }
 
 /* Subpages: nav CTAs */
@@ -346,11 +355,17 @@ footer {
 }
 
 footer .ft-brand .logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
   color: var(--white);
 }
 
-footer .ft-brand .logo span {
-  color: var(--cyan);
+footer .ft-brand .logo .logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+  max-width: 220px;
 }
 
 .ft-top {
