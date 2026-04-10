@@ -42,7 +42,7 @@ body.page-contact nav {
   z-index: 200;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: var(--nav-h);
   padding: 0 var(--section-x);
   background: rgba(22, 66, 91, 0.92);
@@ -54,6 +54,11 @@ body.page-contact nav {
 
 body.page-sub nav > a.logo,
 body.page-contact nav > a.logo {
+  position: absolute;
+  left: var(--section-x);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   font-family: var(--font-d);
   font-weight: 900;
   font-size: 1.35rem;
@@ -118,6 +123,11 @@ body.page-contact nav .nav-links .btn-n:hover {
 /* Header phone (direct child of nav, not in drawer) */
 body.page-sub nav > a.btn-n,
 body.page-contact nav > a.btn-n {
+  position: absolute;
+  right: var(--section-x);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -135,7 +145,7 @@ body.page-contact nav > a.btn-n {
 body.page-sub nav > a.btn-n:hover,
 body.page-contact nav > a.btn-n:hover {
   background: var(--white);
-  transform: translateY(-1px);
+  transform: translateY(calc(-50% - 1px));
 }
 
 body.page-sub nav > a.logo:focus-visible,
@@ -169,6 +179,11 @@ body.page-contact .hamburger:focus-visible {
 
 body.page-sub .hamburger,
 body.page-contact .hamburger {
+  position: absolute;
+  right: var(--section-x);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   display: none;
   flex-direction: column;
   gap: 5px;
@@ -221,9 +236,10 @@ body.page-contact .hamburger span {
   height: 55vw;
   background: radial-gradient(
     ellipse 80% 70% at 50% 50%,
-    rgba(129, 195, 215, 0.14) 0%,
-    rgba(58, 124, 165, 0.08) 45%,
-    transparent 62%
+    rgba(129, 195, 215, 0.28) 0%,
+    rgba(58, 124, 165, 0.2) 42%,
+    rgba(22, 66, 91, 0.1) 58%,
+    transparent 68%
   );
   pointer-events: none;
   z-index: 0;
@@ -269,7 +285,7 @@ body.page-contact .hamburger span {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cyan-dk);
+  color: rgba(15, 45, 61, 0.78);
   margin-bottom: 1.25rem;
 }
 
@@ -290,12 +306,12 @@ body.page-contact .hamburger span {
 .ph h1 span,
 .ph .sh span,
 .hero.hero--od .ph-in h1 span {
-  color: var(--cyan-dk);
+  color: var(--ink2);
 }
 
 .ph p,
 .hero.hero--od .ph-in > p {
-  color: var(--muted2);
+  color: rgba(15, 45, 61, 0.88);
   font-size: var(--text-lead);
   max-width: min(520px, var(--prose-width));
   line-height: 1.75;

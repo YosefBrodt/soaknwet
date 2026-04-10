@@ -56,10 +56,11 @@
   /* Page hero / mesh — one system for Home hero + Services/About/Contact headers */
   --gradient-page-hero: linear-gradient(
     135deg,
-    rgba(217, 220, 214, 0.94) 0%,
-    rgba(232, 235, 230, 0.88) 38%,
-    rgba(129, 195, 215, 0.2) 78%,
-    rgba(58, 124, 165, 0.14) 100%
+    rgba(217, 220, 214, 0.96) 0%,
+    rgba(232, 235, 230, 0.78) 28%,
+    rgba(129, 195, 215, 0.42) 58%,
+    rgba(58, 124, 165, 0.38) 82%,
+    rgba(22, 66, 91, 0.28) 100%
   );
   --gradient-page-hero-contact: linear-gradient(
     135deg,
@@ -208,10 +209,10 @@ body {
     linear-gradient(
       135deg,
       rgba(217, 220, 214, 1) 0%,
-      rgba(232, 235, 230, 1) 42%,
-      rgba(217, 220, 214, 1) 70%,
-      rgba(129, 195, 215, 0.1) 88%,
-      rgba(58, 124, 165, 0.1) 100%
+      rgba(232, 235, 230, 1) 40%,
+      rgba(217, 220, 214, 1) 66%,
+      rgba(129, 195, 215, 0.2) 84%,
+      rgba(58, 124, 165, 0.22) 100%
     ),
     var(--white);
 }

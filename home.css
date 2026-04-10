@@ -20,7 +20,7 @@ body.page-home nav {
   padding: 0 var(--section-x);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: var(--nav-h);
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-nav);
@@ -32,6 +32,11 @@ body.page-home nav.nav--dark {
 }
 
 body.page-home .hamburger {
+  position: absolute;
+  right: var(--section-x);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   display: none;
   flex-direction: column;
   gap: 5px;
@@ -55,6 +60,11 @@ body.page-home .hamburger span {
 }
 
 body.page-home nav .logo {
+  position: absolute;
+  left: var(--section-x);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   font-family: var(--font-d);
   font-weight: 900;
   font-size: 1.35rem;
@@ -74,6 +84,8 @@ body.page-home nav .nav-links {
   align-items: center;
   gap: 2.5rem;
   list-style: none;
+  position: relative;
+  z-index: 1;
 }
 
 body.page-home nav .nav-links a {
@@ -90,41 +102,44 @@ body.page-home nav .nav-links a:not(.btn-n).active {
   color: var(--white);
 }
 
-/* Match subpage nav (site.css) — CTAs + header phone */
+/* Match subpage nav — solid cyan CTAs (readable on navy bar) */
 body.page-home nav .nav-links .btn-n {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(129, 195, 215, 0.15);
-  color: var(--white) !important;
-  font-weight: 700;
+  background: rgba(129, 195, 215, 0.92);
+  color: var(--ink) !important;
+  font-weight: 800;
   font-size: 0.85rem;
   padding: 0.5rem 1.1rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: background 0.2s ease, transform 0.15s ease;
-  border: 1px solid rgba(129, 195, 215, 0.35);
+  border: none;
 }
 
 body.page-home nav .nav-links .btn-n:hover {
-  background: rgba(129, 195, 215, 0.25);
+  background: var(--white);
   transform: translateY(-1px);
 }
 
-/* Call Now — solid cyan, more prominent */
+/* Call Now — same family; slightly stronger border cue */
 body.page-home nav .nav-links .btn-call {
   background: var(--cyan);
   color: var(--ink) !important;
-  border-color: var(--cyan);
   font-weight: 800;
 }
 
 body.page-home nav .nav-links .btn-call:hover {
   background: var(--white);
-  border-color: var(--white);
 }
 
 body.page-home nav > a.btn-n {
+  position: absolute;
+  right: var(--section-x);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -141,7 +156,7 @@ body.page-home nav > a.btn-n {
 
 body.page-home nav > a.btn-n:hover {
   background: var(--white);
-  transform: translateY(-1px);
+  transform: translateY(calc(-50% - 1px));
 }
 
 body.page-home nav .logo:focus-visible {
@@ -230,17 +245,18 @@ body.page-home .hamburger:focus-visible {
   display: none;
 }
 
-/* Outline variant of btn-p for hero secondary CTA */
+/* Outline variant — dark label on light hero (token --white is a gray; was invisible) */
 .btn-p--outline {
-  background: transparent !important;
-  border: 2px solid rgba(255,255,255,0.55) !important;
-  color: var(--white) !important;
-  box-shadow: none !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  border: 2px solid rgba(15, 45, 61, 0.4) !important;
+  color: var(--ink) !important;
+  box-shadow: 0 6px 24px rgba(15, 45, 61, 0.1) !important;
 }
 
 .btn-p--outline:hover {
-  background: rgba(255,255,255,0.12) !important;
-  border-color: var(--white) !important;
+  background: rgba(15, 45, 61, 0.94) !important;
+  border-color: rgba(15, 45, 61, 0.94) !important;
+  color: var(--text-on-ink) !important;
 }
 
 /* h1 / eyebrow / lead: shared with .ph in site.css */
@@ -270,7 +286,7 @@ body.page-home .hamburger:focus-visible {
   gap: 0.5rem 0.75rem;
   align-items: center;
   margin-top: 1.1rem;
-  color: var(--muted);
+  color: rgba(15, 45, 61, 0.72);
   font-size: var(--text-sm);
 }
 
@@ -716,7 +732,7 @@ body.page-home .hamburger:focus-visible {
 .hiw-body p {
   position: relative;
   z-index: 1;
-  color: var(--muted);
+  color: rgba(232, 235, 230, 0.9);
   font-size: 0.9rem;
   line-height: 1.7;
   max-width: 36rem;
@@ -892,8 +908,8 @@ body.page-home .hamburger:focus-visible {
 }
 
 .tag:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
+  border-color: rgba(232, 235, 230, 0.45);
+  color: rgba(232, 235, 230, 0.95);
   cursor: default;
 }
 
