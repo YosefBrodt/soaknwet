@@ -235,23 +235,10 @@ footer a:visited,
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
-.phone-cta .btn-p {
-  background: var(--cyan);
-  color: var(--ink);
-}
-.phone-cta .btn-p:hover {
-  background: var(--cyan-dk);
-  transform: translateY(-2px);
-}
-.phone-cta .btn-o {
-  border: 1px solid rgba(129, 195, 215, 0.3);
-  color: var(--white);
-}
-.phone-cta .btn-o:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-}
+
+/* CTA pair uses .btn-n.btn-quote / .btn-n.btn-call (same as primary nav; see site.css) */
 
 .phone-cta-note {
   color: var(--muted);

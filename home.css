@@ -352,76 +352,7 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   transform: translateY(-2px);
 }
 
-.stats-sec {
-  background: var(--ink2);
-  color: var(--white);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-#stats-sec .stats-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 0.8fr;
-  border: 1px solid var(--border);
-}
-
-.sb {
-  padding: clamp(2.5rem, 4vw, 4rem);
-  border-right: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-}
-
-.sb:last-child {
-  border-right: none;
-}
-
-.sb:first-child {
-  border-left: 3px solid var(--cyan);
-}
-
-.sb:not(:first-child)::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--cyan), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.sb:not(:first-child):hover::after {
-  opacity: 1;
-}
-
-.sb-num {
-  font-family: var(--font-d);
-  font-weight: 900;
-  font-size: var(--text-sb-num);
-  letter-spacing: -0.02em;
-  line-height: 1;
-  color: var(--white);
-  margin-bottom: 0.5rem;
-}
-
-.sb-num span {
-  color: var(--cyan);
-}
-
-/* Word-based stats (no counter animation needed) */
-.sb-num--text {
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 0.01em;
-  color: var(--cyan);
-}
-
-.sb-label {
-  font-size: var(--text-sm);
-  color: var(--text-on-dark-muted);
-  line-height: 1.55;
-}
+/* Stats strip (.stats-sec) lives in site.css for home + about */
 
 .hiw-sec {
   background: var(--ink3);
@@ -727,19 +658,6 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   font-weight: 600;
 }
 
-/* Phone CTA section — fix button underlines */
-.phone-cta-btns a {
-  text-decoration: none !important;
-}
-
-.btn-cta-solid {
-  text-decoration: none !important;
-}
-
-.btn-cta-outline {
-  text-decoration: none !important;
-}
-
 /* "Why Soak N Wet" section */
 .why-sec {
   background: var(--ink3);
@@ -810,20 +728,6 @@ body.page-home nav[aria-label="Primary"].nav--dark {
 }
 
 @media (max-width: 900px) {
-  #stats-sec .stats-inner {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .sb:nth-child(2) {
-    border-right: none;
-  }
-
-  .sb:nth-child(3) {
-    border-right: none;
-    border-top: 1px solid var(--border);
-    grid-column: span 2;
-  }
-
   .testi-inner {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -878,19 +782,6 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   .hero .btn-o {
     width: 100%;
     min-width: 0;
-  }
-
-  #stats-sec .stats-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .sb {
-    border-right: none;
-    border-top: 1px solid var(--border);
-  }
-
-  .sb:first-child {
-    border-top: none;
   }
 
   .sr {
