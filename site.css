@@ -96,27 +96,42 @@ body.page-contact .nav-links a:not(.btn-n).active {
   color: var(--white);
 }
 
-/* Subpages: solid cyan nav CTA */
+/* Subpages: nav CTAs */
 body.page-sub nav .nav-links .btn-n,
 body.page-contact nav .nav-links .btn-n {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(129, 195, 215, 0.92);
-  color: var(--ink) !important;
-  font-weight: 800;
+  background: rgba(129, 195, 215, 0.15);
+  color: var(--white) !important;
+  font-weight: 700;
   font-size: 0.85rem;
   padding: 0.5rem 1.1rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: background 0.2s ease, transform 0.15s ease;
-  border: none;
+  border: 1px solid rgba(129, 195, 215, 0.35);
 }
 
 body.page-sub nav .nav-links .btn-n:hover,
 body.page-contact nav .nav-links .btn-n:hover {
-  background: var(--white);
+  background: rgba(129, 195, 215, 0.25);
   transform: translateY(-1px);
+}
+
+/* Call Now — solid cyan, more prominent */
+body.page-sub nav .nav-links .btn-call,
+body.page-contact nav .nav-links .btn-call {
+  background: var(--cyan);
+  color: var(--ink) !important;
+  border-color: var(--cyan);
+  font-weight: 800;
+}
+
+body.page-sub nav .nav-links .btn-call:hover,
+body.page-contact nav .nav-links .btn-call:hover {
+  background: var(--white);
+  border-color: var(--white);
 }
 
 /* Header phone (direct child of nav, not in drawer) */
@@ -258,10 +273,24 @@ body.page-contact .hamburger span {
   position: relative;
   z-index: 2;
   max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ph-in .eyebrow {
+  display: block;
+  text-align: center;
+}
+
+.ph-in > p {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ph--contact .ph-in {
   max-width: none;
+  text-align: left;
 }
 
 .ph .eyebrow,
