@@ -17,16 +17,15 @@ body.page-contact {
 }
 
 body.page-sub {
-  background: var(--white);
+  background-color: var(--white);
+  background-image: var(--body-surface-bloom);
+  background-repeat: no-repeat;
 }
 
 body.page-contact {
-  background: radial-gradient(
-      ellipse 80% 60% at 25% 0%,
-      rgba(129, 195, 215, 0.18),
-      transparent 55%
-    ),
-    var(--white);
+  background-color: var(--white);
+  background-image: var(--body-surface-bloom);
+  background-repeat: no-repeat;
 }
 
 /* Token-based accent (replaces inline color on spans) */
@@ -209,44 +208,31 @@ body.page-contact .hamburger span {
 
 /* ——— Page hero: subpage .ph + Home .hero — same mesh, noise, and 135° gradients ——— */
 .ph,
-.hero.hero--od {
+.hero {
   padding: clamp(5.5rem, 9vw, 7.5rem) var(--section-x) clamp(2.75rem, 5vw, 4.5rem);
   background: var(--gradient-page-hero);
   border-bottom: 1px solid var(--border-ui);
   position: relative;
   overflow: hidden;
   color: var(--ink);
-}
-
-.hero.hero--od {
   isolation: isolate;
 }
 
-.ph.ph--contact {
-  background: var(--gradient-page-hero-contact);
-}
-
 .ph::before,
-.hero.hero--od::before {
+.hero::before {
   content: "";
   position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 55vw;
-  height: 55vw;
-  background: radial-gradient(
-    ellipse 80% 70% at 50% 50%,
-    rgba(129, 195, 215, 0.28) 0%,
-    rgba(58, 124, 165, 0.2) 42%,
-    rgba(22, 66, 91, 0.1) 58%,
-    transparent 68%
-  );
+  top: -18%;
+  right: -12%;
+  width: min(58vw, 720px);
+  height: min(58vw, 720px);
+  background: var(--hero-mesh-bloom);
   pointer-events: none;
   z-index: 0;
 }
 
 .ph::after,
-.hero.hero--od::after {
+.hero::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -279,7 +265,7 @@ body.page-contact .hamburger span {
 }
 
 .ph .eyebrow,
-.hero.hero--od .ph-in .eyebrow {
+.hero .ph-in .eyebrow {
   display: inline-block;
   font-size: var(--text-xs);
   font-weight: 600;
@@ -291,7 +277,7 @@ body.page-contact .hamburger span {
 
 .ph h1,
 .ph .sh,
-.hero.hero--od .ph-in h1 {
+.hero .ph-in h1 {
   font-family: var(--font-d);
   font-weight: 900;
   font-size: var(--text-page-headline);
@@ -305,22 +291,27 @@ body.page-contact .hamburger span {
 
 .ph h1 span,
 .ph .sh span,
-.hero.hero--od .ph-in h1 span {
+.hero .ph-in h1 span {
   color: var(--ink2);
 }
 
 .ph p,
-.hero.hero--od .ph-in > p {
+.hero .ph-in > p {
   color: rgba(15, 45, 61, 0.88);
   font-size: var(--text-lead);
   max-width: min(520px, var(--prose-width));
   line-height: 1.75;
 }
 
+.hero .ph-in .hero-lead strong {
+  font-weight: 650;
+  color: var(--ink);
+}
+
 /* ——— Footer (all pages) ——— */
 footer {
   background: var(--ink2);
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   border-top: 1px solid var(--border);
   padding: 3.5rem var(--section-x) 2rem;
 }
@@ -341,7 +332,7 @@ footer .ft-brand .logo span {
 }
 
 .ft-brand p {
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   font-size: var(--text-sm);
   line-height: 1.75;
   margin-top: 1rem;
@@ -353,7 +344,7 @@ footer .ft-brand .logo span {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   margin-bottom: 1.25rem;
 }
 
@@ -365,14 +356,14 @@ footer .ft-brand .logo span {
 }
 
 .ft-col a {
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   text-decoration: none;
   font-size: var(--text-sm);
   transition: color 0.2s ease;
 }
 
 .ft-col a:hover {
-  color: var(--white);
+  color: var(--text-on-dark);
 }
 
 footer .ft-brand .logo:focus-visible {
@@ -388,7 +379,7 @@ footer .ft-brand .logo:focus-visible {
 }
 
 .ft-muted {
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   font-size: var(--text-sm);
 }
 
@@ -403,7 +394,7 @@ footer .ft-brand .logo:focus-visible {
 }
 
 .ft-bot p {
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   font-size: var(--text-xs);
 }
 
@@ -924,7 +915,7 @@ footer .ft-brand .logo:focus-visible {
   font-family: var(--font-d);
   font-size: clamp(1.25rem, 2.5vw, 2rem);
   font-weight: 700;
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 2rem;

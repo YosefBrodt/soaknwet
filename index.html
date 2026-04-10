@@ -33,12 +33,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero hero--od" id="main-content" tabindex="-1">
-  <div class="hero__scroll" aria-hidden="true">
-    <div class="hero__layer hero__layer--glow"></div>
-    <div class="hero__layer hero__layer--depth"></div>
-    <div class="hero__layer hero__layer--ring"></div>
-  </div>
+<section class="hero" id="main-content" tabindex="-1">
   <div class="hc">
     <div class="hero-grid hero-grid--center">
       <div class="hero-left hero-left--center ph-in">
@@ -46,7 +41,7 @@
         <h1 data-animate="fade-up" data-stagger="1">
           Bulk Water Delivery<br>in Ottawa —<br><span>Fast &amp; Professional.</span>
         </h1>
-        <p data-animate="fade-up" data-stagger="2">Tell us your location and how much water you need. We quote on the spot and schedule same-day.</p>
+        <p class="hero-lead" data-animate="fade-up" data-stagger="2"><strong>Tell us your location</strong> and <strong>how much water you need</strong>. We quote on the spot and schedule same-day delivery when you need it.</p>
         <div class="btns btns--center" data-animate="fade-up" data-stagger="3">
           <a href="tel:6137625464" class="btn-p" aria-label="Call Soak N Wet now">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
@@ -235,7 +230,7 @@
         <div class="hiw-body">
           <span class="hiw-wm" aria-hidden="true">01</span>
           <h3>Call or Request Online</h3>
-          <p>Tell us your location, how much water you need, and when. We quote you on the spot — no runaround.</p>
+          <p><strong>Tell us your location</strong>, <strong>how much water you need</strong>, and <strong>when</strong> you need delivery. We quote you on the spot — no runaround.</p>
         </div>
       </div>
       <div class="hiw-step" data-animate="fade-up" data-hiw-delay="1">
@@ -373,74 +368,5 @@
 </footer>
 
 <script src="global.js"></script>
-
-<script type="module">
-  import {
-    ShaderMount,
-    warpFragmentShader,
-    WarpPatterns,
-    getShaderColorFromString,
-    getShaderNoiseTexture
-  } from 'https://esm.sh/@paper-design/shaders@0.0.72';
-
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-
-  const disableShader =
-    window.matchMedia('(max-width: 768px)').matches ||
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (disableShader) {
-    // Mobile + reduced-motion: avoid heavy WebGL/jank.
-    // We still keep the hero readable via CSS scrims/panels.
-    return;
-  }
-
-  /* Aligned with --gradient-page-hero / site mesh (cool cyan → steel blue) */
-  const colors = [
-    'hsl(200, 24%, 92%)',
-    'hsl(200, 28%, 86%)',
-    'hsl(200, 34%, 72%)',
-    'hsl(204, 38%, 52%)',
-  ];
-  const maxColorCount = 10;
-  const colorVec4s = colors.map(c => getShaderColorFromString(c));
-  while (colorVec4s.length < maxColorCount) colorVec4s.push([0, 0, 0, 0]);
-
-  const noiseTexture = getShaderNoiseTexture();
-
-  try {
-    new ShaderMount(
-      hero,
-      warpFragmentShader,
-      {
-        u_colors:          colorVec4s,
-        u_colorsCount:     colors.length,
-        u_proportion:      0.52,
-        u_softness:        1.15,
-        u_shape:           WarpPatterns.checks,
-        u_shapeScale:      0.075,
-        u_distortion:      0.14,
-        u_swirl:           0.55,
-        u_swirlIterations: 8,
-        u_noiseTexture:    noiseTexture,
-        u_fit:             0,
-        u_scale:           1,
-        u_rotation:        0,
-        u_offsetX:         0,
-        u_offsetY:         0,
-        u_originX:         0.5,
-        u_originY:         0.5,
-        u_worldWidth:      0,
-        u_worldHeight:     0,
-        u_imageAspectRatio: 1,
-      },
-      undefined,
-      1,
-    );
-  } catch {
-    /* WebGL / shader unsupported — CSS hero remains */
-  }
-</script>
 </body>
 </html>

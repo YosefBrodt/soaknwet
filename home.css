@@ -1,7 +1,9 @@
 /* Homepage only (index.html) — pair with site.css + global.css */
 
 body.page-home {
-  background: var(--white);
+  background-color: var(--white);
+  background-image: var(--body-surface-bloom);
+  background-repeat: no-repeat;
   color: var(--ink);
   font-family: var(--font-b);
   line-height: 1.65;
@@ -197,14 +199,6 @@ body.page-home .hamburger:focus-visible {
   width: 100%;
 }
 
-.hero.hero--od > canvas {
-  position: absolute !important;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.68;
-}
-
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -260,7 +254,7 @@ body.page-home .hamburger:focus-visible {
 }
 
 /* h1 / eyebrow / lead: shared with .ph in site.css */
-.hero.hero--od .ph-in > p {
+.hero .ph-in > p {
   margin-bottom: 1.35rem;
 }
 
@@ -329,7 +323,7 @@ body.page-home .hamburger:focus-visible {
 }
 
 .ss {
-  color: var(--muted);
+  color: rgba(15, 45, 61, 0.82);
   font-size: var(--text-body);
   line-height: 1.75;
   max-width: min(520px, var(--prose-width));
@@ -468,7 +462,7 @@ body.page-home .hamburger:focus-visible {
   font-weight: 700;
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
-  color: var(--muted2);
+  color: var(--text-on-dark-muted);
   flex-shrink: 0;
 }
 
@@ -489,7 +483,7 @@ body.page-home .hamburger:focus-visible {
 }
 
 .sr-desc {
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   font-size: var(--text-sm);
   line-height: 1.65;
   max-width: 500px;
@@ -497,7 +491,7 @@ body.page-home .hamburger:focus-visible {
 
 .sr-arrow {
   font-size: 1.2rem;
-  color: var(--muted2);
+  color: var(--text-on-dark-muted);
   transition: color 0.2s, transform 0.2s;
   flex-shrink: 0;
   position: relative;
@@ -594,148 +588,107 @@ body.page-home .hamburger:focus-visible {
 
 .sb-label {
   font-size: var(--text-sm);
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   line-height: 1.55;
 }
 
 .hiw-sec {
   background: var(--ink3);
-  color: var(--white);
-}
-
-.hiw-sec .sh {
-  color: var(--white);
-}
-
-.hiw-sec {
+  color: var(--text-on-dark);
   text-align: center;
 }
 
+.hiw-sec .eyebrow {
+  color: var(--cyan);
+}
+
 .hiw-sec .sh {
   color: var(--white);
+  max-width: 16ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hiw-wrap {
   position: relative;
-  margin-top: 4rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
   max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
 }
 
-/* 3-column grid layout for How It Works steps */
-.hiw-steps {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-}
-
-.hiw-step {
-  grid-template-columns: 1fr !important;
-  gap: 1.25rem !important;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 2.5rem 2rem !important;
-  background: rgba(129,195,215,0.04);
-}
-
 .hiw-rail {
   display: none;
 }
 
-/* Hide the O1/O2/O3 watermark numbers */
+.hiw-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.hiw-step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2rem 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(129, 195, 215, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
 .hiw-wm {
   display: none;
 }
 
-.hiw-rail {
-  position: absolute;
-  left: 1.5rem;
-  top: 0.75rem;
-  bottom: 0.75rem;
-  width: 1px;
-  background: linear-gradient(
-    to bottom,
-    var(--cyan),
-    rgba(129, 195, 215, 0.15) 55%,
-    transparent
-  );
-  pointer-events: none;
-}
-
-.hiw-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.hiw-step {
-  position: relative;
-  display: grid;
-  grid-template-columns: 3.25rem 1fr;
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  padding: 2.5rem 0;
-  align-items: start;
-}
-
-.hiw-step:last-child {
-  padding-bottom: 0;
-}
-
 .hiw-node-col {
-  position: relative;
   display: flex;
-  justify-content: center;
-  padding-top: 0.35rem;
+  justify-content: flex-start;
 }
 
 .hiw-node {
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--cyan);
-  box-shadow: 0 0 0 4px rgba(129, 195, 215, 0.12);
+  box-shadow: 0 0 0 4px rgba(129, 195, 215, 0.15);
   flex-shrink: 0;
 }
 
 .hiw-body {
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
-.hiw-wm {
-  position: absolute;
-  left: -0.25rem;
-  top: -0.5rem;
-  font-family: var(--font-d);
-  font-weight: 900;
-  font-size: var(--text-hiw-watermark);
-  line-height: 1;
-  color: rgba(129, 195, 215, 0.07);
-  z-index: 0;
-  pointer-events: none;
+  width: 100%;
 }
 
 .hiw-body h3 {
-  position: relative;
-  z-index: 1;
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: 1.35rem;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
   color: var(--white);
 }
 
 .hiw-body p {
-  position: relative;
-  z-index: 1;
-  color: rgba(232, 235, 230, 0.9);
-  font-size: 0.9rem;
-  line-height: 1.7;
-  max-width: 36rem;
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+  line-height: 1.72;
+  max-width: 40rem;
+}
+
+.hiw-body p strong {
+  color: var(--text-on-dark);
+  font-weight: 650;
+}
+
+@media (min-width: 900px) {
+  .hiw-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 }
 
 .testi-sec {
@@ -866,7 +819,7 @@ body.page-home .hamburger:focus-visible {
 
 .tc-loc {
   font-size: var(--text-xs);
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
 }
 
 .area-sec {
@@ -929,7 +882,7 @@ body.page-home .hamburger:focus-visible {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
 }
 
 .area-map-in svg {
@@ -1020,7 +973,7 @@ body.page-home .hamburger:focus-visible {
 
 .why-card p {
   font-size: var(--text-sm);
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   line-height: 1.7;
   margin: 0;
 }
@@ -1051,10 +1004,6 @@ body.page-home .hamburger:focus-visible {
 
   .why-cards {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .hiw-steps {
-    grid-template-columns: 1fr !important;
   }
 
   .svs-hdr {

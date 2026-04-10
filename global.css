@@ -53,20 +53,23 @@
   --text-quote-deco: clamp(4rem, 12vw, 10rem);
   --text-hiw-watermark: clamp(4rem, 11vw, 7rem);
 
-  /* Page hero / mesh — one system for Home hero + Services/About/Contact headers */
+  /* Page hero / mesh — single system: Home .hero, all .ph blocks, same tokens everywhere */
   --gradient-page-hero: linear-gradient(
     135deg,
-    rgba(217, 220, 214, 0.96) 0%,
-    rgba(232, 235, 230, 0.78) 28%,
-    rgba(129, 195, 215, 0.42) 58%,
-    rgba(58, 124, 165, 0.38) 82%,
-    rgba(22, 66, 91, 0.28) 100%
+    rgba(232, 235, 230, 1) 0%,
+    rgba(217, 220, 214, 0.97) 22%,
+    rgba(190, 224, 236, 0.88) 45%,
+    rgba(129, 195, 215, 0.52) 68%,
+    rgba(58, 124, 165, 0.4) 86%,
+    rgba(22, 66, 91, 0.26) 100%
   );
-  --gradient-page-hero-contact: linear-gradient(
-    135deg,
-    rgba(129, 195, 215, 0.16) 0%,
-    rgba(232, 235, 230, 0.94) 55%,
-    rgba(217, 220, 214, 0.92) 100%
+  /* Soft bloom overlay (used by .ph::before / .hero::before — do not duplicate different values elsewhere) */
+  --hero-mesh-bloom: radial-gradient(
+    ellipse 78% 68% at 84% 38%,
+    rgba(129, 195, 215, 0.34) 0%,
+    rgba(58, 124, 165, 0.22) 48%,
+    rgba(22, 66, 91, 0.12) 64%,
+    transparent 76%
   );
   --hero-noise-tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
@@ -80,6 +83,12 @@
   --radius-sm: 3px;
   --radius-cta: 10px;
   --border-ui: rgba(22, 66, 91, 0.1);
+  /* Matches page chrome — same bloom on all page shells */
+  --body-surface-bloom: radial-gradient(
+    ellipse 100% 42% at 50% 0%,
+    rgba(129, 195, 215, 0.09),
+    transparent 58%
+  );
 }
 
 html {
@@ -124,112 +133,27 @@ html {
   }
 }
 
-/* Hero “overdrive” — scroll-linked depth (progressive enhancement) */
-.hero--od {
-  --hero-s: 0;
-}
-
-.hero__scroll {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.hero__layer {
-  position: absolute;
-  inset: -15%;
-  will-change: transform;
-  opacity: 0.65;
-  transition: opacity 0.3s var(--ease-out-expo);
-}
-
-.hero__layer--glow {
-  background: radial-gradient(
-    70% 55% at 78% 28%,
-    rgba(190, 228, 240, 0.45),
-    transparent 68%
-  );
-  transform: translate3d(
-      0,
-      calc(var(--hero-s, 0) * -42px),
-      0
-    )
-    scale(calc(1 + var(--hero-s, 0) * 0.04));
-}
-
-.hero__layer--depth {
-  background: radial-gradient(
-    60% 50% at 12% 72%,
-    rgba(129, 195, 215, 0.14),
-    transparent 70%
-  );
-  transform: translate3d(
-      0,
-      calc(var(--hero-s, 0) * 28px),
-      0
-    )
-    scale(1.02);
-}
-
-.hero__layer--ring {
-  border: 1px solid rgba(170, 210, 228, 0.22);
-  border-radius: 50%;
-  width: min(120vw, 1400px);
-  height: min(120vw, 1400px);
-  left: 50%;
-  top: 50%;
-  margin-left: calc(min(120vw, 1400px) / -2);
-  margin-top: calc(min(120vw, 1400px) / -2);
-  opacity: 0.22;
-  transform: rotate(calc(var(--hero-s, 0) * 8deg))
-    translate3d(0, calc(var(--hero-s, 0) * -20px), 0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__layer {
-    transform: none !important;
-    transition: none;
-  }
-}
-
 [data-stagger="0"] {
   transition-delay: 0ms;
 }
 
-/* Site-wide background language (subtle dark→light + blue bloom) */
+/* Site-wide base: flat surface + one soft bloom (same token as page-home / contact) */
 body {
   font-family: var(--font-b);
   font-size: var(--text-body);
   line-height: 1.65;
-  background:
-    radial-gradient(ellipse 1100px 720px at 82% 18%, rgba(129, 195, 215, 0.22), transparent 62%),
-    radial-gradient(ellipse 900px 640px at 18% 6%, rgba(58, 124, 165, 0.12), transparent 58%),
-    linear-gradient(
-      135deg,
-      rgba(217, 220, 214, 1) 0%,
-      rgba(232, 235, 230, 1) 40%,
-      rgba(217, 220, 214, 1) 66%,
-      rgba(129, 195, 215, 0.2) 84%,
-      rgba(58, 124, 165, 0.22) 100%
-    ),
-    var(--white);
+  background-color: var(--white);
+  background-image: var(--body-surface-bloom);
+  background-repeat: no-repeat;
 }
 
 @media (prefers-reduced-motion: reduce) {
   body {
-    /* Keep the feel, reduce layered “movement” from parallax scrolling perception */
-    background:
-      radial-gradient(ellipse 1000px 700px at 82% 18%, rgba(129, 195, 215, 0.18), transparent 62%),
-      linear-gradient(
-        135deg,
-        rgba(217, 220, 214, 1) 0%,
-        rgba(232, 235, 230, 1) 50%,
-        rgba(129, 195, 215, 0.08) 85%,
-        rgba(58, 124, 165, 0.08) 100%
-      ),
-      var(--white);
+    background-image: radial-gradient(
+      ellipse 100% 38% at 50% 0%,
+      rgba(129, 195, 215, 0.07),
+      transparent 55%
+    );
   }
 }
 
