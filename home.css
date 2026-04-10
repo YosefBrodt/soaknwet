@@ -95,20 +95,33 @@ body.page-home nav .nav-links .btn-n {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(129, 195, 215, 0.92);
-  color: var(--ink) !important;
-  font-weight: 800;
+  background: rgba(129, 195, 215, 0.15);
+  color: var(--white) !important;
+  font-weight: 700;
   font-size: 0.85rem;
   padding: 0.5rem 1.1rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: background 0.2s ease, transform 0.15s ease;
-  border: none;
+  border: 1px solid rgba(129, 195, 215, 0.35);
 }
 
 body.page-home nav .nav-links .btn-n:hover {
-  background: var(--white);
+  background: rgba(129, 195, 215, 0.25);
   transform: translateY(-1px);
+}
+
+/* Call Now — solid cyan, more prominent */
+body.page-home nav .nav-links .btn-call {
+  background: var(--cyan);
+  color: var(--ink) !important;
+  border-color: var(--cyan);
+  font-weight: 800;
+}
+
+body.page-home nav .nav-links .btn-call:hover {
+  background: var(--white);
+  border-color: var(--white);
 }
 
 body.page-home nav > a.btn-n {
@@ -187,12 +200,47 @@ body.page-home .hamburger:focus-visible {
   width: 100%;
 }
 
+.hero-grid--center {
+  max-width: 800px;
+}
+
 .hero-left {
   max-width: 44rem;
 }
 
+.hero-left--center {
+  max-width: 100%;
+  text-align: center;
+}
+
+.hero-left--center .eyebrow {
+  display: block;
+  text-align: center;
+}
+
+.hero-left--center .hero-trust {
+  justify-content: center;
+}
+
+.btns--center {
+  justify-content: center;
+}
+
 .hero-right {
   display: none;
+}
+
+/* Outline variant of btn-p for hero secondary CTA */
+.btn-p--outline {
+  background: transparent !important;
+  border: 2px solid rgba(255,255,255,0.55) !important;
+  color: var(--white) !important;
+  box-shadow: none !important;
+}
+
+.btn-p--outline:hover {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: var(--white) !important;
 }
 
 /* h1 / eyebrow / lead: shared with .ph in site.css */
@@ -281,17 +329,18 @@ body.page-home .hamburger:focus-visible {
 }
 
 .svs-hdr {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  gap: 2rem;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
   margin-bottom: 4rem;
 }
 
 .svs-hdr-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.25rem;
   max-width: 40rem;
 }
@@ -303,8 +352,24 @@ body.page-home .hamburger:focus-visible {
 }
 
 .svs-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Last item (9th — odd) spans both columns, sits centered */
+.svs-list .sr:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 50%;
+}
+
+/* Add right border on left-column items */
+.svs-list .sr:nth-child(odd):not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+/* Hide large background watermark numbers — cleaner in grid */
+.sr-bg {
+  display: none;
 }
 
 .sr {
@@ -504,6 +569,13 @@ body.page-home .hamburger:focus-visible {
   color: var(--cyan);
 }
 
+/* Word-based stats (no counter animation needed) */
+.sb-num--text {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.01em;
+  color: var(--cyan);
+}
+
 .sb-label {
   font-size: var(--text-sm);
   color: var(--muted);
@@ -519,10 +591,46 @@ body.page-home .hamburger:focus-visible {
   color: var(--white);
 }
 
+.hiw-sec {
+  text-align: center;
+}
+
+.hiw-sec .sh {
+  color: var(--white);
+}
+
 .hiw-wrap {
   position: relative;
   margin-top: 4rem;
-  max-width: 52rem;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* 3-column grid layout for How It Works steps */
+.hiw-steps {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.hiw-step {
+  grid-template-columns: 1fr !important;
+  gap: 1.25rem !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2.5rem 2rem !important;
+  background: rgba(129,195,215,0.04);
+}
+
+.hiw-rail {
+  display: none;
+}
+
+/* Hide the O1/O2/O3 watermark numbers */
+.hiw-wm {
+  display: none;
 }
 
 .hiw-rail {
@@ -754,6 +862,10 @@ body.page-home .hamburger:focus-visible {
   color: var(--white);
 }
 
+.area-sec .ss {
+  color: rgba(217, 220, 214, 0.85);
+}
+
 .area-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -792,6 +904,8 @@ body.page-home .hamburger:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
 }
 
 .area-map-in {
@@ -811,6 +925,88 @@ body.page-home .hamburger:focus-visible {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+/* Phone CTA section — fix button underlines */
+.phone-cta-btns a {
+  text-decoration: none !important;
+}
+
+.btn-cta-solid {
+  text-decoration: none !important;
+}
+
+.btn-cta-outline {
+  text-decoration: none !important;
+}
+
+/* "Why Soak N Wet" section */
+.why-sec {
+  background: var(--ink3);
+  color: var(--white);
+}
+
+.why-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.why-head {
+  text-align: center;
+}
+
+.why-head .sh {
+  color: var(--white);
+}
+
+.why-head .ss {
+  margin: 0 auto;
+  color: rgba(217, 220, 214, 0.82);
+}
+
+.why-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.why-card {
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.why-card:hover {
+  border-color: rgba(129, 195, 215, 0.4);
+  transform: translateY(-3px);
+}
+
+.why-icon {
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+.why-card h3 {
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0;
+}
+
+.why-card p {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -837,8 +1033,29 @@ body.page-home .hamburger:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .why-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hiw-steps {
+    grid-template-columns: 1fr !important;
+  }
+
   .svs-hdr {
     grid-template-columns: 1fr;
+  }
+
+  .svs-list {
+    grid-template-columns: 1fr;
+  }
+
+  .svs-list .sr:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: 100%;
+  }
+
+  .svs-list .sr:nth-child(odd):not(:last-child) {
+    border-right: none;
   }
 
   .area-inner {
@@ -951,6 +1168,26 @@ body.page-home .hamburger:focus-visible {
     grid-template-columns: 2.5rem 1fr auto;
     gap: 1rem;
     padding-left: 0.5rem;
+  }
+
+  .why-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left--center {
+    text-align: left;
+  }
+
+  .hero-left--center .eyebrow {
+    text-align: left;
+  }
+
+  .hero-left--center .hero-trust {
+    justify-content: flex-start;
+  }
+
+  .btns--center {
+    justify-content: flex-start;
   }
 
   .ft-top {
