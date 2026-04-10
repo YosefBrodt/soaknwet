@@ -3,12 +3,12 @@
 ## Homepage Meta Tags (Ready to Copy-Paste)
 
 ```html
-<title>Soak N Wet | Bulk Water Delivery Ottawa — Same-Day Pool, Well & Construction</title>
-<meta name="description" content="Ottawa's bulk water delivery company. We fill pools, hot tubs, wells and supply construction sites — fast. Same-day and next-day delivery available. Call (613) 762-5464." />
+<title>Soak N Wet | Water Delivery Ottawa — Same-Day Pool, Well & Construction</title>
+<meta name="description" content="Ottawa's water delivery company. We fill pools, hot tubs, wells and supply construction sites — fast. Same-day and next-day delivery available. Call (613) 762-5464." />
 
 <!-- Open Graph (for social sharing) -->
-<meta property="og:title" content="Soak N Wet | Bulk Water Delivery Ottawa" />
-<meta property="og:description" content="Fast bulk water delivery across Ottawa. Pool fills, well water, construction sites. Same-day available. Call (613) 762-5464." />
+<meta property="og:title" content="Soak N Wet | Water Delivery Ottawa" />
+<meta property="og:description" content="Fast water delivery across Ottawa. Pool fills, well water, construction sites. Same-day available. Call (613) 762-5464." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://soaknwet.ca" />
 
@@ -26,7 +26,7 @@
     "addressCountry": "CA"
   },
   "areaServed": ["Ottawa", "Kanata", "Nepean", "Orleans", "Barrhaven", "Carleton Place", "Smiths Falls"],
-  "description": "Bulk water delivery in Ottawa. Pool filling, well water delivery, construction site water, and emergency supply.",
+  "description": "Water delivery in Ottawa. Pool filling, well water delivery, construction site water, and emergency supply.",
   "url": "https://soaknwet.ca"
 }
 </script>
@@ -38,9 +38,9 @@
 
 | # | Keyword | Intent | Priority |
 |---|---------|--------|----------|
-| 1 | `bulk water delivery Ottawa` | High — direct match | 🔴 Must rank |
+| 1 | `water delivery Ottawa` | High — direct match | 🔴 Must rank |
 | 2 | `pool filling service Ottawa` | High — summer seasonal spike | 🔴 Must rank |
-| 3 | `water delivery Ottawa` | High — broad, high volume | 🔴 Must rank |
+| 3 | `residential water delivery Ottawa` | High — homeowners | 🔴 Must rank |
 | 4 | `cistern water delivery Ottawa` | High — rural homeowners | 🟠 Strong target |
 | 5 | `well water delivery Ottawa` | High — rural / emergency | 🟠 Strong target |
 | 6 | `construction water delivery Ottawa` | High — B2B recurring | 🟠 Strong target |
@@ -55,20 +55,20 @@
 
 ### services.html
 ```
-<title>Services | Soak N Wet — Ottawa Bulk Water Delivery</title>
-<meta name="description" content="Bulk water delivery services in Ottawa: pool filling, hot tub filling, residential cistern delivery, construction dust control, landscaping water, and emergency supply." />
+<title>Services | Soak N Wet — Ottawa Water Delivery</title>
+<meta name="description" content="Water delivery services in Ottawa: pool filling, hot tub filling, residential cistern delivery, construction dust control, landscaping water, and emergency supply." />
 ```
 
 ### about.html
 ```
-<title>About Us | Soak N Wet — Ottawa Bulk Water Delivery</title>
-<meta name="description" content="Soak N Wet is Ottawa's local bulk water delivery company. Learn about who we are, what we stand for, and why Ottawa homeowners and contractors trust us." />
+<title>About Us | Soak N Wet — Ottawa Water Delivery</title>
+<meta name="description" content="Soak N Wet is Ottawa's local water delivery company. Learn about who we are, what we stand for, and why Ottawa homeowners and contractors trust us." />
 ```
 
 ### contact.html
 ```
 <title>Contact | Soak N Wet — Get a Quote for Water Delivery in Ottawa</title>
-<meta name="description" content="Request a quote or call Soak N Wet directly at (613) 762-5464. Ottawa bulk water delivery — pool fills, well water, construction sites. Fast response guaranteed." />
+<meta name="description" content="Request a quote or call Soak N Wet directly at (613) 762-5464. Ottawa water delivery for pool fills, wells, and construction sites. Fast response guaranteed." />
 ```
 
 ---
@@ -86,4 +86,4 @@
 
 ## Quick Win: Google Business Profile Description
 
-> Soak N Wet is Ottawa's trusted bulk water delivery company. We fill pools, hot tubs, and cisterns, supply construction sites, and respond to emergency water shortages. Same-day and next-day delivery available across Ottawa, Kanata, Barrhaven, Orleans, Carleton Place, and surrounding areas. Fast, reliable, and locally operated. Call us at (613) 762-5464.
+> Soak N Wet is Ottawa's trusted water delivery company. We fill pools, hot tubs, and cisterns, supply construction sites, and respond to emergency water shortages. Same-day and next-day delivery available across Ottawa, Kanata, Barrhaven, Orleans, Carleton Place, and surrounding areas. Fast, reliable, and locally operated. Call us at (613) 762-5464.
