@@ -58,19 +58,18 @@ body.page-contact nav > a.logo {
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--white);
+  text-decoration: none;
 }
 
-body.page-sub nav > a.logo .logo-img,
-body.page-contact nav > a.logo .logo-img {
-  height: 30px;
-  width: auto;
-  display: block;
-  max-width: 180px;
+body.page-sub nav > a.logo span,
+body.page-contact nav > a.logo span {
+  color: var(--cyan);
 }
 
 body.page-sub .nav-links,
@@ -355,17 +354,11 @@ footer {
 }
 
 footer .ft-brand .logo {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
   color: var(--white);
 }
 
-footer .ft-brand .logo .logo-img {
-  height: 34px;
-  width: auto;
-  display: block;
-  max-width: 220px;
+footer .ft-brand .logo span {
+  color: var(--cyan);
 }
 
 .ft-top {

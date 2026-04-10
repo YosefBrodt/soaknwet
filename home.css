@@ -67,18 +67,18 @@ body.page-home nav .logo {
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-body.page-home nav .logo .logo-img {
-  height: 30px;
-  width: auto;
-  display: block;
-  max-width: 180px;
+body.page-home nav .logo span {
+  color: var(--cyan);
 }
 
 body.page-home nav .nav-links {
