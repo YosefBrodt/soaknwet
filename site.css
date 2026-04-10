@@ -33,9 +33,8 @@ body.page-contact {
   color: var(--cyan);
 }
 
-/* ——— Site chrome: navigation (subpages only — home uses home.css) ——— */
-body.page-sub nav,
-body.page-contact nav {
+/* ——— Primary navigation — identical on every page (single source of truth) ——— */
+nav[aria-label="Primary"] {
   position: sticky;
   top: 0;
   z-index: 200;
@@ -43,136 +42,130 @@ body.page-contact nav {
   align-items: center;
   justify-content: center;
   height: var(--nav-h);
-  padding: 0 var(--section-x);
+  padding-left: max(var(--section-x), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--section-x), env(safe-area-inset-right, 0px));
   background: rgba(22, 66, 91, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-nav);
   box-shadow: var(--shadow-nav);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-body.page-sub nav > a.logo,
-body.page-contact nav > a.logo {
+nav[aria-label="Primary"] > a.logo {
   position: absolute;
-  left: var(--section-x);
+  left: max(var(--section-x), env(safe-area-inset-left, 0px));
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
   font-family: var(--font-d);
   font-weight: 900;
-  font-size: 1.35rem;
+  font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.35rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--white);
   text-decoration: none;
 }
 
-body.page-sub nav > a.logo span,
-body.page-contact nav > a.logo span {
+nav[aria-label="Primary"] > a.logo span {
   color: var(--cyan);
 }
 
-body.page-sub .nav-links,
-body.page-contact .nav-links {
+nav[aria-label="Primary"] .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: clamp(0.65rem, 1.2vw, 2.5rem);
   list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  max-width: min(56rem, 100%);
 }
 
-body.page-sub .nav-links a,
-body.page-contact .nav-links a {
+nav[aria-label="Primary"] .nav-links a {
   color: rgba(217, 220, 214, 0.82);
   text-decoration: none;
-  font-size: var(--text-sm);
+  font-size: clamp(0.75rem, 0.7rem + 0.35vw, var(--text-sm));
   font-weight: 500;
-  padding: 0.35rem 0.7rem;
+  letter-spacing: 0.02em;
+  padding: 0.35rem clamp(0.45rem, 0.8vw, 0.7rem);
   border-radius: 999px;
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
-body.page-sub .nav-links a:not(.btn-n):hover,
-body.page-sub .nav-links a:not(.btn-n).active,
-body.page-contact .nav-links a:not(.btn-n):hover,
-body.page-contact .nav-links a:not(.btn-n).active {
+nav[aria-label="Primary"] .nav-links a:not(.btn-n):hover,
+nav[aria-label="Primary"] .nav-links a:not(.btn-n).active {
   color: var(--white);
 }
 
-body.page-sub .nav-links a:not(.btn-n).active,
-body.page-contact .nav-links a:not(.btn-n).active {
+nav[aria-label="Primary"] .nav-links a:not(.btn-n).active {
   background: rgba(129, 195, 215, 0.16);
   box-shadow: inset 0 0 0 1px rgba(129, 195, 215, 0.28);
 }
 
-/* Subpages: nav CTAs */
-body.page-sub nav .nav-links .btn-n,
-body.page-contact nav .nav-links .btn-n {
+/* Get a Quote + Call Now — same treatment as subpages on all pages */
+nav[aria-label="Primary"] .nav-links .btn-n {
   display: flex;
   align-items: center;
   gap: 0.4rem;
   background: rgba(129, 195, 215, 0.15);
   color: var(--white) !important;
   font-weight: 700;
-  font-size: 0.85rem;
-  padding: 0.5rem 1.1rem;
+  font-size: clamp(0.78rem, 0.72rem + 0.2vw, 0.85rem);
+  padding: 0.5rem clamp(0.65rem, 1vw, 1.1rem);
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: background 0.2s ease, transform 0.15s ease;
   border: 1px solid rgba(129, 195, 215, 0.35);
 }
 
-body.page-sub nav .nav-links .btn-n:hover,
-body.page-contact nav .nav-links .btn-n:hover {
+nav[aria-label="Primary"] .nav-links .btn-n:hover {
   background: rgba(129, 195, 215, 0.25);
   transform: translateY(-1px);
 }
 
-/* Call Now — solid cyan, more prominent */
-body.page-sub nav .nav-links .btn-call,
-body.page-contact nav .nav-links .btn-call {
+nav[aria-label="Primary"] .nav-links .btn-call {
   background: var(--cyan);
   color: var(--ink) !important;
   border-color: var(--cyan);
   font-weight: 800;
 }
 
-body.page-sub nav .nav-links .btn-call:hover,
-body.page-contact nav .nav-links .btn-call:hover {
+nav[aria-label="Primary"] .nav-links .btn-call:hover {
   background: var(--white);
   border-color: var(--white);
 }
 
-body.page-sub nav > a.logo:focus-visible,
-body.page-contact nav > a.logo:focus-visible {
+nav[aria-label="Primary"] > a.logo:focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 4px;
   border-radius: 2px;
 }
 
-body.page-sub .nav-links a:focus-visible,
-body.page-contact .nav-links a:focus-visible {
+nav[aria-label="Primary"] .nav-links a:focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-body.page-sub nav .nav-links .btn-n:focus-visible,
-body.page-contact nav .nav-links .btn-n:focus-visible {
+nav[aria-label="Primary"] .nav-links .btn-n:focus-visible {
   outline: 2px solid var(--white);
   outline-offset: 2px;
 }
 
-body.page-sub .hamburger:focus-visible,
-body.page-contact .hamburger:focus-visible {
+nav[aria-label="Primary"] .hamburger:focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-body.page-sub .hamburger,
-body.page-contact .hamburger {
+nav[aria-label="Primary"] .hamburger {
   position: absolute;
-  right: var(--section-x);
+  right: max(var(--section-x), env(safe-area-inset-right, 0px));
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
@@ -189,14 +182,81 @@ body.page-contact .hamburger {
   justify-content: center;
 }
 
-body.page-sub .hamburger span,
-body.page-contact .hamburger span {
+nav[aria-label="Primary"] .hamburger span {
   display: block;
   width: 22px;
   height: 2px;
   border-radius: 2px;
   background: var(--white);
   transition: background 0.3s ease;
+}
+
+/* Tablet / mobile: drawer + hamburger (prevents overflow) */
+@media (max-width: 900px) {
+  nav[aria-label="Primary"] .nav-links {
+    display: none;
+  }
+
+  nav[aria-label="Primary"] .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    max-width: none;
+    align-items: stretch;
+    white-space: normal;
+    background: rgba(15, 45, 61, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2rem max(var(--section-x), env(safe-area-inset-left, 0px)) 2rem
+      max(var(--section-x), env(safe-area-inset-right, 0px));
+    border-bottom: 1px solid var(--border);
+    gap: 1.5rem;
+    z-index: 199;
+  }
+
+  nav[aria-label="Primary"] .nav-links.open a:not(.btn-n) {
+    font-size: 1.05rem;
+    color: var(--white);
+  }
+
+  nav[aria-label="Primary"] .nav-links.open a:not(.btn-n):hover,
+  nav[aria-label="Primary"] .nav-links.open a:not(.btn-n).active {
+    color: var(--cyan);
+  }
+
+  nav[aria-label="Primary"] .nav-links.open .btn-n {
+    background: var(--cyan);
+    color: var(--ink) !important;
+    justify-content: center;
+  }
+
+  nav[aria-label="Primary"] .nav-links.open .btn-n:hover {
+    background: var(--cyan-dk);
+  }
+
+  nav[aria-label="Primary"] .hamburger {
+    display: flex;
+  }
+
+  nav[aria-label="Primary"] .hamburger span {
+    transition: transform 0.22s ease, opacity 0.22s ease, background 0.3s ease;
+  }
+
+  nav[aria-label="Primary"] .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  nav[aria-label="Primary"] .hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  nav[aria-label="Primary"] .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
 }
 
 /* ——— Page hero: subpage .ph + Home .hero — same mesh, noise, and 135° gradients ——— */
@@ -209,6 +269,16 @@ body.page-contact .hamburger span {
   overflow: hidden;
   color: var(--ink);
   isolation: isolate;
+}
+
+/* After base .ph/.hero: tablet/mobile hero padding matches sticky nav + notches */
+@media (max-width: 900px) {
+  .ph,
+  .hero {
+    padding-top: 5.25rem;
+    padding-left: max(var(--section-x), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--section-x), env(safe-area-inset-right, 0px));
+  }
 }
 
 .ph::before,
@@ -1362,83 +1432,6 @@ select.form-control {
 }
 
 @media (max-width: 640px) {
-  /* Subpage heroes: match home nav clearance + respect notched devices */
-  .ph {
-    padding-top: 5.25rem;
-    padding-left: max(var(--section-x), env(safe-area-inset-left, 0px));
-    padding-right: max(var(--section-x), env(safe-area-inset-right, 0px));
-  }
-
-  body.page-sub .nav-links,
-  body.page-contact .nav-links {
-    display: none;
-  }
-
-  body.page-sub .nav-links.open,
-  body.page-contact .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: var(--nav-h);
-    left: 0;
-    right: 0;
-    background: rgba(15, 45, 61, 0.98);
-    backdrop-filter: blur(12px);
-    padding: 2rem;
-    border-bottom: 1px solid var(--border);
-    gap: 1.5rem;
-    z-index: 199;
-  }
-
-  body.page-sub .nav-links.open a:not(.btn-n),
-  body.page-contact .nav-links.open a:not(.btn-n) {
-    color: var(--white);
-  }
-
-  body.page-sub .nav-links.open a:not(.btn-n):hover,
-  body.page-sub .nav-links.open a:not(.btn-n).active,
-  body.page-contact .nav-links.open a:not(.btn-n):hover,
-  body.page-contact .nav-links.open a:not(.btn-n).active {
-    color: var(--cyan);
-  }
-
-  body.page-sub .nav-links.open .btn-n,
-  body.page-contact .nav-links.open .btn-n {
-    background: var(--cyan);
-    color: var(--ink) !important;
-  }
-
-  body.page-sub .nav-links.open .btn-n:hover,
-  body.page-contact .nav-links.open .btn-n:hover {
-    background: var(--cyan-dk);
-  }
-
-  body.page-sub .hamburger,
-  body.page-contact .hamburger {
-    display: flex;
-  }
-
-  body.page-sub .hamburger span,
-  body.page-contact .hamburger span {
-    transition: transform 0.22s ease, opacity 0.22s ease, background 0.3s ease;
-  }
-
-  body.page-sub .hamburger.open span:nth-child(1),
-  body.page-contact .hamburger.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  body.page-sub .hamburger.open span:nth-child(2),
-  body.page-contact .hamburger.open span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-
-  body.page-sub .hamburger.open span:nth-child(3),
-  body.page-contact .hamburger.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-
   .form-row {
     grid-template-columns: 1fr;
   }

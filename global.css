@@ -170,7 +170,7 @@ footer a:visited,
   color: inherit;
 }
 
-/* Nav link + CTA styling lives in site.css (scoped by page class) */
+/* Nav link + CTA styling lives in site.css — nav[aria-label="Primary"] (all pages) */
 
 /* Pre-footer phone CTA (all pages) */
 .phone-cta {
