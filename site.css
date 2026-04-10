@@ -296,9 +296,27 @@ body.page-contact .hamburger span {
   margin-right: auto;
 }
 
+/* Contact: centered hero column (never flush-left on any breakpoint) */
+.ph--contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .ph--contact .ph-in {
-  max-width: none;
-  text-align: left;
+  width: 100%;
+  max-width: min(720px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.ph--contact .ph-in .eyebrow,
+.ph--contact .ph-in h1,
+.ph--contact .ph-in .sh,
+.ph--contact .ph-in > p {
+  text-align: center;
 }
 
 .ph .eyebrow,
@@ -1374,6 +1392,13 @@ select.form-control {
 }
 
 @media (max-width: 640px) {
+  /* Subpage heroes: match home nav clearance + respect notched devices */
+  .ph {
+    padding-top: 5.25rem;
+    padding-left: max(var(--section-x), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--section-x), env(safe-area-inset-right, 0px));
+  }
+
   body.page-sub .nav-links,
   body.page-contact .nav-links {
     display: none;

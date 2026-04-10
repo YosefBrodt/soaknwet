@@ -1147,19 +1147,19 @@ body.page-home .hamburger:focus-visible {
   }
 
   .hero-left--center {
-    text-align: left;
+    text-align: center;
   }
 
   .hero-left--center .eyebrow {
-    text-align: left;
+    text-align: center;
   }
 
   .hero-left--center .hero-trust {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .btns--center {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .ft-top {
