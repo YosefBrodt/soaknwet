@@ -58,17 +58,27 @@ nav[aria-label="Primary"] > a.logo {
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  font-family: var(--font-d);
-  font-weight: 900;
-  font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.35rem);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--white);
+  display: flex;
+  align-items: center;
+  line-height: 0;
   text-decoration: none;
 }
 
-nav[aria-label="Primary"] > a.logo span {
-  color: var(--cyan);
+/* Raster mark: soften into dark nav (navy asset → near-white, low-contrast edge) */
+nav[aria-label="Primary"] > a.logo .logo-img {
+  display: block;
+  height: clamp(1.55rem, 1.35rem + 0.55vw, 2rem);
+  width: auto;
+  max-width: min(46vw, 11.5rem);
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0) invert(1) drop-shadow(0 0 14px rgba(255, 255, 255, 0.12));
+  opacity: 0.88;
+  transition: opacity 0.2s ease;
+}
+
+nav[aria-label="Primary"] > a.logo:hover .logo-img {
+  opacity: 0.96;
 }
 
 nav[aria-label="Primary"] .nav-links {
@@ -421,11 +431,26 @@ footer {
 }
 
 footer .ft-brand .logo {
-  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
 }
 
-footer .ft-brand .logo span {
-  color: var(--cyan);
+footer .ft-brand .logo .logo-img {
+  display: block;
+  height: clamp(1.75rem, 1.55rem + 0.6vw, 2.25rem);
+  width: auto;
+  max-width: 12.5rem;
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0) invert(1) drop-shadow(0 0 16px rgba(255, 255, 255, 0.1));
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+footer .ft-brand .logo:hover .logo-img {
+  opacity: 0.98;
 }
 
 .ft-top {
