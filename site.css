@@ -1550,6 +1550,199 @@ select.form-control {
   }
 }
 
+/* ——— Services page: compact intro (no hero) ——— */
+.svc-page-hdr {
+  padding: clamp(3.5rem, 6vw, 5rem) var(--section-x) clamp(2rem, 3vw, 2.5rem);
+  background: var(--gradient-page-hero);
+  border-bottom: 1px solid var(--border-ui);
+  position: relative;
+  overflow: hidden;
+  color: var(--ink);
+  isolation: isolate;
+}
+
+.svc-page-hdr::before {
+  content: "";
+  position: absolute;
+  top: -18%;
+  right: -12%;
+  width: min(58vw, 720px);
+  height: min(58vw, 720px);
+  background: var(--hero-mesh-bloom);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.svc-page-hdr .eyebrow,
+.svc-page-hdr h1,
+.svc-page-hdr > p {
+  position: relative;
+  z-index: 2;
+}
+
+.svc-page-hdr h1 {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: var(--text-page-headline);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.svc-page-hdr > p {
+  color: var(--muted2);
+  font-size: var(--text-body);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ——— Services accordion ——— */
+.accord-sec {
+  background: var(--white);
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4rem) var(--section-x) clamp(3rem, 6vw, 5rem);
+}
+
+.accord-item {
+  border-bottom: 1px solid var(--border-ui);
+  scroll-margin-top: 80px;
+}
+
+.accord-item:first-child {
+  border-top: 1px solid var(--border-ui);
+}
+
+.accord-head {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.accord-head:hover {
+  color: var(--cyan-dk);
+}
+
+.accord-num {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  color: var(--cyan-dk);
+  text-transform: uppercase;
+  flex-shrink: 0;
+  width: 2rem;
+}
+
+.accord-title {
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: clamp(1.35rem, 2vw + 0.4rem, 1.85rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  flex-grow: 1;
+}
+
+.accord-icon {
+  flex-shrink: 0;
+  color: var(--cyan-dk);
+  transition: transform 0.35s var(--ease-out-expo);
+}
+
+.accord-item.is-open .accord-icon {
+  transform: rotate(180deg);
+}
+
+.accord-item--emergency .accord-title {
+  color: var(--cyan-dk);
+}
+
+/* Smooth height animation using grid-template-rows trick */
+.accord-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease-out-expo);
+}
+
+.accord-item.is-open .accord-body {
+  grid-template-rows: 1fr;
+}
+
+.accord-inner {
+  overflow: hidden;
+  min-height: 0;
+  padding: 0 0 0 3.25rem; /* indent under the number */
+}
+
+.accord-item.is-open .accord-inner {
+  padding-bottom: 2rem;
+}
+
+.accord-inner p {
+  color: var(--muted2);
+  font-size: var(--text-body);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  max-width: 60ch;
+}
+
+.accord-inner .svc-details {
+  margin-bottom: 1.5rem;
+}
+
+.accord-inner .btn-p {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 45, 61, 0.94);
+  color: var(--text-on-ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-cta);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 10px 34px rgba(15, 45, 61, 0.12);
+}
+
+.accord-inner .btn-p:hover {
+  background: rgba(15, 45, 61, 0.98);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 46px rgba(15, 45, 61, 0.18);
+  color: var(--text-on-ink);
+}
+
+.accord-inner .btn-p:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.accord-head:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 640px) {
+  .accord-inner {
+    padding-left: 0;
+  }
+  .accord-title {
+    font-size: clamp(1.15rem, 4vw, 1.5rem);
+  }
+}
+
 /* ——— Services 3×3 Grid ——— */
 .svc-grid-sec {
   background: var(--ink);

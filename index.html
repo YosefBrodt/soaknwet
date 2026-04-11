@@ -61,6 +61,7 @@
 
 <!-- HERO -->
 <section class="hero" id="main-content" tabindex="-1">
+  <canvas id="water-canvas" aria-hidden="true"></canvas>
   <div class="hc">
     <div class="hero-grid hero-grid--center">
       <div class="hero-left hero-left--center ph-in">
@@ -145,7 +146,7 @@
   <div class="svs-hdr">
     <div data-animate="fade-up">
       <span class="eyebrow">What We Deliver</span>
-      <h2 class="sh">Nine Ways We<br>Move Water</h2>
+      <h2 class="sh">Six Ways We<br>Move Water</h2>
     </div>
     <div class="svs-hdr-right">
       <a href="services.html" class="btn-o" data-animate="fade-up" data-stagger="1">All Services &rarr;</a>
@@ -158,79 +159,52 @@
         <span class="sr-bar" aria-hidden="true"></span>
         <span class="sr-num">01</span>
       </div>
-      <div class="sr-mid"><div class="sr-name">Pool &amp; Hot Tub Fills</div><div class="sr-desc">Fast, clean water for pools and hot tubs without the hassle of multiple trips or garden hoses.</div></div>
+      <div class="sr-mid"><div class="sr-name">Pool &amp; Hot Tub Fills</div><div class="sr-desc">Fast, clean water for pools and hot tubs. Fill in hours, not days.</div></div>
       <span class="sr-arrow">&rarr;</span>
     </a>
-    <a href="services.html#well" class="sr" data-animate="fade-up" data-stagger="1">
+    <a href="services.html#well-cistern" class="sr" data-animate="fade-up" data-stagger="1">
       <div class="sr-left">
         <span class="sr-bg" aria-hidden="true">02</span>
         <span class="sr-bar" aria-hidden="true"></span>
         <span class="sr-num">02</span>
       </div>
-      <div class="sr-mid"><div class="sr-name">Residential Well Water</div><div class="sr-desc">Quick delivery when your well runs dry or pressure drops and you need water now.</div></div>
+      <div class="sr-mid"><div class="sr-name">Well Water &amp; Cistern Delivery</div><div class="sr-desc">Dry well, rural property, or off-grid tank — we restore supply fast.</div></div>
       <span class="sr-arrow">&rarr;</span>
     </a>
-    <a href="services.html#cistern" class="sr" data-animate="fade-up" data-stagger="2">
+    <a href="services.html#construction" class="sr" data-animate="fade-up" data-stagger="2">
       <div class="sr-left">
         <span class="sr-bg" aria-hidden="true">03</span>
         <span class="sr-bar" aria-hidden="true"></span>
         <span class="sr-num">03</span>
       </div>
-      <div class="sr-mid"><div class="sr-name">Cistern &amp; Tank Delivery</div><div class="sr-desc">Reliable water delivery for cisterns, storage tanks, and properties that need a solid refill.</div></div>
+      <div class="sr-mid"><div class="sr-name">Construction Site Supply</div><div class="sr-desc">Concrete, compaction, washdown. We deliver on your project timeline.</div></div>
       <span class="sr-arrow">&rarr;</span>
     </a>
-    <a href="services.html#construction" class="sr" data-animate="fade-up" data-stagger="3">
+    <a href="services.html#landscapers" class="sr" data-animate="fade-up" data-stagger="3">
       <div class="sr-left">
         <span class="sr-bg" aria-hidden="true">04</span>
         <span class="sr-bar" aria-hidden="true"></span>
         <span class="sr-num">04</span>
       </div>
-      <div class="sr-mid"><div class="sr-name">Construction Site Supply</div><div class="sr-desc">Water delivered for concrete work, site needs, and projects that can't afford delays.</div></div>
+      <div class="sr-mid"><div class="sr-name">Landscaper Services</div><div class="sr-desc">Sod, trees, large commercial installs. We move fast enough to keep up with your crew.</div></div>
       <span class="sr-arrow">&rarr;</span>
     </a>
-    <a href="services.html#dust" class="sr" data-animate="fade-up" data-stagger="4">
+    <a href="services.html#specialty" class="sr" data-animate="fade-up" data-stagger="4">
       <div class="sr-left">
         <span class="sr-bg" aria-hidden="true">05</span>
         <span class="sr-bar" aria-hidden="true"></span>
         <span class="sr-num">05</span>
       </div>
-      <div class="sr-mid"><div class="sr-name">Dust Suppression</div><div class="sr-desc">Keep job sites, access roads, and gravel surfaces under control with scheduled dust suppression.</div></div>
+      <div class="sr-mid"><div class="sr-name">Dust Control, Road Flushing &amp; Rink Flooding</div><div class="sr-desc">Site dust, construction runoff, and winter rink builds — handled.</div></div>
       <span class="sr-arrow">&rarr;</span>
     </a>
-    <a href="services.html#emergency" class="sr" data-animate="fade-up">
+    <a href="services.html#emergency" class="sr" data-animate="fade-up" data-stagger="5">
       <div class="sr-left">
         <span class="sr-bg" aria-hidden="true">06</span>
         <span class="sr-bar" aria-hidden="true"></span>
         <span class="sr-num">06</span>
       </div>
-      <div class="sr-mid"><div class="sr-name">Emergency Water Supply</div><div class="sr-desc">When water is suddenly out, we move fast to get you back up and running.</div></div>
-      <span class="sr-arrow">&rarr;</span>
-    </a>
-    <a href="services.html#landscapers" class="sr" data-animate="fade-up" data-stagger="5">
-      <div class="sr-left">
-        <span class="sr-bg" aria-hidden="true">07</span>
-        <span class="sr-bar" aria-hidden="true"></span>
-        <span class="sr-num">07</span>
-      </div>
-      <div class="sr-mid"><div class="sr-name">Landscaper Water Services</div><div class="sr-desc">Water for landscaping crews, sod installs, and outdoor projects that need dependable supply.</div></div>
-      <span class="sr-arrow">&rarr;</span>
-    </a>
-    <a href="services.html#hockey" class="sr" data-animate="fade-up" data-stagger="6">
-      <div class="sr-left">
-        <span class="sr-bg" aria-hidden="true">08</span>
-        <span class="sr-bar" aria-hidden="true"></span>
-        <span class="sr-num">08</span>
-      </div>
-      <div class="sr-mid"><div class="sr-name">Hockey Rink Flooding</div><div class="sr-desc">Consistent water delivery for outdoor rinks, ice builds, and flooding jobs.</div></div>
-      <span class="sr-arrow">&rarr;</span>
-    </a>
-    <a href="services.html#road-flushing" class="sr" data-animate="fade-up" data-stagger="7">
-      <div class="sr-left">
-        <span class="sr-bg" aria-hidden="true">09</span>
-        <span class="sr-bar" aria-hidden="true"></span>
-        <span class="sr-num">09</span>
-      </div>
-      <div class="sr-mid"><div class="sr-name">Road Flushing</div><div class="sr-desc">Water supply for road washing, cleanup, and municipal or contractor flushing needs.</div></div>
+      <div class="sr-mid"><div class="sr-name">Emergency Water Supply</div><div class="sr-desc">Water out? Call us directly. A real person answers and we move fast.</div></div>
       <span class="sr-arrow">&rarr;</span>
     </a>
   </div>
@@ -368,13 +342,10 @@
     </div>
     <div class="ft-col"><h4>Services</h4><ul>
       <li><a href="services.html#pool">Pool &amp; Hot Tub Fills</a></li>
-      <li><a href="services.html#well">Residential Well Water</a></li>
-      <li><a href="services.html#cistern">Cistern Delivery</a></li>
+      <li><a href="services.html#well-cistern">Well Water &amp; Cisterns</a></li>
       <li><a href="services.html#construction">Construction Supply</a></li>
-      <li><a href="services.html#landscapers">Landscaper Water Services</a></li>
-      <li><a href="services.html#hockey">Hockey Rink Flooding</a></li>
-      <li><a href="services.html#road-flushing">Road Flushing</a></li>
-      <li><a href="services.html#dust">Dust Suppression</a></li>
+      <li><a href="services.html#landscapers">Landscaper Services</a></li>
+      <li><a href="services.html#specialty">Dust Control &amp; Specialty</a></li>
       <li><a href="services.html#emergency">Emergency Supply</a></li>
     </ul></div>
     <div class="ft-col"><h4>Company</h4><ul>
@@ -395,5 +366,65 @@
 </footer>
 
 <script src="global.js"></script>
+<script>
+/* Water caustic shader — home page hero only */
+(function () {
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var canvas = document.getElementById('water-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var t = 0, raf = null, W = 1, H = 1;
+
+  function resize() {
+    var hero = canvas.parentElement;
+    var r = hero.getBoundingClientRect();
+    W = canvas.width  = Math.max(1, Math.floor(r.width  / 4));
+    H = canvas.height = Math.max(1, Math.floor(r.height / 4));
+  }
+
+  function render() {
+    var img = ctx.createImageData(W, H);
+    var d = img.data;
+    var cosT = Math.cos(t * 0.4), sinT = Math.sin(t * 0.3);
+    for (var y = 0; y < H; y++) {
+      for (var x = 0; x < W; x++) {
+        var nx = x / W, ny = y / H;
+        /* Four interfering wave sets — different angles and speeds */
+        var a = Math.sin(nx * 20 + ny * 13 + t * 0.8);
+        var b = Math.sin(nx * 14 - ny * 19 + t * 0.55);
+        var c = Math.sin((nx + ny) * 17 + t * 1.0);
+        var e = Math.sin((nx * 1.4 - ny * 0.8) * 16 + t * 0.65);
+        /* Caustic peak: square positive values to sharpen light spots */
+        var raw = (a + b + c + e) * 0.25;
+        var caus = Math.pow(Math.max(0, raw), 1.8);
+        var i = (y * W + x) << 2;
+        d[i    ] = (15  + caus * 55)  | 0;  /* R — stays dark blue */
+        d[i + 1] = (45  + caus * 120) | 0;  /* G */
+        d[i + 2] = (61  + caus * 160) | 0;  /* B — up to bright cyan */
+        d[i + 3] = (200 + caus * 55)  | 0;  /* A */
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+    t += 0.011;
+    raf = requestAnimationFrame(render);
+  }
+
+  /* Pause when tab is hidden to save CPU */
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { cancelAnimationFrame(raf); raf = null; }
+    else if (!raf) render();
+  });
+
+  if (window.ResizeObserver) {
+    new ResizeObserver(resize).observe(canvas.parentElement);
+  } else {
+    window.addEventListener('resize', resize);
+  }
+
+  resize();
+  render();
+}());
+</script>
 </body>
 </html>

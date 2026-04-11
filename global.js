@@ -120,6 +120,19 @@
     statObs.observe(statsRoot);
   }
 
+  /* Services accordion */
+  var accordItems = document.querySelectorAll(".accord-item");
+  if (accordItems.length) {
+    accordItems.forEach(function (item) {
+      var btn = item.querySelector(".accord-head");
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        var isOpen = item.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    });
+  }
+
   /* Mobile nav drawer (all pages) */
   var hamBtn = document.getElementById("hamburger");
   var navLinks = document.getElementById("navlinks");
