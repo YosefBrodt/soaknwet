@@ -23,46 +23,56 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   display: grid;
   place-items: start center;
 
-  /* Truck photo — darker left (text legibility), lighter right (truck shows through) */
+  /*
+   * Two-layer overlay:
+   * 1. Radial vignette — dark edges, slightly lighter where the truck is (center-right)
+   * 2. Flat base layer at ~55% so nothing is ever unreadable
+   * Photo positioned so the tank + branding lands right-of-center
+   */
   background:
-    linear-gradient(
-      108deg,
-      rgba(9, 26, 36, 0.92) 0%,
-      rgba(13, 40, 55, 0.80) 38%,
-      rgba(15, 45, 61, 0.58) 62%,
-      rgba(9, 26, 36, 0.75) 100%
+    radial-gradient(
+      ellipse 90% 75% at 58% 48%,
+      rgba(9, 26, 36, 0.42) 0%,
+      rgba(9, 26, 36, 0.65) 55%,
+      rgba(9, 26, 36, 0.88) 100%
     ),
-    url('images/hero-truck.jpg') center 45% / cover no-repeat;
+    linear-gradient(
+      180deg,
+      rgba(9, 26, 36, 0.30) 0%,
+      rgba(9, 26, 36, 0.20) 35%,
+      rgba(9, 26, 36, 0.45) 100%
+    ),
+    url('images/herotruck.jpg') 58% 50% / cover no-repeat;
   color: var(--text-on-dark);
   border-bottom: 1px solid rgba(129, 195, 215, 0.14);
 }
 
-/* Bottom fade — hero dissolves into marquee below */
+/* Bottom fade — hero photo dissolves into the dark marquee below */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom,
-      transparent 60%,
-      rgba(9, 26, 36, 0.55) 85%,
-      rgba(22, 66, 91, 0.82) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(9, 26, 36, 0.60) 82%,
+    rgba(22, 66, 91, 0.92) 100%
+  );
   pointer-events: none;
   z-index: 1;
 }
 
-/* Diagonal accent slash — subtle geometric line across the hero */
+/* Diagonal accent slash — thin cyan line for compositional depth */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    128deg,
-    transparent 48%,
-    rgba(129, 195, 215, 0.055) 49%,
-    rgba(129, 195, 215, 0.055) 50.5%,
-    transparent 51.5%
+    125deg,
+    transparent 52%,
+    rgba(129, 195, 215, 0.06) 52.5%,
+    rgba(129, 195, 215, 0.06) 53.5%,
+    transparent 54%
   );
   pointer-events: none;
   z-index: 1;
@@ -138,12 +148,16 @@ body.page-home nav[aria-label="Primary"].nav--dark {
 /* ——— Dark-photo hero: all text flips to light ——— */
 .hero h1 {
   color: var(--text-on-dark);
-  text-shadow: 0 2px 24px rgba(9, 26, 36, 0.5);
+  text-shadow:
+    0 2px 12px rgba(9, 26, 36, 0.7),
+    0 4px 40px rgba(9, 26, 36, 0.5);
 }
 
 .hero h1 span {
   color: var(--cyan);
-  text-shadow: 0 2px 32px rgba(129, 195, 215, 0.25);
+  text-shadow:
+    0 2px 12px rgba(9, 26, 36, 0.8),
+    0 0 40px rgba(129, 195, 215, 0.3);
 }
 
 .hero .hero-lead {
@@ -875,6 +889,11 @@ body.page-home nav[aria-label="Primary"].nav--dark {
 }
 
 @media (max-width: 640px) {
+  /* On mobile, shift photo so the truck body is more centered */
+  .hero {
+    background-position-x: 70%;
+  }
+
   .btns {
     flex-direction: column;
     align-items: stretch;
