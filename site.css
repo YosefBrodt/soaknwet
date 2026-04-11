@@ -67,9 +67,9 @@ nav[aria-label="Primary"] > a.logo {
 /* Raster mark: soften into dark nav (navy asset → near-white, low-contrast edge) */
 nav[aria-label="Primary"] > a.logo .logo-img {
   display: block;
-  height: clamp(2.6rem, 4vw, 3.25rem); /* fills ~80% of the 64px nav */
+  height: calc(var(--nav-h) - 10px); /* 54px — fills nav edge to edge with 5px breathing room */
   width: auto;
-  max-width: min(55vw, 18rem);
+  max-width: min(60vw, 22rem);
   object-fit: contain;
   object-position: left center;
   filter: brightness(0) invert(1) drop-shadow(0 0 14px rgba(255, 255, 255, 0.12));
