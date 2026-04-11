@@ -77,7 +77,7 @@
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 
   /* Layout */
-  --nav-h: 64px;
+  --nav-h: 82px;
   --shadow-nav: 0 12px 40px rgba(15, 45, 61, 0.12);
   --border-nav: rgba(129, 195, 215, 0.18);
   --radius-sm: 3px;
