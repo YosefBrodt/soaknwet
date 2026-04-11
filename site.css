@@ -1550,9 +1550,14 @@ select.form-control {
   }
 }
 
-/* ——— Services page: compact intro (no hero) ——— */
+/* ——— Services page: intro hero (centered, matches contact hero rhythm) ——— */
 .svc-page-hdr {
-  padding: clamp(3.5rem, 6vw, 5rem) var(--section-x) clamp(2rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(3.5rem, 6vw, 5rem) max(var(--section-x), env(safe-area-inset-left, 0px))
+    clamp(2rem, 3vw, 2.5rem) max(var(--section-x), env(safe-area-inset-right, 0px));
   background: var(--gradient-page-hero);
   border-bottom: 1px solid var(--border-ui);
   position: relative;
@@ -1589,12 +1594,17 @@ select.form-control {
   text-transform: uppercase;
   color: var(--ink);
   margin-bottom: 1rem;
+  max-width: min(720px, 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .svc-page-hdr > p {
   color: var(--muted2);
   font-size: var(--text-body);
-  max-width: 560px;
+  max-width: min(560px, 100%);
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.7;
 }
 

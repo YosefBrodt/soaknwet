@@ -120,8 +120,25 @@
     statObs.observe(statsRoot);
   }
 
-  /* Services accordion */
+  /* Services accordion + deep links (e.g. services.html#pool from home) */
   var accordItems = document.querySelectorAll(".accord-item");
+  function openAccordFromHash() {
+    var hash = window.location.hash.slice(1);
+    if (!hash) return;
+    var target = document.getElementById(hash);
+    if (!target || !target.classList.contains("accord-item")) return;
+    accordItems.forEach(function (item) {
+      var open = item === target;
+      item.classList.toggle("is-open", open);
+      var b = item.querySelector(".accord-head");
+      if (b) b.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+      });
+    });
+  }
   if (accordItems.length) {
     accordItems.forEach(function (item) {
       var btn = item.querySelector(".accord-head");
@@ -131,6 +148,8 @@
         btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       });
     });
+    openAccordFromHash();
+    window.addEventListener("hashchange", openAccordFromHash);
   }
 
   /* Mobile nav drawer (all pages) */
