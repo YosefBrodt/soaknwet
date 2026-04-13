@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   <link rel="stylesheet" href="global.css" />
   <link rel="stylesheet" href="site.css" />
 </head>
@@ -93,7 +94,9 @@
     <div class="form-wrap" id="request-quote" data-animate="fade-up" data-stagger="1">
       <h2>Book online or request a quote</h2>
       <p>Tell us what you need and when you need it. We&rsquo;ll follow up to confirm your booking and pricing, usually within a couple hours on business days.</p>
-      <form id="contact-form" novalidate>
+      <!-- FORMSPREE: Replace YOUR_FORM_ID with your actual Formspree endpoint -->
+      <!-- 1. Go to formspree.io  2. Create a form  3. Paste the ID below -->
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
         <div class="form-row">
           <div class="form-field" data-field="name">
             <label class="form-label" for="name">Your Name<span class="req" aria-hidden="true">*</span></label>
@@ -181,20 +184,20 @@
   <div class="ft-top">
     <div class="ft-brand">
       <a href="index.html" class="logo" aria-label="Soak N Wet home"><img class="logo-img" src="images/logo-soak-n-wet-white.png" alt="" width="200" height="114" decoding="async" /></a>
-      <p>Ottawa's water delivery company. Pools, wells, cisterns, and construction sites - fast, reliable, local.</p>
+      <p>Ottawa's water delivery company. Pools, wells, cisterns, and construction sites - we bring the water to you, fast.</p>
     </div>
     <div class="ft-col"><h4>Services</h4><ul>
-      <li><a href="services.html#pool">Pool &amp; Hot Tub</a></li>
-      <li><a href="services.html#well">Well Water</a></li>
-      <li><a href="services.html#cistern">Cistern Delivery</a></li>
+      <li><a href="services.html#pool">Pool &amp; Hot Tub Fills</a></li>
+      <li><a href="services.html#well-cistern">Well Water &amp; Cisterns</a></li>
       <li><a href="services.html#construction">Construction Supply</a></li>
-      <li><a href="services.html#dust">Dust Suppression</a></li>
+      <li><a href="services.html#landscapers">Landscaper Services</a></li>
+      <li><a href="services.html#specialty">Dust Control &amp; Specialty</a></li>
       <li><a href="services.html#emergency">Emergency Supply</a></li>
     </ul></div>
     <div class="ft-col"><h4>Company</h4><ul>
       <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">All Services</a></li>
     </ul></div>
     <div class="ft-col"><h4>Contact</h4><ul>
       <li><a href="tel:6137625464">(613) 762-5464</a></li>
@@ -281,12 +284,34 @@
         return;
       }
 
-      var wrap = document.getElementById('request-quote');
-      wrap.querySelector('h2').hidden = true;
-      wrap.querySelector('p').hidden = true;
-      form.hidden = true;
-      document.getElementById('form-success').hidden = false;
-      document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      /* Submit to Formspree */
+      var btn = document.getElementById('form-submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      var formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          var wrap = document.getElementById('request-quote');
+          wrap.querySelector('h2').hidden = true;
+          wrap.querySelector('p').hidden = true;
+          form.hidden = true;
+          document.getElementById('form-success').hidden = false;
+          document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send booking request \u2192';
+          alert('Something went wrong. Please call (613) 762-5464 to book directly.');
+        }
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Send booking request \u2192';
+        alert('Connection error. Please call (613) 762-5464 to book directly.');
+      });
     });
   })();
 </script>

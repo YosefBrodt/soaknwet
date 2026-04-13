@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   <link rel="stylesheet" href="global.css" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="home.css" />
@@ -62,7 +63,6 @@
 
 <!-- HERO -->
 <section class="hero" id="main-content" tabindex="-1">
-  <canvas id="water-canvas" aria-hidden="true"></canvas>
   <div class="hc">
     <div class="hero-grid hero-grid--center">
       <div class="hero-left hero-left--center ph-in">
@@ -263,32 +263,24 @@
       <h2 class="sh">Why Ottawa<br>Calls Us Back</h2>
       <p class="ss">No runaround, no middlemen. You call, we quote, we show up.</p>
     </div>
-    <div class="why-cards">
-      <div class="why-card" data-animate="fade-up">
-        <div class="why-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
+    <div class="why-grid">
+      <div class="why-block" data-animate="fade-up">
+        <div class="why-num" aria-hidden="true">01</div>
         <h3>Fast Turnaround</h3>
         <p>When you need water, waiting around isn't an option. We move quickly and keep the process simple.</p>
       </div>
-      <div class="why-card" data-animate="fade-up" data-stagger="1">
-        <div class="why-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        </div>
+      <div class="why-block" data-animate="fade-up" data-stagger="1">
+        <div class="why-num" aria-hidden="true">02</div>
         <h3>Easy To Quote</h3>
         <p>Just tell us the location and what you need filled. We make pricing and scheduling easy.</p>
       </div>
-      <div class="why-card" data-animate="fade-up" data-stagger="2">
-        <div class="why-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
+      <div class="why-block" data-animate="fade-up" data-stagger="2">
+        <div class="why-num" aria-hidden="true">03</div>
         <h3>Local Owner-Operated</h3>
         <p>You deal with the owner, not a call center. That means direct answers and accountable service.</p>
       </div>
-      <div class="why-card" data-animate="fade-up" data-stagger="3">
-        <div class="why-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
+      <div class="why-block" data-animate="fade-up" data-stagger="3">
+        <div class="why-num" aria-hidden="true">04</div>
         <h3>Professional On Site</h3>
         <p>We show up clean, prepared, and ready to work. Your property and project get treated with care.</p>
       </div>
@@ -367,65 +359,5 @@
 </footer>
 
 <script src="global.js"></script>
-<script>
-/* Water caustic shader — home page hero only */
-(function () {
-  'use strict';
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var canvas = document.getElementById('water-canvas');
-  if (!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var t = 0, raf = null, W = 1, H = 1;
-
-  function resize() {
-    var hero = canvas.parentElement;
-    var r = hero.getBoundingClientRect();
-    W = canvas.width  = Math.max(1, Math.floor(r.width  / 4));
-    H = canvas.height = Math.max(1, Math.floor(r.height / 4));
-  }
-
-  function render() {
-    var img = ctx.createImageData(W, H);
-    var d = img.data;
-    var cosT = Math.cos(t * 0.4), sinT = Math.sin(t * 0.3);
-    for (var y = 0; y < H; y++) {
-      for (var x = 0; x < W; x++) {
-        var nx = x / W, ny = y / H;
-        /* Four interfering wave sets — different angles and speeds */
-        var a = Math.sin(nx * 20 + ny * 13 + t * 0.8);
-        var b = Math.sin(nx * 14 - ny * 19 + t * 0.55);
-        var c = Math.sin((nx + ny) * 17 + t * 1.0);
-        var e = Math.sin((nx * 1.4 - ny * 0.8) * 16 + t * 0.65);
-        /* Caustic peak: square positive values to sharpen light spots */
-        var raw = (a + b + c + e) * 0.25;
-        var caus = Math.pow(Math.max(0, raw), 1.8);
-        var i = (y * W + x) << 2;
-        d[i    ] = (15  + caus * 55)  | 0;  /* R — stays dark blue */
-        d[i + 1] = (45  + caus * 120) | 0;  /* G */
-        d[i + 2] = (61  + caus * 160) | 0;  /* B — up to bright cyan */
-        d[i + 3] = (200 + caus * 55)  | 0;  /* A */
-      }
-    }
-    ctx.putImageData(img, 0, 0);
-    t += 0.011;
-    raf = requestAnimationFrame(render);
-  }
-
-  /* Pause when tab is hidden to save CPU */
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) { cancelAnimationFrame(raf); raf = null; }
-    else if (!raf) render();
-  });
-
-  if (window.ResizeObserver) {
-    new ResizeObserver(resize).observe(canvas.parentElement);
-  } else {
-    window.addEventListener('resize', resize);
-  }
-
-  resize();
-  render();
-}());
-</script>
 </body>
 </html>

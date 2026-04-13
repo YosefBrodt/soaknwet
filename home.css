@@ -796,48 +796,43 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   color: rgba(217, 220, 214, 0.82);
 }
 
-.why-cards {
+.why-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
-.why-card {
-  background: var(--ink2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 2rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: border-color 0.2s, transform 0.2s;
+.why-block {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border);
+  position: relative;
 }
 
-.why-card:hover {
-  border-color: rgba(129, 195, 215, 0.4);
-  transform: translateY(-3px);
+.why-num {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: var(--text-val-num);
+  line-height: 1;
+  color: rgba(129, 195, 215, 0.12);
+  margin-bottom: 1rem;
 }
 
-.why-icon {
-  color: var(--cyan);
-  flex-shrink: 0;
-}
-
-.why-card h3 {
+.why-block h3 {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--white);
-  margin: 0;
+  margin: 0 0 0.75rem;
 }
 
-.why-card p {
+.why-block p {
   font-size: var(--text-sm);
   color: var(--text-on-dark-muted);
   line-height: 1.7;
   margin: 0;
+  max-width: 36ch;
 }
 
 @media (max-width: 900px) {
@@ -850,7 +845,7 @@ body.page-home nav[aria-label="Primary"].nav--dark {
     grid-template-columns: 1fr;
   }
 
-  .why-cards {
+  .why-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -886,9 +881,22 @@ body.page-home nav[aria-label="Primary"].nav--dark {
 }
 
 @media (max-width: 640px) {
-  /* On mobile, shift photo so the truck body is more centered */
+  /* On mobile, lighten overlay so the truck photo actually reads */
   .hero {
-    background-position-x: 70%;
+    background:
+      radial-gradient(
+        ellipse 90% 75% at 58% 48%,
+        rgba(9, 26, 36, 0.38) 0%,
+        rgba(9, 26, 36, 0.55) 55%,
+        rgba(9, 26, 36, 0.78) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(9, 26, 36, 0.28) 0%,
+        rgba(9, 26, 36, 0.18) 35%,
+        rgba(9, 26, 36, 0.45) 100%
+      ),
+      url('images/herotruck.jpg') 70% 50% / cover no-repeat;
   }
 
   .btns {
@@ -908,7 +916,7 @@ body.page-home nav[aria-label="Primary"].nav--dark {
     padding-left: 0.5rem;
   }
 
-  .why-cards {
+  .why-grid {
     grid-template-columns: 1fr;
   }
 
@@ -939,10 +947,6 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   }
 }
 
-/* ——— Water caustic canvas — hidden on photo hero (photo provides texture) ——— */
-#water-canvas {
-  display: none;
-}
 
 /* Ensure hero content stays above overlay pseudo-elements */
 .hero .hc {
