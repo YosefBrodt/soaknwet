@@ -980,7 +980,7 @@ footer .ft-brand .logo:focus-visible {
 }
 
 .val-block p {
-  color: var(--muted);
+  color: var(--text-on-dark-muted);
   font-size: 0.9rem;
   line-height: 1.7;
 }
