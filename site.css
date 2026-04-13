@@ -455,7 +455,7 @@ footer .ft-brand .logo:hover .logo-img {
 
 .ft-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1.2fr 1.2fr 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
 }
@@ -983,6 +983,58 @@ footer .ft-brand .logo:focus-visible {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.7;
+}
+
+/* Photo strip (about page cinematic truck shots) */
+.photo-strip {
+  width: 100%;
+  overflow: hidden;
+  max-height: 420px;
+  border-bottom: 1px solid var(--border-ui);
+}
+.photo-strip-inner {
+  width: 100%;
+  height: 100%;
+}
+.photo-strip img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+.photo-strip--fleet img {
+  object-position: center 55%;
+}
+@media (max-width: 640px) {
+  .photo-strip,
+  .photo-strip img {
+    max-height: 260px;
+    height: 260px;
+  }
+}
+
+/* About: stats section → light (breaks dark streak before CTA/footer) */
+body.page-about .stats-sec {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border-ui);
+}
+body.page-about .stats-sec .sb {
+  background: rgba(129, 195, 215, 0.06);
+  border-right-color: var(--border-ui);
+}
+body.page-about .stats-sec .sb:first-child {
+  border-left: 3px solid var(--cyan-dk);
+}
+body.page-about .stats-sec .sb-num {
+  color: var(--ink);
+}
+body.page-about .stats-sec .sb-num--text {
+  color: var(--cyan-dk);
+}
+body.page-about .stats-sec .sb-label {
+  color: var(--muted2);
 }
 
 .bigstat-sec {
@@ -1898,5 +1950,199 @@ select.form-control {
   .svc-card {
     min-height: auto;
     padding: 1.75rem 1.5rem;
+  }
+}
+
+/* ——— Area landing pages (water-delivery-*.html) ——— */
+.page-area .area-detail-sec {
+  background: var(--surface);
+}
+
+.area-detail-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(3rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.area-detail-text h2 {
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: var(--text-section-title);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+.area-detail-text h2 span {
+  color: var(--cyan-dk);
+}
+
+.area-detail-text > p {
+  color: var(--muted2);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  font-size: var(--text-body);
+}
+
+.area-services-quick h3 {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.area-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.area-cta-row .btn-p {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 45, 61, 0.94);
+  color: var(--text-on-ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-cta);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 10px 34px rgba(15, 45, 61, 0.14);
+}
+
+.area-cta-row .btn-p:hover {
+  background: rgba(15, 45, 61, 0.98);
+  transform: translateY(-2px);
+}
+
+.area-cta-row .btn-p--outline-light {
+  background: transparent;
+  border: 1.5px solid var(--ink2);
+  color: var(--ink2);
+  box-shadow: none;
+}
+
+.area-cta-row .btn-p--outline-light:hover {
+  background: rgba(22, 66, 91, 0.06);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.area-nbhd-card,
+.area-hours-card {
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2rem 1.75rem;
+  color: var(--white);
+}
+
+.area-nbhd-card {
+  margin-bottom: 1.25rem;
+}
+
+.area-nbhd-card h3,
+.area-hours-card h3 {
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.25rem;
+  color: var(--white);
+}
+
+.area-nbhd-card .tags {
+  margin-top: 0;
+}
+
+.area-hours-card .hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-sm);
+}
+
+.area-hours-card .hours-row:last-child {
+  border-bottom: none;
+}
+
+.area-hours-card .hours-day {
+  color: var(--text-on-dark-muted);
+}
+
+.area-hours-card .hours-time {
+  color: var(--text-on-dark-muted);
+  font-weight: 600;
+}
+
+.area-hours-card .hours-time.avail {
+  color: var(--cyan);
+}
+
+/* "Other areas" cross-links */
+.area-other-sec {
+  background: var(--ink2);
+  color: var(--white);
+  text-align: center;
+}
+
+.area-other-sec .sh {
+  color: var(--white);
+}
+
+.area-other-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.area-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--border);
+  background: rgba(129, 195, 215, 0.08);
+  color: var(--white);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.area-link:hover {
+  border-color: rgba(129, 195, 215, 0.5);
+  background: rgba(129, 195, 215, 0.16);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .area-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .area-cta-row {
+    flex-direction: column;
+  }
+  .area-cta-row .btn-p {
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -958,3 +958,68 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   grid-column: auto;
   max-width: 100%;
 }
+
+/* ——— Color-flow overrides: break up the dark-on-dark streak ——— */
+
+/* Stats strip → light surface (was all dark navy) */
+body.page-home .stats-sec {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border-ui);
+}
+body.page-home .stats-sec .sb {
+  background: rgba(129, 195, 215, 0.06);
+  border-right-color: var(--border-ui);
+}
+body.page-home .stats-sec .sb:first-child {
+  border-left: 3px solid var(--cyan-dk);
+}
+body.page-home .stats-sec .sb-num {
+  color: var(--ink);
+}
+body.page-home .stats-sec .sb-num--text {
+  color: var(--cyan-dk);
+}
+body.page-home .stats-sec .sb-num span {
+  color: var(--cyan-dk);
+}
+body.page-home .stats-sec .sb-label {
+  color: var(--muted2);
+}
+body.page-home .stats-sec .sb:not(:first-child)::after {
+  background: linear-gradient(90deg, var(--cyan-dk), transparent);
+}
+
+/* Why Choose Us → light surface (was dark, card grid with icons) */
+body.page-home .why-sec {
+  background: var(--surface);
+  color: var(--ink);
+}
+body.page-home .why-sec::before {
+  background: radial-gradient(
+    ellipse 50% 80% at 80% 50%,
+    rgba(58, 124, 165, 0.05),
+    transparent 60%
+  );
+}
+body.page-home .why-sec .eyebrow {
+  color: var(--cyan-dk);
+}
+body.page-home .why-sec .sh {
+  color: var(--ink);
+}
+body.page-home .why-sec .ss {
+  color: var(--muted2);
+}
+body.page-home .why-block {
+  border-top-color: var(--border-ui);
+}
+body.page-home .why-num {
+  color: rgba(58, 124, 165, 0.14);
+}
+body.page-home .why-block h3 {
+  color: var(--ink);
+}
+body.page-home .why-block p {
+  color: var(--muted2);
+}
