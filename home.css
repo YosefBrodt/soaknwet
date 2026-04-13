@@ -1072,7 +1072,7 @@ body.page-home .why-block p {
   align-items: center;
   gap: 0.5rem;
   background: var(--ink2);
-  color: var(--text-on-ink);
+  color: #fff !important;
   font-weight: 700;
   font-size: 0.95rem;
   padding: 0.9rem 2rem;
