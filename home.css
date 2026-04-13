@@ -1023,3 +1023,108 @@ body.page-home .why-block h3 {
 body.page-home .why-block p {
   color: var(--muted2);
 }
+
+/* ——— Inline CTAs (varied per section to avoid repetition) ——— */
+
+/* How It Works: centered phone CTA after the 3 steps */
+.hiw-cta {
+  text-align: center;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.hiw-cta p {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-on-dark-muted);
+  margin-bottom: 1rem;
+}
+.hiw-cta .btn-p {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--cyan);
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-cta);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 8px 28px rgba(129, 195, 215, 0.2);
+}
+.hiw-cta .btn-p:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(129, 195, 215, 0.3);
+}
+
+/* Why Choose Us: single button CTA (light bg context) */
+.why-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+.btn-p--surface {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--ink2);
+  color: var(--text-on-ink);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-cta);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 10px 34px rgba(15, 45, 61, 0.14);
+}
+.btn-p--surface:hover {
+  background: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 42px rgba(15, 45, 61, 0.2);
+}
+
+/* Service Area: button pair below the area tags */
+.area-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.area-cta .btn-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-b);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, border-color 0.2s;
+}
+.area-cta .btn-call {
+  background: var(--cyan);
+  color: var(--ink);
+  border: 1px solid var(--cyan);
+}
+.area-cta .btn-call:hover {
+  background: var(--white);
+  border-color: var(--white);
+  transform: translateY(-1px);
+}
+.area-cta .btn-quote {
+  background: rgba(129, 195, 215, 0.15);
+  color: var(--white);
+  border: 1px solid rgba(129, 195, 215, 0.35);
+}
+.area-cta .btn-quote:hover {
+  background: rgba(129, 195, 215, 0.25);
+  transform: translateY(-1px);
+}
