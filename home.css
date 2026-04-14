@@ -16,72 +16,97 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   border-bottom-color: rgba(129, 195, 215, 0.16);
 }
 
-/* Hero — video + stacked overlays (flat 50% black + gradient anchor) + text */
-.hero {
+/* Home cinema hero — brand navy (--ink) behind feathered video; light scrims for copy */
+.page-home .hero.hero--cinema {
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
   min-height: calc(100svh - var(--nav-h));
-  display: grid;
-  place-items: start center;
-  background: transparent;
+  padding: 0;
+  margin: 0;
+  background: var(--ink);
   color: var(--text-on-dark);
   border-bottom: 1px solid rgba(129, 195, 215, 0.14);
 }
 
-.hero-video-wrap {
+.page-home .hero.hero--cinema .hero-video {
   position: absolute;
   inset: 0;
   z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.hero-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 45%;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 98%);
+  mask-image: radial-gradient(ellipse at center, black 55%, transparent 98%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
-/* Full-hero darken — sits on top of video/image, below copy */
-.hero-overlay-flat {
+@media (max-width: 768px) {
+  .page-home .hero.hero--cinema .hero-video {
+    -webkit-mask-image: radial-gradient(ellipse at center, black 70%, transparent 100%);
+    mask-image: radial-gradient(ellipse at center, black 70%, transparent 100%);
+  }
+}
+
+/* bg-black/30 */
+.page-home .hero.hero--cinema .hero-scrim {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
 }
 
-/* Bottom-anchored gradient: strong at bottom (CTAs + trust), lighter mid, top tint */
-.hero-overlay-gradient {
+/* bg-gradient-to-t from-black/70 via-transparent to-black/10 */
+.page-home .hero.hero--cinema .hero-scrim-gradient {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgba(0, 0, 0, 0.7) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
   );
 }
 
+.page-home .hero.hero--cinema .hc--cinema {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100svh - var(--nav-h));
+  width: 100%;
+  padding: clamp(1.25rem, 4vw, 2rem)
+    max(1.5rem, var(--section-x), env(safe-area-inset-left, 0px));
+  text-align: center;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-video-wrap {
+  .page-home .hero.hero--cinema .hero-video {
     display: none;
   }
 
-  .hero {
-    background: url("images/herotruck.jpg") 58% 50% / cover no-repeat;
+  .page-home .hero.hero--cinema {
+    background: var(--ink) url("images/herotruck.jpg") 50% 50% / cover no-repeat;
   }
 }
 
-/* site.css adds mesh/noise pseudo-elements on .hero — hide on home; overlays replace them */
-body.page-home .hero::before,
-body.page-home .hero::after {
+/* site.css mesh/noise on .hero — not used on cinema hero */
+body.page-home .hero.hero--cinema::before,
+body.page-home .hero.hero--cinema::after {
   content: none;
   display: none;
 }
 
+/* Subpages / non-cinema .ph still use default .hero rules from site.css */
 .hc {
   position: relative;
   z-index: 10;
@@ -114,6 +139,11 @@ body.page-home .hero::after {
 .hero-left--center .eyebrow {
   display: block;
   text-align: center;
+  padding-left: 0;
+}
+
+.hero-left--center .eyebrow::before {
+  display: none;
 }
 
 .hero-left--center .hero-trust {
@@ -156,29 +186,28 @@ body.page-home .hero::after {
 .page-home .hero .ph-in h1 {
   color: #fff !important;
   text-shadow:
-    0 2px 16px rgba(9, 26, 36, 0.85),
-    0 4px 48px rgba(9, 26, 36, 0.65);
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 2px 24px rgba(9, 26, 36, 0.55);
 }
 
 .page-home .hero .ph-in h1 span {
   color: #3b9eff !important;
   text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.85),
-    0 2px 16px rgba(0, 0, 0, 0.55),
-    0 0 24px rgba(59, 158, 255, 0.35);
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 2px 18px rgba(9, 26, 36, 0.45);
 }
 
 .page-home .hero .ph-in .eyebrow {
-  color: var(--cyan) !important;
+  color: #9fd8ea !important;
+  text-shadow: 0 1px 8px rgba(9, 26, 36, 0.65);
 }
 
 .page-home .hero .ph-in > p,
 .page-home .hero .ph-in .hero-lead {
   color: #fff !important;
   text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.65),
-    0 4px 20px rgba(0, 0, 0, 0.45),
-    0 1px 2px rgba(0, 0, 0, 0.9);
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 2px 16px rgba(9, 26, 36, 0.4);
 }
 
 .page-home .hero .ph-in .hero-lead strong {
@@ -213,14 +242,12 @@ body.page-home .hero::after {
   gap: 0.5rem 0.75rem;
   align-items: center;
   margin-top: 1.1rem;
-  border-top: 1px solid rgba(129, 195, 215, 0.22);
+  border-top: 1px solid rgba(129, 195, 215, 0.28);
   padding-top: 1rem;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.93);
   font-size: var(--text-sm);
   font-weight: 500;
-  text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.75),
-    0 2px 10px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .hero-trust .sep {
