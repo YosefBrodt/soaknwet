@@ -16,6 +16,15 @@
     navHeroObs.observe(hero);
   }
 
+  /* Home hero: ensure muted loop video plays (autoplay policies) */
+  var heroVideo = document.querySelector(".hero-video");
+  if (
+    heroVideo &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    heroVideo.play().catch(function () {});
+  }
+
   /* IntersectionObserver for [data-animate] */
   var animEls = document.querySelectorAll("[data-animate]");
   if (animEls.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
