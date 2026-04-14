@@ -16,29 +16,13 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   border-bottom-color: rgba(129, 195, 215, 0.16);
 }
 
-/* Hero — looping video + atmospheric overlays (static photo when reduced motion) */
+/* Hero — video + stacked overlays (flat 50% black + gradient anchor) + text */
 .hero {
   position: relative;
   min-height: calc(100svh - var(--nav-h));
   display: grid;
   place-items: start center;
-
-  /*
-   * Two-layer overlay (no photo URL — video fills; see @media prefers-reduced-motion)
-   */
-  background:
-    radial-gradient(
-      ellipse 90% 75% at 58% 48%,
-      rgba(9, 26, 36, 0.52) 0%,
-      rgba(9, 26, 36, 0.72) 55%,
-      rgba(9, 26, 36, 0.92) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(9, 26, 36, 0.38) 0%,
-      rgba(9, 26, 36, 0.28) 35%,
-      rgba(9, 26, 36, 0.55) 100%
-    );
+  background: transparent;
   color: var(--text-on-dark);
   border-bottom: 1px solid rgba(129, 195, 215, 0.14);
 }
@@ -58,63 +42,49 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   object-position: 50% 45%;
 }
 
+/* Full-hero darken — sits on top of video/image, below copy */
+.hero-overlay-flat {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Bottom-anchored gradient: strong at bottom (CTAs + trust), lighter mid, top tint */
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-video-wrap {
     display: none;
   }
 
   .hero {
-    background:
-      radial-gradient(
-        ellipse 90% 75% at 58% 48%,
-        rgba(9, 26, 36, 0.52) 0%,
-        rgba(9, 26, 36, 0.72) 55%,
-        rgba(9, 26, 36, 0.92) 100%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(9, 26, 36, 0.38) 0%,
-        rgba(9, 26, 36, 0.28) 35%,
-        rgba(9, 26, 36, 0.55) 100%
-      ),
-      url('images/herotruck.jpg') 58% 50% / cover no-repeat;
+    background: url("images/herotruck.jpg") 58% 50% / cover no-repeat;
   }
 }
 
-/* Bottom fade — hero photo dissolves into the dark marquee below */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 55%,
-    rgba(9, 26, 36, 0.60) 82%,
-    rgba(22, 66, 91, 0.92) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Diagonal accent slash — thin cyan line for compositional depth */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    125deg,
-    transparent 52%,
-    rgba(129, 195, 215, 0.06) 52.5%,
-    rgba(129, 195, 215, 0.06) 53.5%,
-    transparent 54%
-  );
-  pointer-events: none;
-  z-index: 1;
+/* site.css adds mesh/noise pseudo-elements on .hero — hide on home; overlays replace them */
+body.page-home .hero::before,
+body.page-home .hero::after {
+  content: none;
+  display: none;
 }
 
 .hc {
   position: relative;
-  z-index: 3;
+  z-index: 10;
   width: 100%;
 }
 
@@ -191,10 +161,11 @@ body.page-home nav[aria-label="Primary"].nav--dark {
 }
 
 .page-home .hero .ph-in h1 span {
-  color: var(--cyan) !important;
+  color: #3b9eff !important;
   text-shadow:
-    0 2px 12px rgba(9, 26, 36, 0.8),
-    0 0 40px rgba(129, 195, 215, 0.3);
+    0 1px 2px rgba(0, 0, 0, 0.85),
+    0 2px 16px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(59, 158, 255, 0.35);
 }
 
 .page-home .hero .ph-in .eyebrow {
@@ -203,8 +174,11 @@ body.page-home nav[aria-label="Primary"].nav--dark {
 
 .page-home .hero .ph-in > p,
 .page-home .hero .ph-in .hero-lead {
-  color: rgba(255, 255, 255, 0.88) !important;
-  text-shadow: 0 1px 8px rgba(9, 26, 36, 0.6);
+  color: #fff !important;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.65),
+    0 4px 20px rgba(0, 0, 0, 0.45),
+    0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 .page-home .hero .ph-in .hero-lead strong {
@@ -239,23 +213,26 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   gap: 0.5rem 0.75rem;
   align-items: center;
   margin-top: 1.1rem;
-  border-top: 1px solid rgba(129, 195, 215, 0.18);
+  border-top: 1px solid rgba(129, 195, 215, 0.22);
   padding-top: 1rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.92);
   font-size: var(--text-sm);
-  text-shadow: 0 1px 6px rgba(9, 26, 36, 0.5);
+  font-weight: 500;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.75),
+    0 2px 10px rgba(0, 0, 0, 0.45);
 }
 
 .hero-trust .sep {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(129, 195, 215, 0.45);
+  background: rgba(129, 195, 215, 0.55);
   display: inline-block;
 }
 
 .hero-trust strong {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.98);
   font-weight: 650;
 }
 
@@ -915,24 +892,6 @@ body.page-home nav[aria-label="Primary"].nav--dark {
 }
 
 @media (max-width: 640px) {
-  /* On mobile, lighten overlay so the truck photo actually reads */
-  .hero {
-    background:
-      radial-gradient(
-        ellipse 90% 75% at 58% 48%,
-        rgba(9, 26, 36, 0.38) 0%,
-        rgba(9, 26, 36, 0.55) 55%,
-        rgba(9, 26, 36, 0.78) 100%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(9, 26, 36, 0.28) 0%,
-        rgba(9, 26, 36, 0.18) 35%,
-        rgba(9, 26, 36, 0.45) 100%
-      ),
-      url('images/herotruck.jpg') 70% 50% / cover no-repeat;
-  }
-
   .btns {
     flex-direction: column;
     align-items: stretch;
@@ -981,11 +940,6 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   }
 }
 
-
-/* Ensure hero content stays above overlay pseudo-elements */
-.hero .hc {
-  z-index: 4;
-}
 
 /* 6-item svs-list: even count, no orphan centering needed */
 .svs-list .sr:last-child:nth-child(odd) {
