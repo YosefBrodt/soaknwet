@@ -58,7 +58,7 @@ body.page-home nav[aria-label="Primary"].nav--dark {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 /* bg-gradient-to-t from-black/70 via-transparent to-black/10 */
