@@ -527,6 +527,20 @@ footer .ft-brand .logo:focus-visible {
   font-size: var(--text-xs);
 }
 
+.ft-credit a {
+  color: var(--text-on-dark-muted);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.25);
+  text-underline-offset: 2px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.ft-credit a:hover,
+.ft-credit a:focus-visible {
+  color: var(--cyan);
+  text-decoration-color: var(--cyan);
+}
+
 /* ——— Services template ——— */
 .page-services .sec {
   padding: var(--section-y) var(--section-x);
