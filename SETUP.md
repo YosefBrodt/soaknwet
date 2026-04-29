@@ -24,17 +24,19 @@ No Formspree. No carrier email-to-SMS gateway. No Make scenario. The serverless 
 
 ---
 
-## Step 1 — Twilio account + Canadian number (~10 min, ~CA$1.50/mo)
+## Step 1 — Twilio account + US local number (~10 min, ~US$1.15/mo)
+
+**IMPORTANT (Apr 27 decision):** Buy a US local number, NOT Canadian. Canadian numbers on Twilio require a Regulatory Bundle (1-3 day approval). US numbers are instant. US-to-Canada SMS does NOT require A2P 10DLC because A2P is enforced by US carriers for messages TO US numbers. Pierre and Yosef are on Canadian carriers, so we are clear. Ignore Twilio's "register your A2P brand" nag banners.
 
 1. Sign up at twilio.com. Use the Kollaborate Gmail. Verify your own cell so the trial activates.
-2. Buy a Canadian local number:
+2. Add Pierre's cell as a verified caller-ID (trial-mode requirement before sending to him). Twilio will call Pierre with a 6-digit code. Be on the phone with Pierre during this step so he can read it back to you. Skip if you've already topped up to convert out of trial (then any number is reachable).
+3. Buy a US local number:
    - Console → Phone Numbers → Buy a Number
-   - Country: Canada
-   - Capabilities: SMS (MMS optional, voice not needed)
-   - Area code: 613 (Ottawa) so the texts look local to Pierre's customers if Pierre ever wants to use the same number for outbound. Otherwise any 1-XXX is fine.
-   - Cost: ~CA$1.15/mo. Confirm.
-3. Top up the Twilio balance with CA$20. This converts the trial into a paid account, removes the trial banner from outgoing messages, and lets you send to unverified numbers (i.e., Pierre's phone without him having to verify it on Twilio's side).
-4. Copy these three values from the Twilio console (Account → API keys & tokens):
+   - Country: United States
+   - Capabilities: SMS only (voice/MMS not needed)
+   - Area code: any. Cost: ~US$1.15/mo. Confirm.
+4. Top up the Twilio balance with US$20. This converts the trial into a paid account, removes the trial banner from outgoing messages, and lets you send to any unverified Canadian number (i.e., Pierre's phone without the verified-caller-ID dance from step 2).
+5. Copy these three values from the Twilio console (Account → API keys & tokens):
    - `Account SID`
    - `Auth Token` (click "View" to reveal)
    - The phone number you just bought (in E.164: `+1xxxxxxxxxx`)
@@ -142,9 +144,9 @@ For 30 form submissions per month:
 
 | Item | Cost |
 |---|---|
-| Twilio Canadian number (rental) | CA$1.15/mo |
-| 30 SMS × 2 recipients = 60 messages | ~CA$0.57 (roughly CA$0.0095/msg, more if emoji forces multi-segment) |
-| **Total** | **~CA$1.75/mo** |
+| Twilio US number (rental) | US$1.15/mo |
+| 30 SMS × 2 recipients = 60 messages, US → CA | ~US$0.45 (roughly US$0.0075/msg outbound to Canada, more if emoji forces multi-segment) |
+| **Total** | **~US$1.60/mo (~CA$2.20/mo)** |
 
 This rolls into the agency overhead. Don't itemize to Pierre.
 
