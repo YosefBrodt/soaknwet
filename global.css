@@ -8,14 +8,16 @@
   --ink4: #2f6690;
   --cyan: #81c3d7;
   --cyan-dk: #3a7ca5;
-  --surface: #d9dcd6;
+  /* Warm cream surface (April 30 design rework — replaces concrete-grey #d9dcd6) */
+  --surface: #f1ead8;
   /* Legacy alias used across inline page styles */
-  --white: #d9dcd6;
-  --surface-bright: #e8ebe6;
+  --white: #f1ead8;
+  --surface-bright: #f7f1e2;
   --muted: #3a7ca5;
   --muted2: #2f6690;
   --border: rgba(129, 195, 215, 0.14);
-  --font-d: "Barlow Condensed", system-ui, sans-serif;
+  /* Editorial serif headline (Fraunces) replaces the contractor-template Barlow Condensed */
+  --font-d: "Fraunces", "Newsreader", Georgia, ui-serif, serif;
   --font-b: "Space Grotesk", system-ui, sans-serif;
 
   /* Semantic text */

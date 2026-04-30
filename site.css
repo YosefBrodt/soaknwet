@@ -44,11 +44,11 @@ nav[aria-label="Primary"] {
   height: var(--nav-h);
   padding-left: max(var(--section-x), env(safe-area-inset-left, 0px));
   padding-right: max(var(--section-x), env(safe-area-inset-right, 0px));
-  background: rgba(22, 66, 91, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-nav);
-  box-shadow: var(--shadow-nav);
+  background: rgba(15, 45, 61, 0.72);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid rgba(241, 234, 216, 0.08);
+  box-shadow: none;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -96,13 +96,15 @@ nav[aria-label="Primary"] .nav-links {
 }
 
 nav[aria-label="Primary"] .nav-links a {
-  color: rgba(217, 220, 214, 0.82);
+  color: rgba(241, 234, 216, 0.78);
   text-decoration: none;
-  font-size: clamp(0.75rem, 0.7rem + 0.35vw, var(--text-sm));
+  font-family: var(--font-b);
+  font-size: clamp(0.78rem, 0.7rem + 0.35vw, 0.92rem);
   font-weight: 500;
   letter-spacing: 0.02em;
-  padding: 0.35rem clamp(0.45rem, 0.8vw, 0.7rem);
-  border-radius: 999px;
+  padding: 0.35rem clamp(0.5rem, 0.8vw, 0.85rem);
+  border-radius: 0;
+  position: relative;
   transition: color 0.2s ease;
   white-space: nowrap;
 }
@@ -112,9 +114,10 @@ nav[aria-label="Primary"] .nav-links a:not(.btn-n).active {
   color: var(--white);
 }
 
+/* Active state: subtle underline, not a pill */
 nav[aria-label="Primary"] .nav-links a:not(.btn-n).active {
-  background: rgba(129, 195, 215, 0.16);
-  box-shadow: inset 0 0 0 1px rgba(129, 195, 215, 0.28);
+  background: transparent;
+  box-shadow: inset 0 -2px 0 0 var(--cyan);
 }
 
 /* Get a Quote + Call Now: primary nav + pre-footer phone-cta (identical) */
@@ -124,38 +127,40 @@ nav[aria-label="Primary"] .nav-links .btn-n,
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  min-height: 2.75rem;
-  padding: 0.5rem clamp(0.85rem, 1.2vw, 1.25rem);
-  background: rgba(129, 195, 215, 0.15);
+  min-height: 2.6rem;
+  padding: 0.5rem clamp(0.95rem, 1.2vw, 1.4rem);
+  background: transparent;
   color: var(--white) !important;
   font-family: var(--font-b);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(0.78rem, 0.72rem + 0.2vw, 0.85rem);
-  letter-spacing: 0.02em;
-  border-radius: var(--radius-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 0;
   text-decoration: none;
   transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
-  border: 1px solid rgba(129, 195, 215, 0.35);
+  border: 1px solid rgba(241, 234, 216, 0.35);
 }
 
 nav[aria-label="Primary"] .nav-links .btn-n:hover,
 .phone-cta-btns .btn-n:hover {
-  background: rgba(129, 195, 215, 0.25);
-  transform: translateY(-1px);
+  background: rgba(241, 234, 216, 0.08);
+  border-color: rgba(241, 234, 216, 0.6);
+  transform: none;
 }
 
 nav[aria-label="Primary"] .nav-links .btn-call,
 .phone-cta-btns .btn-call {
-  background: var(--cyan);
+  background: var(--surface);
   color: var(--ink) !important;
-  border-color: var(--cyan);
-  font-weight: 800;
+  border-color: var(--surface);
+  font-weight: 700;
 }
 
 nav[aria-label="Primary"] .nav-links .btn-call:hover,
 .phone-cta-btns .btn-call:hover {
-  background: var(--white);
-  border-color: var(--white);
+  background: #fff;
+  border-color: #fff;
 }
 
 nav[aria-label="Primary"] > a.logo:focus-visible {
@@ -393,20 +398,23 @@ nav[aria-label="Primary"] .hamburger span {
 .ph .sh,
 .hero .ph-in h1 {
   font-family: var(--font-d);
-  font-weight: 900;
+  font-weight: 700;
   font-size: var(--text-page-headline);
-  line-height: 0.95;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
+  line-height: 1.02;
+  text-transform: none;
+  letter-spacing: -0.015em;
   margin-bottom: 1.5rem;
   color: var(--ink);
   text-wrap: balance;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
 }
 
+/* Two-tone H1 system removed Apr 30 — single color reads as one voice */
 .ph h1 span,
 .ph .sh span,
 .hero .ph-in h1 span {
-  color: var(--cyan-dk);
+  color: inherit;
+  font-style: italic;
 }
 
 .ph p,
@@ -584,17 +592,18 @@ footer .ft-brand .logo:focus-visible {
 
 .svc-block h2 {
   font-family: var(--font-d);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-section-title);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1;
+  text-transform: none;
+  letter-spacing: -0.012em;
+  line-height: 1.05;
   margin-bottom: 1.25rem;
   color: var(--ink);
 }
 
 .svc-block h2 span {
-  color: var(--cyan-dk);
+  color: inherit;
+  font-style: italic;
 }
 
 .svc-block p {
@@ -767,11 +776,11 @@ footer .ft-brand .logo:focus-visible {
 
 .phone-cta-head {
   font-family: var(--font-d);
-  font-weight: 900;
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-transform: none;
+  letter-spacing: -0.018em;
+  line-height: 1.05;
   margin-bottom: 1rem;
   color: var(--white);
 }
@@ -832,9 +841,9 @@ footer .ft-brand .logo:focus-visible {
 
 .stats-sec .sb-num {
   font-family: var(--font-d);
-  font-weight: 900;
+  font-weight: 700;
   font-size: var(--text-sb-num);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.022em;
   line-height: 1;
   color: var(--white);
   margin-bottom: 0.5rem;
@@ -845,9 +854,11 @@ footer .ft-brand .logo:focus-visible {
 }
 
 .stats-sec .sb-num--text {
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 0.01em;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  letter-spacing: -0.018em;
   color: var(--cyan);
+  font-style: italic;
+  font-weight: 600;
 }
 
 .stats-sec .sb-label {
@@ -865,17 +876,18 @@ footer .ft-brand .logo:focus-visible {
 
 .story-text h2 {
   font-family: var(--font-d);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-story-title);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1;
+  text-transform: none;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
   margin-bottom: 1.5rem;
   color: var(--ink);
 }
 
 .story-text h2 span {
-  color: var(--cyan-dk);
+  color: inherit;
+  font-style: italic;
 }
 
 .story-text p {
@@ -909,10 +921,10 @@ footer .ft-brand .logo:focus-visible {
 
 .aside-card h3 {
   font-family: var(--font-d);
-  font-weight: 800;
-  font-size: 1.15rem;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
   margin-bottom: 0.5rem;
   color: var(--ink);
 }
@@ -938,11 +950,11 @@ footer .ft-brand .logo:focus-visible {
 .values-sec > .sh {
   color: var(--white);
   font-family: var(--font-d);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-values-title);
-  line-height: 1.02;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
+  line-height: 1.05;
+  text-transform: none;
+  letter-spacing: -0.015em;
   margin-bottom: 0;
 }
 
@@ -985,10 +997,10 @@ footer .ft-brand .logo:focus-visible {
 
 .val-block h3 {
   font-family: var(--font-d);
-  font-weight: 800;
-  font-size: 1.35rem;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
   margin-bottom: 0.75rem;
   color: var(--white);
 }
@@ -1272,11 +1284,11 @@ body.page-about .stats-sec .sb-label {
 
 .call-card h2 {
   font-family: var(--font-d);
-  font-weight: 900;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+  text-transform: none;
+  letter-spacing: -0.012em;
+  line-height: 1.05;
   margin-bottom: 0.5rem;
 }
 
@@ -1293,9 +1305,10 @@ body.page-about .stats-sec .sb-label {
   gap: 0.5rem;
   background: var(--ink);
   color: var(--cyan);
-  font-family: var(--font-d);
-  font-weight: 900;
-  font-size: 1.6rem;
+  font-family: var(--font-b);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
   text-decoration: none;
   padding: 0.9rem 1.5rem;
   border-radius: var(--radius-sm);
@@ -1373,10 +1386,10 @@ body.page-about .stats-sec .sb-label {
 
 .hours-card h3 {
   font-family: var(--font-d);
-  font-weight: 800;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
   margin-bottom: 1.25rem;
   color: var(--white);
 }
@@ -1417,10 +1430,11 @@ body.page-about .stats-sec .sb-label {
 
 .form-wrap h2 {
   font-family: var(--font-d);
-  font-weight: 800;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  font-size: 2.15rem;
+  text-transform: none;
+  letter-spacing: -0.012em;
+  line-height: 1.1;
   margin-bottom: 0.5rem;
   color: var(--white);
 }
@@ -1575,10 +1589,11 @@ select.form-control {
 
 .form-success-title {
   font-family: var(--font-d);
-  font-weight: 900;
-  font-size: 2rem;
+  font-weight: 700;
+  font-size: 2.15rem;
   color: var(--cyan);
-  text-transform: uppercase;
+  text-transform: none;
+  letter-spacing: -0.015em;
   margin-bottom: 0.75rem;
 }
 
@@ -1726,11 +1741,11 @@ select.form-control {
 
 .svc-page-hdr h1 {
   font-family: var(--font-d);
-  font-weight: 900;
+  font-weight: 700;
   font-size: var(--text-page-headline);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  text-transform: none;
   color: var(--ink);
   margin-bottom: 1rem;
   max-width: min(720px, 100%);
@@ -1739,7 +1754,8 @@ select.form-control {
 }
 
 .svc-page-hdr h1 span {
-  color: var(--cyan-dk);
+  color: inherit;
+  font-style: italic;
 }
 
 .svc-page-hdr > p {
@@ -1787,8 +1803,8 @@ select.form-control {
 }
 
 .accord-num {
-  font-family: var(--font-d);
-  font-weight: 700;
+  font-family: var(--font-b);
+  font-weight: 600;
   font-size: var(--text-xs);
   letter-spacing: 0.22em;
   color: var(--cyan-dk);
@@ -1799,11 +1815,11 @@ select.form-control {
 
 .accord-title {
   font-family: var(--font-d);
-  font-weight: 800;
-  font-size: clamp(1.35rem, 2vw + 0.4rem, 1.85rem);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  font-weight: 600;
+  font-size: clamp(1.45rem, 2vw + 0.4rem, 2rem);
+  text-transform: none;
+  letter-spacing: -0.012em;
+  line-height: 1.15;
   flex-grow: 1;
 }
 
@@ -1943,14 +1959,14 @@ select.form-control {
 
 .svc-card-title {
   font-family: var(--font-d);
-  font-weight: 800;
-  font-size: clamp(1.5rem, 1.8vw + 0.5rem, 2rem);
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 1.8vw + 0.5rem, 2.15rem);
+  line-height: 1.1;
+  letter-spacing: -0.012em;
   color: var(--text-on-dark);
   margin-bottom: 1rem;
   flex-shrink: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .svc-card-desc {
@@ -2033,17 +2049,18 @@ select.form-control {
 
 .area-detail-text h2 {
   font-family: var(--font-d);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-section-title);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1.05;
+  text-transform: none;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
   margin-bottom: 1.5rem;
   color: var(--ink);
 }
 
 .area-detail-text h2 span {
-  color: var(--cyan-dk);
+  color: inherit;
+  font-style: italic;
 }
 
 .area-detail-text > p {
@@ -2054,12 +2071,12 @@ select.form-control {
 }
 
 .area-services-quick h3 {
-  font-family: var(--font-d);
-  font-weight: 700;
-  font-size: 1rem;
+  font-family: var(--font-b);
+  font-weight: 600;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--ink);
+  letter-spacing: 0.14em;
+  color: var(--cyan-dk);
   margin-bottom: 1rem;
 }
 
@@ -2118,13 +2135,13 @@ select.form-control {
 
 .area-nbhd-card h3,
 .area-hours-card h3 {
-  font-family: var(--font-d);
-  font-weight: 800;
-  font-size: 1rem;
+  font-family: var(--font-b);
+  font-weight: 600;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.14em;
   margin-bottom: 1.25rem;
-  color: var(--white);
+  color: var(--cyan);
 }
 
 .area-nbhd-card .tags {
