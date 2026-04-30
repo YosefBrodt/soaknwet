@@ -822,7 +822,8 @@ body.page-home .hero.hero--cinema::after {
 }
 
 .why-head {
-  text-align: center;
+  text-align: left;
+  max-width: 56rem;
 }
 
 .why-head .sh {
@@ -830,39 +831,48 @@ body.page-home .hero.hero--cinema::after {
 }
 
 .why-head .ss {
-  margin: 0 auto;
+  margin: 0;
   color: rgba(217, 220, 214, 0.82);
 }
 
 .why-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1.25rem 3rem;
 }
 
 .why-block {
-  padding: 2.25rem 0;
+  padding: 2rem 0;
   border-top: 1px solid var(--border);
   position: relative;
 }
 
+/* Watermark numbers retired — Yosef call (Apr 30): "i dont like how its numbered" */
 .why-num {
-  font-family: var(--font-d);
-  font-weight: 900;
-  font-size: var(--text-val-num);
-  line-height: 1;
-  color: rgba(129, 195, 215, 0.12);
-  margin-bottom: 1rem;
+  display: none !important;
 }
 
 .why-block h3 {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--white);
   margin: 0 0 0.75rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.why-block h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  bottom: 0.2em;
+  width: 3px;
+  background: var(--cyan);
+  border-radius: 2px;
 }
 
 .why-block p {
@@ -870,7 +880,8 @@ body.page-home .hero.hero--cinema::after {
   color: var(--text-on-dark-muted);
   line-height: 1.7;
   margin: 0;
-  max-width: 36ch;
+  padding-left: 1rem;
+  max-width: 38ch;
 }
 
 @media (max-width: 900px) {
