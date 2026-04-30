@@ -77,14 +77,14 @@
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-scrim-gradient" aria-hidden="true"></div>
   <div class="hc hc--cinema">
-    <div class="hero-grid hero-grid--center">
-      <div class="hero-left hero-left--center ph-in">
+    <div class="hero-grid hero-grid--split">
+      <div class="hero-left ph-in">
         <span class="eyebrow" data-animate="fade-up" data-stagger="0">Ottawa Water Delivery</span>
         <h1 data-animate="fade-up" data-stagger="1">
           Water Delivery<br>for <span>Pools, Hot Tubs &amp; Wells.</span>
         </h1>
         <p class="hero-lead" data-animate="fade-up" data-stagger="2">Pool fills, hot tubs, well recovery, cisterns, and construction supply across Ottawa. <strong>Tell us your location</strong> and <strong>how much water you need</strong> - we quote and book fast.</p>
-        <div class="btns btns--center" data-animate="fade-up" data-stagger="3">
+        <div class="btns" data-animate="fade-up" data-stagger="3">
           <a href="tel:6137625464" class="btn-p" aria-label="Call Soak N Wet now">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
             Call Now
@@ -97,6 +97,54 @@
           <span><strong>Fast</strong> response</span>
         </div>
       </div>
+
+      <aside class="hero-right hero-right--form" data-animate="fade-up" data-stagger="3" aria-label="Get a fast quote">
+        <div class="hqc">
+          <div class="hqc-eyebrow"><span class="hqc-dot" aria-hidden="true"></span>Available Now</div>
+          <h2 class="hqc-title">Get a Quote<br>in <span>60 Seconds</span>.</h2>
+          <form id="hero-quote-form" action="/api/submit" method="POST" novalidate>
+            <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+              <label for="hq-website">Website</label>
+              <input type="text" id="hq-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="hqc-fields">
+              <div class="hqc-field">
+                <label for="hq-service">What do you need?</label>
+                <select id="hq-service" name="service" required>
+                  <option value="">Select a service...</option>
+                  <option>Pool or Hot Tub Fill</option>
+                  <option>Residential Well Water</option>
+                  <option>Cistern / Tank Delivery</option>
+                  <option>Construction Site Supply</option>
+                  <option>Water Services for Landscaping</option>
+                  <option>Hockey Rink Flooding</option>
+                  <option>Road Flushing</option>
+                  <option>Dust Suppression</option>
+                  <option>Emergency Water Supply</option>
+                  <option>Not Sure - Need Advice</option>
+                </select>
+              </div>
+              <div class="hqc-field">
+                <label for="hq-location">Where are you?</label>
+                <input id="hq-location" name="location" type="text" placeholder="e.g. Kanata, Carleton Place" autocomplete="address-level2" required />
+              </div>
+              <div class="hqc-field">
+                <label for="hq-phone">Your phone number</label>
+                <input id="hq-phone" name="phone" type="tel" placeholder="(613) 555-0000" autocomplete="tel" required />
+              </div>
+              <input type="hidden" name="name" value="Hero quote request" />
+              <input type="hidden" name="timing" value="ASAP" />
+              <input type="hidden" name="message" value="Submitted from homepage hero quick-quote form" />
+            </div>
+            <button type="submit" class="hqc-submit" id="hq-submit-btn">Get my quote &rarr;</button>
+            <p class="hqc-fine">No obligation. Or just <a href="tel:6137625464">call (613) 762-5464</a>.</p>
+          </form>
+          <div class="hqc-success" id="hq-success" hidden>
+            <div class="hqc-success-title">Thanks &mdash; we got it.</div>
+            <p class="hqc-success-text">We&rsquo;ll text or call to confirm pricing within a couple hours. For urgent jobs, <a href="tel:6137625464">call (613) 762-5464</a>.</p>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -391,6 +439,57 @@
   </div>
 </footer>
 
+<script>
+  /* Hero quick-quote form (Apr 30) — posts to the same /api/submit Twilio function */
+  (function () {
+    var form = document.getElementById('hero-quote-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('hq-submit-btn');
+      var svc = document.getElementById('hq-service').value;
+      var loc = document.getElementById('hq-location').value.trim();
+      var phone = document.getElementById('hq-phone').value.trim();
+      if (!svc || !loc || !phone || phone.replace(/\D/g, '').length < 10) {
+        var orig = btn.style.background;
+        btn.style.background = '#c43d3d';
+        btn.textContent = 'Fill all 3 fields';
+        setTimeout(function () {
+          btn.style.background = orig;
+          btn.textContent = 'Get my quote →';
+        }, 2200);
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      var payload = {};
+      new FormData(form).forEach(function (v, k) { payload[k] = v; });
+      fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (r.ok) {
+          form.hidden = true;
+          var card = form.closest('.hqc');
+          var head = card.querySelector('.hqc-title');
+          var eb = card.querySelector('.hqc-eyebrow');
+          if (head) head.hidden = true;
+          if (eb) eb.hidden = true;
+          document.getElementById('hq-success').hidden = false;
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Get my quote →';
+          alert('Something went wrong. Please call (613) 762-5464.');
+        }
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Get my quote →';
+        alert('Connection error. Please call (613) 762-5464.');
+      });
+    });
+  })();
+</script>
 <script src="global.js"></script>
 </body>
 </html>
